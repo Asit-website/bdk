@@ -1,0 +1,287 @@
+.lead-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11000;
+}
+
+.lead-modal {
+    background-color: #ffffff;
+    width: 900px;
+    max-width: 95%;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.lead-modal-header {
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f3f7;
+}
+
+.lead-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111111;
+}
+
+.lead-header-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.lead-header-icons svg {
+    cursor: pointer;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+
+.lead-header-icons svg:hover {
+    color: #111111;
+}
+
+.lead-form-wrapper {
+    padding: 30px 25px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.lead-form-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-field label {
+    font-size: 12px;
+    color: #444444;
+    font-weight: 500;
+}
+
+.form-field input,
+.form-field select,
+.form-field .select-box select {
+    width: 100%;
+    height: 34px;
+    padding: 0 8px;
+    background-color: #f0f3f7;
+    /* SS1 background */
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 11px;
+    color: #333333;
+    outline: none;
+    transition: all 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+    background-color: #ffffff;
+    border-color: #e2e8f0;
+}
+
+.remark-section {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.remark-section label {
+    font-size: 13px;
+    color: #444444;
+    font-weight: 500;
+}
+
+.remark-section textarea {
+    width: 100%;
+    height: 100px;
+    padding: 12px;
+    background-color: #f0f3f7;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    resize: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.lead-footer {
+    padding: 20px 25px;
+    border-top: 1px solid #f0f3f7;
+    display: flex;
+    justify-content: flex-start;
+    /* SS1 style bottom left */
+    gap: 12px;
+}
+
+.btn-save {
+    background-color: #ffca28;
+    /* yellow SS1 */
+    color: #111111;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 30px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.btn-save:hover {
+    background-color: #ffb300;
+}
+
+.btn-reset {
+    background-color: #042954;
+    /* Navy SS1 */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 30px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.btn-reset:hover {
+    background-color: #031b38;
+}
+
+/* SS1 reset button style */
+.share-group {
+    display: flex;
+}
+
+.btn-share {
+    background-color: #042954;
+    /* Navy SS1 */
+    color: #ffffff;
+    border: none;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding: 10px 20px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.btn-share-dropdown {
+    background-color: #042954;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 0 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.share-arrow {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid white;
+}
+
+.select-box {
+    position: relative;
+}
+
+/* ANIMATIONS */
+.fade-in {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.fade-out {
+    animation: fadeOut 0.3s ease forwards;
+}
+
+.scale-up {
+    animation: scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.scale-down {
+    animation: scaleDown 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    to {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    to {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes scaleDown {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+}
+
+.select-arrow {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #94a3b8;
+    pointer-events: none;
+}

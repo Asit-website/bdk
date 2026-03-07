@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #ffcc00;
+  /* Bright yellow from SS2 */
+  --sidebar-bg: #001b34;
+  /* Deeper navy from SS2 side */
+  --sidebar-item-active: #ffcc00;
+  /* Icons are yellow */
+  --sidebar-text: #ffffff;
+  --sidebar-hover: #002140;
+  --bg-body: #f0f3f7;
+  --white: #ffffff;
+  --text-main: #333333;
+  --text-muted: #6c757d;
+  --border-color: #e5e7eb;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --radius: 4px;
+  --sidebar-width: 240px;
+  --sidebar-width-collapsed: 70px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: inherit;
+}
+
+ul {
+  list-style: none;
+}
