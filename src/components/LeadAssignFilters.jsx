@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { Calendar, ChevronDown, Plus, Search, Settings } from 'lucide-react';
-import './Filters.css'; // Reusing established filter styles
+import BulkAssignModal from "./BulkAssignModal";
+import './Filters.css';
 
 const LeadAssignFilters = () => {
     const [startDate, setStartDate] = useState('2026-02-01');
     const [endDate, setEndDate] = useState('2026-02-28');
+    const [openModal, setOpenModal] = useState(false);
 
     return (
+        <>
         <div className="filters-section">
+
             <div className="search-lead">
                 <Search size={16} className="search-icon-inline" />
                 <input type="text" placeholder="Search Lead & Enquiry" className="search-input" />
@@ -25,9 +29,19 @@ const LeadAssignFilters = () => {
                     <h2>Lead & Enquiry</h2>
                     <ChevronDown size={18} />
                 </div>
+
                 <div className="filter-row-right">
-                    <button className="btn btn-primary btn-new-lead" style={{ backgroundColor: '#22c55e' }}>+ Bulk Asssign</button>
-                    <button className="btn-settings"><Settings size={18} /></button>
+                    <button
+                        className="btn btn-primary btn-new-lead"
+                        style={{ backgroundColor: '#22c55e' }}
+                        onClick={() => setOpenModal(true)}
+                    >
+                        + Bulk Assign
+                    </button>
+
+                    <button className="btn-settings">
+                        <Settings size={18} />
+                    </button>
                 </div>
             </div>
 
@@ -51,15 +65,15 @@ const LeadAssignFilters = () => {
                             className="date-input-hidden"
                             value={startDate}
                             onChange={(e) => setStartDate(e.target.value)}
-                            onClick={(e) => e.target.showPicker && e.target.showPicker()}
                         />
+
                         <span className="date-separator">To</span>
+
                         <input
                             type="date"
                             className="date-input-hidden"
                             value={endDate}
                             onChange={(e) => setEndDate(e.target.value)}
-                            onClick={(e) => e.target.showPicker && e.target.showPicker()}
                         />
                     </div>
                 </div>
@@ -82,7 +96,16 @@ const LeadAssignFilters = () => {
                     </div>
                 </div>
             </div>
+
         </div>
+
+        {/* Modal */}
+        <BulkAssignModal
+            open={openModal}
+            onClose={() => setOpenModal(false)}
+        />
+
+        </>
     );
 };
 
