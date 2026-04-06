@@ -1,0 +1,90 @@
+/* Specialized styling for Add Spare Parts Sale Bill page */
+.total-bold {
+    background-color: #eff6ff !important;
+    border-radius: 6px;
+    padding: 10px 15px !important;
+    border: 1px solid #dbeafe !important;
+    margin-top: 5px;
+}
+
+.total-bold label {
+    color: #1e3a8a !important;
+    font-weight: 800 !important;
+    font-size: 15px !important;
+}
+
+.total-bold .calc-total-input {
+    background-color: #eff6ff !important;
+    border: 1px solid #3b82f6 !important;
+    color: #1d4ed8 !important;
+    font-weight: 900 !important;
+    font-size: 18px !important;
+}
+
+.form-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+}
+
+.table-input-with-sublabel {
+    display: flex;
+    flex-direction: column;
+}
+
+.sublabel-top {
+    font-size: 10px;
+    color: #64748b;
+    margin-bottom: 2px;
+}
+
+.table-input-with-sublabel .unit-label {
+    position: relative;
+    float: right;
+    margin-top: -24px;
+    margin-right: 10px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+.table-input-combined {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.row-label {
+    font-size: 9px;
+    color: #64748b;
+    min-width: 35px;
+}
+
+.simple-select,
+.simple-input {
+    flex: 1;
+    padding: 2px 5px;
+    font-size: 11px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+}
+
+.table-totals-row-new {
+    display: grid;
+    grid-template-columns: 1fr 100px 150px 1fr 80px 100px 180px 120px 150px 150px;
+    background-color: #f8fafc;
+    padding: 10px 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.total-label-cell {
+    grid-column: 4;
+    font-weight: 800;
+    text-align: right;
+    padding-right: 20px;
+}

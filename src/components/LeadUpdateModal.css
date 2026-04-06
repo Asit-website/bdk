@@ -1,0 +1,86 @@
+/* Reusing base modal styles from BulkAssignModal.css for consistency */
+@import "./BulkAssignModal.css";
+
+.lead-modal.update-modal {
+    width: 90%;
+    max-width: 800px;
+    max-height: auto;
+}
+
+.update-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.remark-field {
+    grid-column: span 2;
+}
+
+.remark-field input {
+    width: 100%;
+}
+
+.select-chevron {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    pointer-events: none;
+}
+
+.lead-footer {
+    justify-content: flex-start;
+}
+
+/* Specific button styles if they differ from bulk assign */
+.btn-share {
+    background-color: #001b34;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 8px 24px;
+    border-radius: 4px 0 0 4px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-share-dropdown {
+    background-color: #001b34;
+    color: #ffffff;
+    padding: 8px 10px;
+    border-radius: 0 4px 4px 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.share-group {
+    display: flex;
+}
+
+.btn-save {
+    background-color: #ffc107;
+    color: #1a1a1a;
+    font-weight: 700;
+    padding: 8px 32px;
+    border-radius: 4px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-save:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 640px) {
+    .update-grid {
+        grid-template-columns: 1fr;
+    }
+    .remark-field {
+        grid-column: span 1;
+    }
+}

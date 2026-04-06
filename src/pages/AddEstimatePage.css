@@ -1,0 +1,29 @@
+/* Reusing premium form styles */
+@import './AddQuotationPage.css';
+
+/* Specific styling for Add Estimate page */
+.quotation-form-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.form-main-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+}
+
+.readonly {
+    background-color: #f1f5f9 !important;
+    cursor: default;
+}
+
+.calc-total-input {
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    font-weight: 700;
+}

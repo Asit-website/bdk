@@ -1,0 +1,14 @@
+@import './PaymentInModal.css';
+
+.paymentout-refno-field {
+	grid-column: 3;
+	grid-row: 2;
+	margin-top: 0;
+}
+
+@media (max-width: 640px) {
+	.paymentout-refno-field {
+		grid-column: 1;
+		grid-row: auto;
+	}
+}

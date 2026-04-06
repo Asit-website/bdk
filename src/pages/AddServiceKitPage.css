@@ -1,0 +1,33 @@
+.service-kit-grid {
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 18px;
+}
+
+.service-kit-grid .form-group {
+    grid-column: span 2;
+}
+
+.service-kit-grid .form-group.small {
+    grid-column: span 1;
+}
+
+.service-kit-grid .form-group.add-btn-group {
+    grid-column: span 1;
+}
+
+@media (max-width: 1200px) {
+    .service-kit-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .service-kit-grid .form-group,
+    .service-kit-grid .form-group.small,
+    .service-kit-grid .form-group.add-btn-group {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 800px) {
+    .service-kit-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

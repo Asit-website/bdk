@@ -1,0 +1,592 @@
+@import './ServiceDashboardPage.css';
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb-item {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.breadcrumb-item.active {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.breadcrumb-separator {
+    color: #cbd5e1;
+}
+
+.repair-form-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+}
+
+.repair-form-header {
+    background: #5cc6f3;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+}
+
+.repair-form-body {
+    padding: 12px 16px 20px;
+}
+
+.repair-section {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.repair-grid {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.repair-grid.grid-5 {
+    grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+}
+
+.repair-grid.grid-6 {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.repair-grid.grid-3-btn {
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 600px;
+}
+
+.mt-10 { margin-top: 10px; }
+
+.repair-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.repair-field label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+}
+
+.repair-field input,
+.repair-field select {
+    width: 100%;
+    height: 32px;
+    padding: 0 10px;
+    border-radius: 6px;
+    border: 1.5px solid #d1d5db;
+    background: #ffffff;
+    font-size: 13px;
+    color: #1f2937;
+    outline: none;
+    font-weight: 500;
+}
+
+.repair-field input:focus,
+.repair-field select:focus,
+.repair-field textarea:focus,
+.table-input:focus {
+    border-color: #3b82f6;
+    background: #ffffff;
+}
+
+.address-input {
+    min-height: 80px;
+    resize: none;
+    padding: 8px 10px !important;
+}
+
+.repair-field textarea {
+    width: 100%;
+    border-radius: 6px;
+    border: 1.5px solid #d1d5db;
+    background: #ffffff;
+    font-size: 13px;
+    color: #1f2937;
+    outline: none;
+    font-weight: 500;
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon input {
+    padding-right: 32px;
+}
+
+.search-icon-btn {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: none;
+    border-left: 1px solid #d1d5db;
+    border-radius: 0 4px 4px 0;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.repair-add-wrap {
+    justify-content: flex-end;
+}
+
+.repair-add-btn {
+    margin-top: auto;
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    background: #38bdf8;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0 14px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.repair-items-wrap {
+    margin-bottom: 24px;
+    overflow-x: auto;
+}
+
+.repair-items-table {
+    width: 100%;
+    min-width: 980px;
+    border-collapse: collapse;
+    margin-bottom: 14px;
+    font-size: 12px;
+}
+
+.repair-items-table th,
+.repair-items-table td {
+    border: 1px solid #e2e8f0;
+    padding: 8px 10px;
+    white-space: nowrap;
+}
+
+.repair-items-table th:nth-child(4),
+.repair-items-table td:nth-child(4),
+.repair-items-table th:nth-child(5),
+.repair-items-table td:nth-child(5) {
+    padding: 8px 4px;
+}
+
+.repair-items-table th {
+    background: #f8fafc;
+    color: #475569;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.repair-action-icons {
+    display: flex;
+    gap: 8px;
+}
+
+.repair-action {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 4px;
+    font-size: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.repair-action.edit {
+    background-color: #f1f5f9;
+    color: #3b82f6;
+}
+
+.repair-action.delete {
+    background-color: #fee2e2;
+    color: #ef4444;
+}
+
+.repair-action.add {
+    background-color: #dcfce7;
+    color: #22c55e;
+}
+
+.table-input {
+    width: 100%;
+    height: 30px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    background: #f8fafc;
+    font-size: 12px;
+    padding: 0 8px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.item-input {
+    min-width: 220px;
+}
+
+.qty-col {
+    width: 76px;
+}
+
+.unit-col {
+    width: 76px;
+}
+
+.discount-col {
+    width: 96px;
+}
+
+.qty-input-small {
+    width: 70px;
+    padding: 0 6px;
+}
+
+.unit-select-small {
+    width: 70px;
+    padding: 0 4px;
+}
+
+.discount-input-small {
+    width: 58px;
+    padding: 0 6px;
+}
+
+.repair-price-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.repair-price-label {
+    font-size: 10px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.repair-discount-input-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.repair-discount-unit {
+    font-size: 12px;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+}
+
+.repair-add-row-btn {
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+
+.repair-table-totals-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+    padding: 14px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #1e293b;
+}
+
+.repair-total-value {
+    min-width: 100px;
+    text-align: right;
+}
+
+.repair-form-footer-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 20px;
+}
+
+.repair-footer-left {
+    width: 320px;
+}
+
+.repair-footer-middle {
+    width: 220px;
+}
+
+.repair-footer-middle label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 8px;
+    text-transform: none;
+}
+
+.repair-payment-type-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #ffffff;
+    padding: 8px;
+}
+
+.repair-payment-type-head,
+.repair-payment-type-inputs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.repair-payment-type-head {
+    margin-bottom: 8px;
+}
+
+.repair-payment-type-head span {
+    font-size: 10px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.repair-payment-type-inputs input {
+    width: 100%;
+    height: 30px;
+    border: 2px solid #3f3f46;
+    border-radius: 8px;
+    background: #ffffff;
+    outline: none;
+    padding: 0 10px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.repair-due-text {
+    text-align: right;
+    margin-top: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.repair-due-text span {
+    color: #ef4444;
+}
+
+.repair-footer-left label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 12px;
+    text-transform: none;
+}
+
+.repair-file-upload-box {
+    display: flex;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 42px;
+}
+
+.repair-file-upload-box input {
+    flex: 1;
+    border: none;
+    padding: 0 14px;
+    background-color: #f8fafc;
+    font-size: 14px;
+    outline: none;
+}
+
+.repair-upload-btn {
+    background-color: #94a3b8;
+    color: #ffffff;
+    border: none;
+    width: 45px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.repair-footer-right {
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.repair-footer-calculation-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.repair-footer-calculation-row label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+    text-transform: none;
+}
+
+.repair-calc-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.repair-input-with-label {
+    display: flex;
+    align-items: center;
+    background-color: #f0f3f7;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 6px 10px;
+}
+
+.repair-input-with-label input {
+    width: 60px;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.repair-input-with-label span {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.repair-input-separator {
+    color: #cbd5e1;
+}
+
+.repair-calc-total-input {
+    width: 220px;
+    background-color: #f0f3f7;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 8px 15px;
+    text-align: right;
+    font-size: 14px;
+    outline: none;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.repair-total-bold label,
+.repair-total-bold .repair-calc-total-input {
+    font-weight: 800;
+    color: #0f172a;
+    font-size: 16px;
+}
+
+.repair-total-bold .repair-calc-total-input {
+    background-color: #eff6ff;
+    border-color: #3b82f6;
+    color: #1e40af;
+}
+
+.repair-form-footer {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 15px 20px;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+.repair-action-btn {
+    border: none;
+    border-radius: 6px;
+    padding: 10px 30px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.repair-action-btn.cancel {
+    background-color: #001b34;
+    color: #ffffff;
+}
+
+.repair-action-btn.save {
+    background-color: #ffc107;
+    color: #1a1a1a;
+}
+
+@media (max-width: 1200px) {
+    .repair-grid.grid-7,
+    .repair-grid.grid-5 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .repair-form-footer-section {
+        flex-direction: column;
+    }
+
+    .repair-footer-left,
+    .repair-footer-middle,
+    .repair-footer-right {
+        width: 100%;
+    }
+}
+
+@media (max-width: 720px) {
+    .repair-grid.grid-4-top,
+    .repair-grid.grid-7,
+    .repair-grid.grid-5 {
+        grid-template-columns: 1fr;
+    }
+
+    .span-2 {
+        grid-column: span 1;
+    }
+
+    .repair-calc-total-input {
+        width: 180px;
+    }
+}

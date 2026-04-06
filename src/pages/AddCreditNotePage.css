@@ -1,0 +1,317 @@
+@import './AddPurchaseBillPage.css';
+
+.credit-note-card {
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.credit-note-card .form-header {
+    padding: 16px 14px 8px;
+    margin-bottom: 12px;
+}
+
+.credit-note-card .form-main-title {
+    font-size: 20px;
+}
+
+.credit-note-top-grid {
+    display: flex !important;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 0 14px;
+    margin-bottom: 14px;
+}
+
+.credit-note-party-wrap {
+    position: relative;
+    flex: 0 0 360px;
+    min-width: 0;
+}
+
+.credit-party-trigger-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.credit-party-trigger-wrap .credit-party-trigger {
+    flex: 1 1 auto;
+}
+
+.credit-party-trigger-wrap .form-input-text {
+    flex: 0 0 170px;
+}
+
+.credit-party-trigger {
+    border: 1px solid #3b82f6;
+    background: #ffffff;
+    border-radius: 4px;
+    height: 34px;
+    font-size: 12px;
+    color: #1e293b;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.credit-select-arrow {
+    color: #64748b;
+    font-size: 11px;
+}
+
+.credit-party-list {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    width: 170px;
+    background: #ffffff;
+    border: 1px solid #dbe3ef;
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
+    z-index: 20;
+}
+
+.credit-add-party,
+.credit-party-row {
+    width: 100%;
+    border: none;
+    background: #ffffff;
+    text-align: left;
+    cursor: pointer;
+}
+
+.credit-add-party {
+    border-bottom: 1px solid #edf2f7;
+    color: #3b82f6;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 5px 7px;
+}
+
+.credit-party-row {
+    border-bottom: 1px solid #edf2f7;
+    padding: 6px 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.credit-party-row .name {
+    display: block;
+    font-size: 9px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.credit-party-row .mobile {
+    display: block;
+    font-size: 8px;
+    color: #94a3b8;
+}
+
+.credit-party-row .balance {
+    font-size: 9px;
+    font-weight: 800;
+    border-radius: 3px;
+    padding: 2px 4px;
+}
+
+.credit-party-row .balance.green {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.credit-party-row .balance.red {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.credit-note-right-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-left: auto;
+    width: 430px;
+    flex: 0 0 430px;
+    align-items: flex-end;
+    max-width: 100%;
+}
+
+.credit-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.credit-meta-row label {
+    width: 92px;
+    flex: 0 0 92px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.credit-meta-row .form-input-text,
+.credit-meta-row .form-input-select,
+.credit-meta-row .form-input-date {
+    width: 330px;
+    flex: 0 0 330px;
+    padding: 8px 10px;
+    font-size: 11px;
+    border-radius: 4px;
+}
+
+.credit-table-container {
+    padding: 0 8px;
+    margin-bottom: 12px;
+}
+
+.credit-table-container .items-table th,
+.credit-table-container .items-table td {
+    padding: 8px 6px;
+}
+
+.credit-table-container .items-table th:nth-child(2),
+.credit-table-container .items-table td:nth-child(2) {
+    min-width: 260px;
+}
+
+.credit-table-container .items-table th:nth-child(5),
+.credit-table-container .items-table td:nth-child(5) {
+    width: 95px;
+    min-width: 95px;
+}
+
+.credit-table-actions-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.credit-note-total-row {
+    border-radius: 0;
+    background: #ffffff;
+    border-top: none;
+}
+
+.credit-note-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 14px 14px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.credit-payment-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.small-select {
+    min-width: 120px;
+}
+
+.credit-link-btn {
+    border: none;
+    background: transparent;
+    color: #3b82f6;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 0;
+    cursor: pointer;
+}
+
+.credit-muted-btn {
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    color: #94a3b8;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    height: 28px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.credit-total-block {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.credit-roundoff {
+    font-size: 10px;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.credit-roundoff-input {
+    width: 36px;
+    height: 24px;
+    border: 1px solid #dbe3ef;
+    border-radius: 4px;
+    background: #ffffff;
+    text-align: center;
+    font-size: 11px;
+    color: #334155;
+    padding: 0 4px;
+    outline: none;
+}
+
+.credit-total-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: #475569;
+}
+
+.credit-total-row input {
+    width: 90px;
+    height: 28px;
+    border: 1px solid #dbe3ef;
+    border-radius: 4px;
+    padding: 0 8px;
+    background: #ffffff;
+}
+
+.credit-footer-actions {
+    border-top: 1px solid #f1f5f9;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.credit-share-btn,
+.credit-save-btn {
+    border: none;
+    border-radius: 4px;
+    height: 30px;
+    padding: 0 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.credit-share-btn {
+    background: #042954;
+    color: #ffffff;
+}
+
+.credit-save-btn {
+    background: #ffca28;
+    color: #111111;
+}

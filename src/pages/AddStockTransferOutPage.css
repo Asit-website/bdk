@@ -1,0 +1,121 @@
+/* Add Stock Transfer Out Page Styles */
+
+.form-banner-red {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 850;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.1);
+}
+
+.form-grid-row-5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.item-entry-section {
+    background-color: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+.item-entry-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 0.8fr 1fr 1fr 0.8fr;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.btn-add-item {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    transition: transform 0.1s;
+}
+
+.btn-add-item:active {
+    transform: scale(0.98);
+}
+
+.sto-table-variant thead th {
+    background-color: #f1f5f9 !important;
+    color: #475569 !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    padding: 10px 8px !important;
+}
+
+.sto-table-variant td {
+    padding: 8px 12px !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+}
+
+.sto-table-variant .action-btn {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.sto-summary-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: #f8fafc;
+    border-top: 2px solid #e2e8f0;
+    gap: 40px;
+}
+
+.sto-total-label {
+    font-size: 14px;
+    font-weight: 900;
+    color: #1e293b;
+}
+
+.sto-total-value {
+    font-size: 18px;
+    font-weight: 900;
+    color: #1e293b;
+    min-width: 120px;
+    text-align: right;
+}
+
+.text-blue-bold {
+    color: #3b82f6;
+    font-weight: 700;
+}
+
+/* Matching the screenshot buttons */
+.btn-cancel {
+    background-color: #1e293b !important;
+    color: white !important;
+}
+
+.btn-save {
+    background-color: #facc15 !important;
+    color: #1e293b !important;
+    font-weight: 900 !important;
+}
+
+.breadcrumb-item.active {
+    color: #ef4444; /* Match STO theme */
+}

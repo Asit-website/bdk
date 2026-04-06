@@ -1,0 +1,148 @@
+import React, { useState, useRef, useEffect } from 'react';
+import { createPortal } from 'react-dom';
+import { MoreVertical, Filter, Printer, Download, ChevronsUpDown, Eye, FileText, Trash2, History, Search } from 'lucide-react';
+import CurrentStockModal from './CurrentStockModal';
+import './LeadTable.css';
+
+const PurchaseActionMenu = ({ isOpen, anchorRect, onClose, onCurrentStock }) => {
+    if (!isOpen || !anchorRect) return null;
+
+    const menuHeight = 220;
+    const spaceBelow = window.innerHeight - anchorRect.bottom;
+    const showAbove = spaceBelow < menuHeight;
+
+    const style = {
+        position: 'fixed',
+        top: showAbove ? anchorRect.top - menuHeight - 5 : anchorRect.bottom + 5,
+        left: anchorRect.left - 130,
+        zIndex: 10000,
+    };
+
+    return createPortal(
+        <div className="action-dropdown shadow-lg" style={style}>
+            <button className="dropdown-item" onClick={onClose}><Eye size={14} /> View/Edit</button>
+            <button className="dropdown-item" onClick={onClose}><FileText size={14} /> Open PDF</button>
+            <button className="dropdown-item" onClick={onClose}><Printer size={14} /> Print</button>
+            <button className="dropdown-item delete" onClick={onClose}><Trash2 size={14} /> Delete</button>
+            <div className="dropdown-divider"></div>
+            <button className="dropdown-item" onClick={() => { onCurrentStock(); onClose(); }}>
+                <Search size={14} /> Current Stock
+            </button>
+            <button className="dropdown-item" onClick={onClose}><History size={14} /> View History</button>
+        </div>,
+        document.body
+    );
+};
+
+const SparePartsOpeningStockTable = () => {
+    const [openMenuId, setOpenMenuId] = useState(null);
+    const [anchorRect, setAnchorRect] = useState(null);
+    const [isStockModalOpen, setIsStockModalOpen] = useState(false);
+    const tableRef = useRef(null);
+
+    const data = [
+        {
+            id: 1,
+            srNo: 1,
+            partNo: '',
+            partName: '',
+            qty: '',
+            rate: '',
+            rackNo: '',
+            binNo: '',
+            taxableAmount: '',
+            totalAmount: ''
+        }
+    ];
+
+    const columns = [
+        'Sl No.', 'Part No', 'Part Name', 'Qty', 'Rate', 'Rack No', 'Bin No', 'Taxable Amount', 'Total Amount'
+    ];
+
+    const toggleMenu = (e, id) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        setAnchorRect(rect);
+        setOpenMenuId(openMenuId === id ? null : id);
+    };
+
+    useEffect(() => {
+        const handleEvent = () => setOpenMenuId(null);
+        window.addEventListener('scroll', handleEvent, true);
+        window.addEventListener('click', (e) => {
+            if (!e.target.closest('.action-dots')) handleEvent();
+        });
+        return () => {
+            window.removeEventListener('scroll', handleEvent, true);
+            window.removeEventListener('click', handleEvent);
+        };
+    }, []);
+
+    return (
+        <div className="table-container" ref={tableRef} style={{ marginTop: '20px' }}>
+            <div className="table-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+                <h3 className="table-title" style={{ fontSize: '16px', fontWeight: '700', color: '#1e293b' }}>Transactions</h3>
+                <div className="table-actions" style={{ display: 'flex', gap: '10px' }}>
+                    <button className="table-action-btn" style={{ background: 'none', border: 'none', cursor: 'pointer' }}><Search size={18} color="#64748b" /></button>
+                    <button className="table-action-btn" style={{ background: 'none', border: 'none', cursor: 'pointer' }}><Filter size={18} color="#64748b" /></button>
+                    <button className="table-action-btn" style={{ background: 'none', border: 'none', cursor: 'pointer' }}><Printer size={18} color="#22c55e" /></button>
+                    <button className="table-action-btn" style={{ background: 'none', border: 'none', cursor: 'pointer' }}><Download size={18} color="#3b82f6" /></button>
+                </div>
+            </div>
+
+            <div className="table-wrapper">
+                <table className="lead-table">
+                    <thead>
+                        <tr>
+                            {columns.map((col, idx) => (
+                                <th key={idx}>
+                                    <div className="th-content">
+                                        {col}
+                                        <ChevronsUpDown size={12} className="sort-icon" />
+                                    </div>
+                                </th>
+                            ))}
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {data.map((item) => (
+                            <tr key={item.id}>
+                                <td>{item.srNo}</td>
+                                <td>{item.partNo}</td>
+                                <td>{item.partName}</td>
+                                <td>{item.qty}</td>
+                                <td>{item.rate}</td>
+                                <td>{item.rackNo}</td>
+                                <td>{item.binNo}</td>
+                                <td>{item.taxableAmount}</td>
+                                <td style={{ fontWeight: '600' }}>{item.totalAmount}</td>
+                                <td className="action-cell">
+                                    <button
+                                        className={`action-dots ${openMenuId === item.id ? 'active' : ''}`}
+                                        onClick={(e) => toggleMenu(e, item.id)}
+                                    >
+                                        <MoreVertical size={16} />
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+
+            <PurchaseActionMenu
+                isOpen={openMenuId !== null}
+                anchorRect={anchorRect}
+                onClose={() => setOpenMenuId(null)}
+                onCurrentStock={() => setIsStockModalOpen(true)}
+            />
+
+            <CurrentStockModal 
+                isOpen={isStockModalOpen}
+                onClose={() => setIsStockModalOpen(false)}
+            />
+        </div>
+    );
+};
+
+export default SparePartsOpeningStockTable;

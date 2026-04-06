@@ -1,0 +1,114 @@
+.ar-modal-overlay {
+    background: rgba(0, 0, 0, 0.4) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.ar-rule-modal {
+    max-width: 420px !important;
+    width: 100%;
+    background: #ffffff !important;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+    animation: arModalEnter 0.3s ease-out;
+}
+
+@keyframes arModalEnter {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.ar-modal-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.duration-inputs {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.duration-field {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.duration-field input {
+    width: 64px;
+    height: 44px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.duration-field input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.duration-field span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+}
+
+.ar-footer {
+    display: flex !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    margin-top: 32px !important;
+}
+
+.btn-ar-turnoff {
+    padding: 10px 20px;
+    background: #f1f5f9;
+    border: none;
+    border-radius: 8px;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-ar-turnoff:hover {
+    background: #e2e8f0;
+    color: #475569;
+}
+
+.btn-ar-confirm {
+    padding: 10px 24px;
+    background: #3b82f6;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+}
+
+.btn-ar-confirm:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 10px -2px rgba(59, 130, 246, 0.4);
+}

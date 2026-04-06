@@ -4,6 +4,13 @@
   min-height: 100vh;
 }
 
+.items-table th.col-model,
+.items-table td.col-model {
+  width: 120px !important;
+  min-width: 120px !important;
+  max-width: 120px !important;
+}
+
 .main-content {
   flex: 1;
   display: flex;
@@ -15,4 +22,70 @@
   max-width: 1600px;
   margin: 0 auto;
   width: 100%;
+}
+
+.stat-card {
+  flex-direction: row !important;
+  width: 400px !important;
+}
+
+.items-table th.qty-col,
+.items-table td.qty-col,
+.items-table th.unit-col,
+.items-table td.unit-col {
+  width: 85px !important;
+  min-width: 85px !important;
+  max-width: 85px !important;
+
+}
+
+.dis-qty {
+  width: 105px !important;
+  min-width: 105px !important;
+  max-width: 105px !important;
+}
+
+.date-col {
+  width: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important;
+}
+
+.items-table td.date-loc,
+.items-table th.date-loc {
+  width: 120px !important;
+  min-width: 120px !important;
+  max-width: 120px !important;
+}
+
+.items-table td.modal-desc,
+.items-table th.modal-desc {
+  width: 220px !important;
+  min-width: 220px !important;
+  max-width: 220px !important;
+}
+
+.items-table td.praty-name,
+.items-table th.praty-name {
+  width: 180px !important;
+  min-width: 180px !important;
+  max-width: 180px !important;
+}
+
+.items-table td.part-no,
+.items-table th.part-no {
+  width: 220px !important;
+  min-width: 220px !important;
+  max-width: 220px !important;
+}
+
+.items-table td.qty-pur,
+.items-table th.qty-pur {
+  width: 120px !important;
+  min-width: 120px !important;
+  max-width: 120px !important;
+}
+
+.ss-tab {
+  flex-direction: row !important;
 }

@@ -1,0 +1,18 @@
+@import './AccountCreditNotePage.css';
+
+.transfer-filter-row {
+    width: 100%;
+}
+
+.transfer-type-select .select-input {
+    min-width: 210px;
+}
+
+.btn-add-transaction {
+    background-color: #3b82f6;
+    padding: 8px 14px;
+}
+
+.btn-add-transaction:hover {
+    background-color: #2563eb;
+}

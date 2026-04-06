@@ -1,0 +1,358 @@
+.employee-payroll-salary-verify-page {
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+/* WIZARD BANNER - Shared style with Attendance */
+.payroll-wizard-banner {
+    background-color: #5cc6f3;
+    padding: 15px 30px;
+    color: #ffffff;
+}
+
+.wizard-banner-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wizard-back-btn {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.payroll-stepper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.step-number {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #5cc6f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.step.completed .step-check {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #5cc6f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-label {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.step-line {
+    width: 60px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.step-line.active {
+    background: #ffffff;
+}
+
+.payroll-banner-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.info-item {
+    font-size: 12px;
+}
+
+.info-label {
+    opacity: 0.9;
+    margin-right: 5px;
+}
+
+.info-value {
+    font-weight: 700;
+}
+
+/* MAIN CONTENT */
+.payroll-detail-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #042954;
+    margin-bottom: 20px;
+}
+
+.verify-search-row {
+    margin-bottom: 20px;
+}
+
+.verify-search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #e2e8f0;
+    padding: 8px 15px;
+    border-radius: 6px;
+    max-width: 400px;
+}
+
+.verify-search-box input {
+    border: none;
+    outline: none;
+    font-size: 13px;
+    width: 100%;
+}
+
+/* TABLE */
+.salary-table-wrap {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.salary-main-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.salary-main-table th {
+    background: #f8fafc;
+    text-align: left;
+    padding: 12px 20px;
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 700;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.salary-main-table .employee-main-row td {
+    padding: 15px 20px;
+    font-size: 13px;
+    border-bottom: 1px solid #f1f5f9;
+    font-weight: 600;
+    color: #334155;
+}
+
+.salary-main-table .employee-main-row.active {
+    background: #fcfdfe;
+}
+
+.emp-id-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.small-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #e2e8f0 url('https://cdn-icons-png.flaticon.com/512/149/149071.png');
+    background-size: cover;
+}
+
+.emp-remaining-cell {
+    font-weight: 800;
+    color: #042954;
+}
+
+.row-edit-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b;
+    cursor: pointer;
+}
+
+/* BREAKDOWN GRID */
+.salary-expand-row td {
+    padding: 20px 40px 30px;
+    background: #fcfdfe;
+}
+
+.salary-breakdown-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 200px;
+    gap: 30px;
+}
+
+.breakdown-box {
+    background: #f8fafc;
+    border-radius: 8px;
+    overflow: hidden;
+    height: fit-content;
+}
+
+.box-header {
+    background: #ffffff;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 800;
+    color: #042954;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.box-total {
+    font-weight: 800;
+    color: #1e293b;
+}
+
+.box-content {
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bd-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.bd-row strong {
+    color: #1e293b;
+    font-weight: 700;
+}
+
+/* Deductions specific highlighting */
+.deductions-box .box-header {
+    background: #fef2f2;
+}
+
+.breakdown-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 10px;
+}
+
+.link-item {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+    cursor: pointer;
+    text-align: left;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.dot.purple { background-color: #8b5cf6; }
+.dot.blue { background-color: #3b82f6; }
+.dot.light-blue { background-color: #5cc6f3; }
+
+/* FOOTER */
+.payroll-wizard-footer {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 2px solid #f1f5f9;
+}
+
+.footer-cancel-btn {
+    background: #001b34;
+    color: #ffffff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.footer-right-btns {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-print-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #5cc6f3;
+    color: #ffffff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.footer-back-btn {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    padding: 10px 30px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.footer-finalize-btn {
+    background: #ffc107;
+    color: #000000;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}

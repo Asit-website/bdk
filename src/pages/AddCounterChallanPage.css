@@ -1,0 +1,31 @@
+/* Specific styling overrides for Add Counter Challan page */
+
+/* Ensure the total-bold class from AddQuotationPage.css is correctly applied with premium styling */
+.total-bold {
+    background-color: #eff6ff !important;
+    border-radius: 6px;
+    padding: 10px 15px !important;
+    border: 1px solid #dbeafe !important;
+    margin-top: 5px;
+}
+
+.total-bold label {
+    color: #1e3a8a !important;
+    font-weight: 800 !important;
+    font-size: 15px !important;
+}
+
+.total-bold .calc-total-input {
+    background-color: #eff6ff !important;
+    border: 1px solid #3b82f6 !important;
+    color: #1d4ed8 !important;
+    font-weight: 900 !important;
+    font-size: 18px !important;
+}
+
+/* Ensure form grid is strictly 4 columns per row */
+.form-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+}

@@ -1,0 +1,149 @@
+.late-coming-container {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.lc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.lc-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.btn-update-lc {
+    background: #3b82f6;
+    color: #ffffff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Form Styles */
+.lc-form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    max-width: 650px;
+    margin: 0 auto; /* Centering */
+}
+
+.lc-field {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.lc-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.required {
+    color: #ef4444;
+    margin-left: 4px;
+}
+
+.lc-input-box {
+    width: 320px;
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+.lc-numeric-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #1e293b;
+    font-weight: 500;
+}
+
+.lc-unit {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Radio Group */
+.lc-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.lc-radio-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.lc-radio-card.active {
+    border-color: #3b82f6;
+    background: #f8faff;
+}
+
+.lc-radio-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: #475569;
+}
+
+.lc-radio-circle {
+    width: 18px;
+    height: 18px;
+    accent-color: #3b82f6;
+}
+
+/* Deduction Row */
+.lc-deduct-row {
+    display: flex;
+    gap: 24px;
+}
+
+.lc-select-box {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
+    font-size: 13px;
+    color: #475569;
+}
+
+.lc-amount-box {
+    width: 180px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+.lc-symbol {
+    color: #64748b;
+    font-size: 14px;
+}

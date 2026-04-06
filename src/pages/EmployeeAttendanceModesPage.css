@@ -1,0 +1,238 @@
+.am-content-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.am-header {
+    margin-bottom: 24px;
+}
+
+.am-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.crumb-inactive {
+    color: #3b82f6;
+    cursor: pointer;
+}
+
+.crumb-active {
+    color: #64748b;
+}
+
+.modes-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.mode-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.mode-row.main-rule {
+    background: #f8fafc;
+    margin: -24px -24px 0;
+    padding: 20px 24px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.mode-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-weight: 600;
+    color: #334155;
+    font-size: 14px;
+}
+
+/* Toggle Switch Styling */
+.bdk-toggle {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.bdk-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cbd5e1;
+    transition: .3s;
+    border-radius: 24px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+input:checked + .toggle-slider {
+    background-color: #3b82f6;
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(20px);
+}
+
+/* Rule Section (Office vs Anywhere) */
+.mode-rule-section {
+    padding: 24px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.rule-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 16px;
+}
+
+.rule-selectors {
+    display: flex;
+    gap: 16px;
+}
+
+.rule-card {
+    flex: 1;
+    max-width: 180px;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    background: #f8fafc;
+    transition: all 0.2s;
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.rule-card:hover {
+    border-color: #3b82f6;
+    background: #f1f5f9;
+}
+
+.rule-card.active {
+    border-color: #3b82f6;
+    background: #eff6ff;
+    color: #1e40af;
+}
+
+.rule-radio {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #cbd5e1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+}
+
+.rule-card.active .rule-radio {
+    border-color: #3b82f6;
+}
+
+.radio-inner {
+    width: 8px;
+    height: 8px;
+    background: #3b82f6;
+    border-radius: 50%;
+    display: none;
+}
+
+.rule-card.active .radio-inner {
+    display: block;
+}
+
+/* Device Management Section */
+.device-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.device-item {
+    padding: 24px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.device-item:last-child {
+    border-bottom: none;
+}
+
+.device-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-box {
+    width: 44px;
+    height: 44px;
+    background: #f1f5f9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.device-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.btn-link-sm {
+    background: none;
+    border: none;
+    color: #3b82f6;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
+}
+
+.btn-link-sm:hover {
+    text-decoration: underline;
+}

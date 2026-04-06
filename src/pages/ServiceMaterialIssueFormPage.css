@@ -1,0 +1,274 @@
+@import './ServiceDashboardPage.css';
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb-item {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.breadcrumb-item.active {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.breadcrumb-separator {
+    color: #cbd5e1;
+}
+
+.material-form-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+}
+
+.material-form-header {
+    background: #5cc6f3;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+}
+
+.material-form-body {
+    padding: 12px 16px 20px;
+}
+
+.material-form-section {
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+}
+
+.material-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #0f172a;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.material-form-grid {
+    display: grid;
+    gap: 10px;
+}
+
+.material-form-grid.grid-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.material-form-grid.grid-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.material-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.material-field label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+}
+
+.material-field input,
+.material-field select {
+    width: 100%;
+    height: 32px;
+    padding: 0 8px;
+    border-radius: 4px;
+    border: 1px solid #d1d5db;
+    background: #f8fafc;
+    font-size: 12px;
+    color: #1f2937;
+    outline: none;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon input {
+    padding-right: 32px;
+}
+
+.search-icon-btn {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: none;
+    border-left: 1px solid #d1d5db;
+    border-radius: 0 4px 4px 0;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.search-icon-btn:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+.material-field input:focus,
+.material-field select:focus {
+    border-color: #3b82f6;
+    background: #ffffff;
+}
+
+.item-details-grid .span-2 {
+    grid-column: span 2;
+}
+
+.material-add-wrap {
+    display: flex;
+    align-items: flex-end;
+}
+
+.material-add-btn {
+    background: #38bdf8;
+    border: none;
+    color: #ffffff;
+    font-weight: 700;
+    border-radius: 4px;
+    padding: 7px 14px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.material-table-wrap {
+    margin-top: 6px;
+}
+
+.material-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #e2e8f0;
+    font-size: 12px;
+}
+
+.material-table th,
+.material-table td {
+    border: 1px solid #e2e8f0;
+    padding: 6px 8px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.material-table th {
+    background: #f8fafc;
+    color: #475569;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.material-action-icons {
+    display: flex;
+    gap: 6px;
+}
+
+.material-action {
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.material-action.edit {
+    background: #e0f2fe;
+    color: #0284c7;
+}
+
+.material-action.delete {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.material-total-row td {
+    font-weight: 700;
+    background: #f8fafc;
+}
+
+.material-total-row td:first-child {
+    text-align: right;
+}
+
+.material-form-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 10px 16px;
+    background: #e5e7eb;
+    border-top: 1px solid #d1d5db;
+}
+
+.material-action-btn {
+    border: none;
+    border-radius: 6px;
+    padding: 8px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.material-action-btn.cancel {
+    background-color: #042954;
+    color: #ffffff;
+}
+
+.material-action-btn.save {
+    background-color: #ffca28;
+    color: #111111;
+}
+
+@media (max-width: 1200px) {
+    .material-form-grid.grid-5 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .material-form-grid.grid-6 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .item-details-grid .span-2 {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 720px) {
+    .material-form-grid.grid-5,
+    .material-form-grid.grid-6 {
+        grid-template-columns: 1fr;
+    }
+
+    .item-details-grid .span-2 {
+        grid-column: span 1;
+    }
+}

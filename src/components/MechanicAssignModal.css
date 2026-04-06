@@ -1,0 +1,228 @@
+.mechanic-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.mechanic-modal {
+    width: 95%;
+    max-width: 650px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    position: relative;
+}
+
+/* Animations */
+.fade-in { animation: fadeIn 0.3s forwards; }
+.fade-out { animation: fadeOut 0.3s forwards; }
+.scale-up { animation: scaleUp 0.3s forwards; }
+.scale-down { animation: scaleDown 0.3s forwards; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes scaleUp { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes scaleDown { from { transform: scale(1); opacity: 1; } to { transform: scale(0.9); opacity: 0; } }
+
+.mechanic-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.rounded-input, .rounded-select select {
+    height: 40px;
+    padding: 0 15px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+}
+
+.rounded-select {
+    position: relative;
+}
+
+.rounded-select select {
+    appearance: none;
+}
+
+.select-chevron {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    pointer-events: none;
+}
+
+.section-title {
+    font-size: 12px;
+    font-weight: 800;
+    color: #475569;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.problem-voice-container {
+    border: 2px solid #22c55e;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+.problem-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+    min-height: 30px;
+}
+
+.problem-chip {
+    background: #f1f5f9;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.remove-chip {
+    cursor: pointer;
+    color: #94a3b8;
+}
+
+.placeholder-text {
+    color: #94a3b8;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.problem-input-row {
+    display: flex;
+    gap: 10px;
+    position: relative;
+}
+
+.problem-input-row input {
+    flex: 1;
+    background: #f1f5f9;
+    border: none;
+    height: 36px;
+    padding: 0 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    outline: none;
+}
+
+.problem-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.problem-actions button {
+    width: 30px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+    background: white;
+    cursor: pointer;
+    color: #64748b;
+}
+
+.problem-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    margin-top: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    z-index: 10;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.dropdown-item {
+    padding: 10px 12px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background: #f8fafc;
+}
+
+.remark-textarea {
+    width: 100%;
+    height: 80px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px;
+    resize: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.mechanic-modal-footer {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.btn-modal-cancel {
+    background: #001b34;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-modal-save {
+    background: #ffc107;
+    color: #1a1a1a;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-modal-cancel:hover, .btn-modal-save:hover {
+    opacity: 0.9;
+}

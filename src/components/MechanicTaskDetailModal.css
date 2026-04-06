@@ -1,0 +1,175 @@
+/* Mechanic Task Detail Modal Styles - SS9 */
+
+.ma-detail-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    backdrop-filter: blur(1px);
+    animation: maFadeIn 0.3s ease-out;
+}
+
+.ma-detail-modal {
+    background: white;
+    width: 95%;
+    max-width: 900px;
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    animation: maScaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+}
+
+.ma-detail-modal-content {
+    padding: 30px;
+}
+
+.ma-detail-header-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.ma-detail-section-title {
+    font-size: 14px;
+    font-weight: 850;
+    color: #1e293b;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.ma-detail-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 20px;
+}
+
+.ma-detail-info-item {
+    font-size: 12px;
+    color: #334155;
+    font-weight: 600;
+}
+
+.ma-detail-info-item strong {
+    color: #64748b;
+    font-weight: 850;
+    margin-right: 5px;
+}
+
+/* Customer Voice Section */
+.ma-problem-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.ma-problem-tag {
+    background-color: #f0f7ff;
+    color: #0369a1;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+}
+
+.ma-problem-tag span {
+    font-size: 14px;
+    line-height: 1;
+    color: #94a3b8;
+}
+
+.ma-caution-remark {
+    border: 1px solid #ef4444; /* Specific red border from SS9 */
+    border-radius: 8px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ma-caution-label {
+    font-size: 11px;
+    font-weight: 850;
+    color: #64748b;
+}
+
+.ma-caution-text {
+    font-size: 12px;
+    font-weight: 700;
+    color: #ef4444; /* Specific red text from SS9 */
+}
+
+/* Previous Service Table */
+.ma-history-section {
+    margin-top: 20px;
+}
+
+.ma-history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ma-history-table th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-size: 11px;
+    font-weight: 850;
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid #e2e8f0;
+    text-transform: uppercase;
+}
+
+.ma-history-table td {
+    padding: 12px 15px;
+    font-size: 11px;
+    color: #334155;
+    font-weight: 600;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.ma-history-table tr:last-child td {
+    border-bottom: none;
+}
+
+@keyframes maFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes maScaleUp {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Close animations */
+.ma-detail-modal-overlay.fade-out {
+    animation: maFadeOut 0.15s ease-in forwards;
+}
+
+.ma-detail-modal.scale-down {
+    animation: maScaleDown 0.15s ease-in forwards;
+}
+
+@keyframes maFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes maScaleDown {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.95); }
+}

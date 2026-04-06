@@ -1,0 +1,15 @@
+@import './ServiceMaterialIssuePage.css';
+
+.btn-add-close-bill {
+    background-color: #22c55e;
+    color: #ffffff;
+    border: none;
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

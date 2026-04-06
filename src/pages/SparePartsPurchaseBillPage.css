@@ -1,0 +1,61 @@
+/* Inherit base styles */
+@import './AddPurchaseBillPage.css';
+
+/* Override table column widths for Spare Parts specific layout */
+.items-table th:nth-child(3),
+.items-table td:nth-child(3),
+.items-table th:nth-child(4),
+.items-table td:nth-child(4) {
+    width: 250px !important;
+    min-width: 250px;
+}
+
+/* Ensure other columns don't shrink and hide data */
+.items-table th:nth-child(5),
+.items-table td:nth-child(5) {
+    min-width: 80px;
+}
+
+/* QTY */
+.items-table th:nth-child(6),
+.items-table td:nth-child(6) {
+    min-width: 120px;
+}
+
+/* UNIT */
+.items-table th:nth-child(7),
+.items-table td:nth-child(7) {
+    min-width: 140px;
+}
+
+/* PRICE/UNIT */
+.items-table th:nth-child(8),
+.items-table td:nth-child(8) {
+    min-width: 100px;
+}
+
+/* DISCOUNT */
+.items-table th:nth-child(9),
+.items-table td:nth-child(9) {
+    min-width: 180px;
+}
+
+/* TAX */
+.items-table th:nth-child(10),
+.items-table td:nth-child(10) {
+    min-width: 130px;
+}
+
+/* AMOUNT */
+
+/* AMOUNT */
+
+/* Ensure the table doesn't feel cramped after removals */
+.items-table {
+    table-layout: auto;
+}
+
+/* Adjust input widths within larger cells */
+.items-table .table-input {
+    width: 100%;
+}

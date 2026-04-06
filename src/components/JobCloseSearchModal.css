@@ -1,0 +1,42 @@
+@import './JobSearchModal.css';
+
+.job-close-search-modal {
+    max-width: 1280px;
+}
+
+.job-head-uw {
+    color: #16a34a;
+    font-weight: 700;
+}
+
+.job-head-nw {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+.job-type-free {
+    color: #16a34a;
+    font-weight: 700;
+}
+
+.job-type-paid {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+.job-select-plus {
+    width: 18px;
+    height: 18px;
+    border: none;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #2563eb;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.job-select-plus:hover {
+    background: #1d4ed8;
+}

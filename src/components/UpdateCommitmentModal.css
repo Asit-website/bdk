@@ -1,0 +1,90 @@
+.commitment-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    backdrop-filter: blur(1px);
+    animation: overdueFadeIn 0.2s ease-out;
+}
+
+.commitment-modal {
+    background: white;
+    width: 440px;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    animation: overdueScaleUp 0.2s ease-out;
+}
+
+.commitment-modal.scale-down {
+    animation: overdueScaleDown 0.2s ease-in forwards;
+}
+
+.commitment-field {
+    margin-bottom: 16px;
+}
+
+.commitment-field label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.commitment-input {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 13px;
+    outline: none;
+}
+
+.commitment-textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 13px;
+    outline: none;
+    resize: none;
+}
+
+.commitment-footer {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.btn-commitment {
+    padding: 8px 30px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.btn-commitment.cancel {
+    background-color: #042954;
+    color: white;
+}
+
+.btn-commitment.save {
+    background-color: #ffca28;
+    color: #111111;
+}
+
+.btn-commitment:hover {
+    filter: brightness(0.9);
+}

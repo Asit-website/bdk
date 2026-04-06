@@ -1,9 +1,20 @@
 import React, { useState } from "react";
-import { X, Settings, Search, Filter } from "lucide-react";
+import { X, Settings, Search, Filter, ChevronsUpDown } from "lucide-react";
 import "./BulkAssignModal.css";
 
 const BulkAssignModal = ({ open, onClose }) => {
   const [search, setSearch] = useState("");
+  const [isClosing, setIsClosing] = useState(false);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      onClose();
+      setIsClosing(false);
+    }, 300);
+  };
+
+  if (!open && !isClosing) return null;
 
   const data = [
     { name: "Vadu Saren", village: "Mayta", gp: "Benachapra", block: "Garhbeta", model: "9d6+" },
@@ -12,123 +23,129 @@ const BulkAssignModal = ({ open, onClose }) => {
     { name: "Dipu Dule", village: "KARSA", gp: "KADRA", block: "GBA-III", model: "SOLAR 3HP" }
   ];
 
-  if (!open) return null;
-
   return (
-    <div className="bulk-overlay">
-      <div className="bulk-modal">
+    <div className={`lead-modal-overlay ${isClosing ? 'fade-out' : 'fade-in'}`}>
+      <div className={`lead-modal bulk-assign-modal ${isClosing ? 'scale-down' : 'scale-up'}`}>
 
         {/* Header */}
-        <div className="bulk-header">
-          <span className="bulk-title">Bulk Assign</span>
+        <div className="lead-modal-header">
+          <div className="lead-title">Bulk Assign</div>
 
-          <div className="header-icons">
-            <Settings size={16} />
-            <X size={18} className="close-btn" onClick={onClose} />
+          <div className="lead-header-icons">
+            <Settings size={18} />
+            <X size={18} className="close-icon" onClick={handleClose} />
           </div>
         </div>
 
-        {/* Form */}
-        <div className="bulk-form">
+        {/* Form Grid */}
+        <div className="lead-form-wrapper">
+          <div className="lead-form-grid" style={{ gridTemplateColumns: 'repeat(5, 1fr)' }}>
 
-          <div className="form-group">
-            <label>Executive</label>
-
-            <div className="select-wrapper">
-              <select></select>
-              <span className="dropdown-arrow"></span>
+            <div className="form-field">
+              <label>Executive</label>
+              <div className="select-box">
+                <select></select>
+                <span className="select-arrow"></span>
+              </div>
             </div>
-          </div>
 
-          <div className="form-group">
-            <label>Date</label>
-            <input type="date" />
-          </div>
-
-          <div className="form-group">
-            <label>Time</label>
-            <input type="time" />
-          </div>
-
-          <div className="form-group">
-            <label>Task</label>
-
-            <div className="select-wrapper">
-              <select></select>
-              <span className="dropdown-arrow"></span>
+            <div className="form-field">
+              <label>Date</label>
+              <input type="date" />
             </div>
-          </div>
 
-          <div className="form-group remark-box">
-            <label>Remark</label>
-            <input type="text" />
-          </div>
+            <div className="form-field">
+              <label>Time</label>
+              <input type="time" />
+            </div>
 
-        </div>
+            <div className="form-field">
+              <label>Task</label>
+              <div className="select-box">
+                <select></select>
+                <span className="select-arrow"></span>
+              </div>
+            </div>
 
-        {/* Table */}
-        <div className="bulk-table">
-
-          <div className="table-header">
-
-            <div></div>
-
-            <div className="table-search">
-              <Search size={14} />
-              <input
-                type="text"
-                placeholder="Search..."
-                value={search}
-                onChange={(e)=>setSearch(e.target.value)}
-              />
+            <div className="form-field">
+              <label>Remark</label>
+              <input type="text" />
             </div>
 
           </div>
 
-          <table>
+          {/* Table Section */}
+          <div className="bulk-table-container">
+            <div className="bulk-table-header">
+              <div className="bulk-search-box">
+                <Search size={14} />
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </div>
+            </div>
 
-            <thead>
-              <tr>
-                <th></th>
-                <th>Name <Filter size={12}/></th>
-                <th>Village <Filter size={12}/></th>
-                <th>GP <Filter size={12}/></th>
-                <th>Block <Filter size={12}/></th>
-                <th>Model <Filter size={12}/></th>
-              </tr>
-            </thead>
-
-            <tbody>
-
-              {data.map((item,i)=>(
-                <tr key={i}>
-                  <td><input type="checkbox"/></td>
-                  <td>{item.name}</td>
-                  <td>{item.village}</td>
-                  <td>{item.gp}</td>
-                  <td>{item.block}</td>
-                  <td>{item.model}</td>
-                </tr>
-              ))}
-
-            </tbody>
-
-          </table>
-
+            <div className="bulk-table-wrapper">
+              <table className="bulk-inner-table">
+                <thead>
+                  <tr>
+                    <th><input type="checkbox" /></th>
+                    <th>
+                      <div className="th-content">
+                        Name <ChevronsUpDown size={12} className="sort-icon" />
+                      </div>
+                    </th>
+                    <th>
+                      <div className="th-content">
+                        Village <ChevronsUpDown size={12} className="sort-icon" />
+                      </div>
+                    </th>
+                    <th>
+                      <div className="th-content">
+                        GP <ChevronsUpDown size={12} className="sort-icon" />
+                      </div>
+                    </th>
+                    <th>
+                      <div className="th-content">
+                        Block <ChevronsUpDown size={12} className="sort-icon" />
+                      </div>
+                    </th>
+                    <th>
+                      <div className="th-content">
+                        Model <ChevronsUpDown size={12} className="sort-icon" />
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((item, i) => (
+                    <tr key={i}>
+                      <td><input type="checkbox" /></td>
+                      <td>{item.name}</td>
+                      <td>{item.village}</td>
+                      <td>{item.gp}</td>
+                      <td>{item.block}</td>
+                      <td>{item.model}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
 
         {/* Footer */}
-
-        <div className="bulk-footer">
-
-          <button className="share-btn">
-          SAVE
-          </button>
-
-          <button className="save-btn">
-           RESET
-          </button>
-
+        <div className="lead-footer">
+          <div className="share-group">
+            <button className="btn-share">Share</button>
+            <div className="btn-share-dropdown">
+              <div className="share-arrow"></div>
+            </div>
+          </div>
+          <button className="btn-save">Save</button>
         </div>
 
       </div>

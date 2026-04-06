@@ -1,0 +1,67 @@
+/* Reusing base modal styles from LeadUpdateModal.css for consistency */
+@import "./LeadUpdateModal.css";
+
+.assign-now-modal {
+    width: 90%;
+    max-width: 850px;
+}
+
+.assign-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 24px;
+}
+
+.remark-field {
+    grid-column: span 2;
+}
+
+.assign-now-modal .lead-modal-header {
+    background-color: #ffffff;
+    border-bottom: 2px solid #f8fafc;
+}
+
+.assign-now-modal .lead-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+.assign-now-modal .form-field label {
+    font-size: 11px;
+    font-weight: 850;
+    color: #64748b;
+    margin-bottom: 8px;
+    display: block;
+    text-transform: uppercase;
+}
+
+.assign-now-modal .select-box, 
+.assign-now-modal input {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    width: 100%;
+}
+
+.assign-now-modal .select-box {
+    padding: 0;
+    position: relative;
+}
+
+.assign-now-modal select {
+    width: 100%;
+    padding: 10px 30px 10px 14px;
+    border: none;
+    background: transparent;
+    appearance: none;
+    font-size: 13px;
+    color: #475569;
+}
+
+.assign-now-modal input::placeholder {
+    color: #94a3b8;
+}

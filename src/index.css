@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
+.col-model{
+  width: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important;
+}
 :root {
   --primary: #ffcc00;
   /* Bright yellow from SS2 */

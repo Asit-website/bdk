@@ -1,0 +1,144 @@
+.purchase-return-modal {
+    width: min(980px, 95vw);
+    max-height: 90vh;
+}
+
+.pr-modal-header {
+    background: #f8fafc;
+}
+
+.pr-modal-body {
+    padding: 16px 20px 8px;
+    overflow: auto;
+}
+
+.pr-filter-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr) auto;
+    gap: 12px;
+    align-items: end;
+    margin-bottom: 16px;
+}
+
+.pr-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.pr-field label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.pr-field.small {
+    max-width: 140px;
+}
+
+.pr-field.checkbox {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding-top: 18px;
+}
+
+.pr-input {
+    height: 34px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 12px;
+    background: #ffffff;
+}
+
+.pr-search-btn {
+    height: 34px;
+    border: 1px solid #22c55e;
+    background: #f0fdf4;
+    color: #15803d;
+    padding: 0 16px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 12px;
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.pr-section-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 10px 0 8px;
+}
+
+.pr-table-wrapper {
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    overflow: auto;
+    background: #ffffff;
+}
+
+.pr-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.pr-table th {
+    background: #e2f2ff;
+    color: #1e3a8a;
+    padding: 8px;
+    border: 1px solid #dbeafe;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.pr-table td {
+    border: 1px solid #e2e8f0;
+    padding: 6px 8px;
+    white-space: nowrap;
+}
+
+.pr-table tr:nth-child(even) td {
+    background: #f8fafc;
+}
+
+.pr-select-btn {
+    border: none;
+    background: #fef3c7;
+    color: #92400e;
+    font-weight: 700;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.pr-mini-input {
+    width: 60px;
+    border: 1px solid #cbd5f0;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 11px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.pr-modal-footer {
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    .pr-filter-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .pr-search-btn {
+        grid-column: span 2;
+    }
+}

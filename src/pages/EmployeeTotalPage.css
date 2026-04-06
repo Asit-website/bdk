@@ -1,0 +1,69 @@
+@import './EmployeeAttendancePage.css';
+
+.total-card-strip {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 12px;
+    border: 1px solid #cbd5e1;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    padding: 8px 10px;
+    background: #f8fafc;
+}
+
+.total-single-card {
+    width: auto;
+    min-height: 60px;
+    border-radius: 2px;
+    box-shadow: none;
+}
+
+.total-single-card svg {
+    width: 14px;
+    height: 14px;
+}
+
+.total-card-strip + .total-employee-table-wrap {
+    margin-top: 0;
+}
+
+.total-header-toolbar {
+    justify-content: space-between;
+}
+
+.total-employee-table th,
+.total-employee-table td {
+    white-space: nowrap;
+}
+
+.total-employee-address {
+    white-space: normal !important;
+    max-width: 260px;
+    line-height: 1.2;
+}
+
+@media (max-width: 1400px) {
+    .total-card-strip {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .total-card-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .total-card-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .total-single-card {
+        width: 100%;
+    }
+
+    .total-employee-address {
+        max-width: 180px;
+    }
+}

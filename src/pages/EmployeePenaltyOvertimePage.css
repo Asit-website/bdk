@@ -1,0 +1,87 @@
+@import './ServiceDashboardPage.css';
+
+.penalty-details-content {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.penalty-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.penalty-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.section-title-master {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 32px;
+}
+
+.penalty-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 800px;
+}
+
+.penalty-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.penalty-list-item:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08);
+}
+
+.penalty-item-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+}
+
+/* Reusing status/crumb styles from other master pages if needed or defined here */
+.status-badge-active {
+    background: #f0fdf4;
+    color: #22c55e;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.status-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.crumb-inactive {
+    color: #3b82f6;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.crumb-active {
+    color: #94a3b8;
+    font-weight: 600;
+}

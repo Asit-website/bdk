@@ -1,0 +1,42 @@
+@import './ServiceDashboardPage.css';
+
+.btn-add-employee {
+    background-color: #22c55e;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: all 0.2s;
+    font-size: 14px;
+}
+
+.btn-add-employee:hover {
+    background-color: #16a34a;
+    transform: translateY(-1px);
+}
+
+.status-badge {
+    font-weight: 800;
+    font-size: 11px;
+}
+
+.status-badge.active {
+    color: #22c55e;
+}
+
+.status-badge.inactive {
+    color: #ef4444;
+}
+
+.ma-bold {
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.action-cell {
+    width: 60px;
+    text-align: center;
+}
+
+/* Reusing service-action-menu and other styles from imported CSS */

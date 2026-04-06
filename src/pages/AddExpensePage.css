@@ -1,0 +1,59 @@
+@import './ServiceMaterialIssueFormPage.css';
+
+.add-expense-top-grid {
+    margin-top: 2px;
+}
+
+.add-expense-remark-grid {
+    margin-top: 10px;
+    align-items: end;
+}
+
+.add-expense-remark-grid .span-4 {
+    grid-column: span 4;
+}
+
+.add-expense-remark {
+    width: 100%;
+    min-height: 50px;
+    resize: none;
+    border-radius: 4px;
+    border: 1px solid #d1d5db;
+    background: #f8fafc;
+    font-size: 12px;
+    color: #1f2937;
+    outline: none;
+    padding: 8px;
+}
+
+.add-expense-remark:focus {
+    border-color: #3b82f6;
+    background: #ffffff;
+}
+
+.expense-add-wrap {
+    grid-column: span 1;
+}
+
+.add-expense-table th:nth-child(4),
+.add-expense-table td:nth-child(4),
+.add-expense-table th:nth-child(8),
+.add-expense-table td:nth-child(8) {
+    white-space: normal;
+}
+
+.add-expense-total-row td:first-child {
+    text-align: right;
+}
+
+@media (max-width: 1200px) {
+    .add-expense-remark-grid .span-4 {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 720px) {
+    .add-expense-remark-grid .span-4 {
+        grid-column: span 1;
+    }
+}

@@ -1,0 +1,9 @@
+@import './AccountCreditNotePage.css';
+
+.btn-add-debit-note {
+    background-color: #3b82f6;
+}
+
+.btn-add-debit-note:hover {
+    background-color: #2563eb;
+}

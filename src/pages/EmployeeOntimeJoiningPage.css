@@ -1,0 +1,66 @@
+@import './EmployeeAttendancePage.css';
+
+.ontime-card-strip {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 12px;
+    border: 1px solid #cbd5e1;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    padding: 8px 10px;
+    background: #f8fafc;
+}
+
+.ontime-single-card {
+    width: auto;
+    min-height: 60px;
+    border-radius: 2px;
+    box-shadow: none;
+}
+
+.ontime-single-card .employee-stat-value {
+    font-size: 32px;
+}
+
+.ontime-single-card .employee-stat-title {
+    font-size: 18px;
+}
+
+.ontime-single-card svg {
+    width: 14px;
+    height: 14px;
+}
+
+.ontime-card-strip + .employee-attendance-table-wrap {
+    margin-top: 0;
+}
+
+@media (max-width: 640px) {
+    .ontime-card-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .ontime-single-card {
+        width: 100%;
+    }
+
+    .ontime-single-card .employee-stat-value {
+        font-size: 24px;
+    }
+
+    .ontime-single-card .employee-stat-title {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .ontime-card-strip {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .ontime-card-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

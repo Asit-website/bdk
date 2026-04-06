@@ -1,39 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { createPortal } from 'react-dom';
-import { MoreVertical, Filter, Printer, Download, ChevronsUpDown, Eye, Edit2, UserPlus, XCircle, Trash2, History } from 'lucide-react';
+import { MoreVertical, Filter, Printer, Download, ChevronsUpDown } from 'lucide-react';
+import ActionMenu from './ActionMenu';
+import LeadAssignModal from './LeadAssignModal';
 import './LeadTable.css';
-
-const ActionMenu = ({ isOpen, anchorRect, onClose }) => {
-    if (!isOpen || !anchorRect) return null;
-
-    const menuHeight = 240; // Estimated height of the dropdown
-    const spaceBelow = window.innerHeight - anchorRect.bottom;
-    const showAbove = spaceBelow < menuHeight;
-
-    const style = {
-        position: 'fixed',
-        top: showAbove ? anchorRect.top - menuHeight - 5 : anchorRect.bottom + 5,
-        left: anchorRect.left - 130,
-        zIndex: 10000,
-    };
-
-    return createPortal(
-        <div className="action-dropdown shadow-lg" style={style}>
-            <button className="dropdown-item" onClick={onClose}><Eye size={14} /> View</button>
-            <button className="dropdown-item" onClick={onClose}><Edit2 size={14} /> Edit</button>
-            <button className="dropdown-item" onClick={onClose}><UserPlus size={14} /> Assign</button>
-            <button className="dropdown-item" onClick={onClose}><XCircle size={14} /> Close</button>
-            <button className="dropdown-item delete" onClick={onClose}><Trash2 size={14} /> Delete</button>
-            <div className="dropdown-divider"></div>
-            <button className="dropdown-item" onClick={onClose}><History size={14} /> View History</button>
-        </div>,
-        document.body
-    );
-};
 
 const LeadTable = () => {
     const [openMenuId, setOpenMenuId] = useState(null);
     const [anchorRect, setAnchorRect] = useState(null);
+    const [isAssignModalOpen, setIsAssignModalOpen] = useState(false);
     const tableRef = useRef(null);
 
     const leads = [
@@ -149,6 +123,12 @@ const LeadTable = () => {
                 isOpen={openMenuId !== null}
                 anchorRect={anchorRect}
                 onClose={() => setOpenMenuId(null)}
+                onAssign={() => setIsAssignModalOpen(true)}
+            />
+
+            <LeadAssignModal
+                open={isAssignModalOpen}
+                onClose={() => setIsAssignModalOpen(false)}
             />
         </div>
     );

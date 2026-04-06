@@ -1,0 +1,240 @@
+/* Mechanic Assign Update Modal Styles - SS15 */
+
+.ma-update-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    backdrop-filter: blur(1px);
+    animation: maFadeIn 0.3s ease-out;
+}
+
+.ma-update-modal {
+    background: white;
+    width: 90%;
+    max-width: 650px;
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    animation: maScaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+}
+
+.ma-update-modal-content {
+    padding: 25px 30px;
+}
+
+.ma-update-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.2fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.ma-update-field label {
+    display: block;
+    font-size: 10px;
+    font-weight: 850;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.ma-update-field input, .ma-update-field select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #1e293b;
+    background-color: #f8fafc;
+    outline: none;
+    height: 36px;
+}
+
+.ma-update-field input:focus, .ma-update-field select:focus {
+    border-color: #3b82f6;
+    background-color: #ffffff;
+}
+
+/* Problem Voices Section */
+.ma-problem-voice-section {
+    margin-bottom: 25px;
+}
+
+.ma-problem-voice-section label {
+    display: block;
+    font-size: 10px;
+    font-weight: 850;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.ma-problem-voice-box {
+    border: 1px solid #10b981; /* Green border matching SS15 */
+    border-radius: 8px;
+    padding: 12px 15px;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ma-problem-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex: 1;
+}
+
+.ma-problem-chip-placeholder {
+    color: #94a3b8;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.ma-problem-chip {
+    background-color: #f1f5f9;
+    color: #334155;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+}
+
+.ma-problem-chip button {
+    border: none;
+    background: none;
+    color: #94a3b8;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.ma-problem-chip button:hover {
+    color: #ef4444;
+}
+
+.ma-problem-entry {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 10px;
+}
+
+.ma-problem-entry input {
+    flex: 1;
+    border: none;
+    background: none;
+    font-size: 12px;
+    outline: none;
+    color: #1e293b;
+}
+
+.ma-problem-action-btns {
+    display: flex;
+    gap: 6px;
+}
+
+.ma-problem-action-btn {
+    border: none;
+    background: none;
+    color: #94a3b8;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+}
+
+/* Remark Section */
+.ma-remark-section label {
+    display: block;
+    font-size: 10px;
+    font-weight: 850;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.ma-remark-box {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #1e293b;
+    outline: none;
+    resize: none;
+    background-color: #f8fafc;
+}
+
+/* Footer Section */
+.ma-update-modal-footer {
+    padding: 0 30px 25px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.btn-ma {
+    padding: 8px 30px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 850;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+
+.btn-ma.cancel {
+    background-color: #042954;
+    color: white;
+}
+
+.btn-ma.save {
+    background-color: #ffca28;
+    color: #111111;
+}
+
+@keyframes maFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes maScaleUp {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Close animations */
+.ma-update-modal-overlay.fade-out {
+    animation: maFadeOut 0.15s ease-in forwards;
+}
+
+.ma-update-modal.scale-down {
+    animation: maScaleDown 0.15s ease-in forwards;
+}
+
+@keyframes maFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes maScaleDown {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.95); }
+}

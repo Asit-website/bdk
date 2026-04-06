@@ -1,0 +1,193 @@
+@import './AddBookingModal.css';
+
+.stock-modal {
+    width: 1100px;
+    max-width: 96%;
+}
+
+.stock-modal-header {
+    justify-content: space-between;
+}
+
+.stock-modal-body {
+    padding: 20px 24px;
+}
+
+.stock-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.stock-item {
+    grid-column: span 2;
+}
+
+.stock-qty {
+    grid-column: span 1;
+}
+
+.stock-add {
+    grid-column: span 1;
+}
+
+.stock-add-btn {
+    width: 100%;
+    height: 34px;
+    border: none;
+    border-radius: 4px;
+    background: #16a34a;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.stock-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px 0 8px;
+}
+
+.stock-section-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #111111;
+}
+
+.stock-section-actions {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.stock-search {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background: #f8fafc;
+    height: 26px;
+}
+
+.stock-search svg {
+    color: #64748b;
+}
+
+.stock-search input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 11px;
+    width: 120px;
+    color: #334155;
+}
+
+.stock-icon-btn {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    color: #64748b;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.stock-icon-btn:hover {
+    background: #eef2f7;
+    color: #1e293b;
+}
+
+.stock-table-wrapper {
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    overflow: auto;
+    max-height: 320px;
+}
+
+.stock-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+}
+
+.stock-table th,
+.stock-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.stock-table th {
+    background: #f8fafc;
+    color: #475569;
+    font-weight: 700;
+}
+
+.action-icon {
+    border: none;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 11px;
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 6px;
+}
+
+.action-icon.delete {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.stock-total-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #111111;
+}
+
+.stock-total-pill {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.stock-modal-footer {
+    padding: 16px 24px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    border-top: 1px solid #f0f3f7;
+}
+
+@media (max-width: 900px) {
+    .stock-form-grid {
+        grid-template-columns: 1fr;
+    }
+    .stock-item,
+    .stock-qty,
+    .stock-add {
+        grid-column: span 1;
+    }
+}

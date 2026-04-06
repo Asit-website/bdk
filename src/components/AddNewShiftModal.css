@@ -1,0 +1,88 @@
+.add-shift-overlay {
+    z-index: 1001; 
+}
+
+.add-shift-modal {
+    max-width: 600px !important; /* Increased width */
+    background: #ffffff !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+}
+
+.wt-form-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group-wt {
+    margin-bottom: 0px; 
+}
+
+.full-width { width: 100%; margin-bottom: 20px; }
+.half-width { flex: 1; }
+
+.wt-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+.wt-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #1e293b;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.wt-input:focus {
+    border-color: #3b82f6;
+}
+
+.wt-radio-group {
+    display: flex;
+    gap: 24px;
+}
+
+.wt-radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.wt-radio-circle {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #cbd5e1;
+    border-radius: 50%;
+    position: relative;
+}
+
+.wt-radio-option input {
+    display: none;
+}
+
+.wt-radio-option input:checked + .wt-radio-circle {
+    border-color: #3b82f6;
+    background: #3b82f6;
+    box-shadow: inset 0 0 0 3px #ffffff;
+}
+
+.add-shift-footer {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.btn-add-shift-submit {
+    min-width: 140px;
+}

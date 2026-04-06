@@ -1,0 +1,46 @@
+@import './ServiceBookingPage.css';
+
+.btn-add-expense {
+    background-color: #22c55e;
+    color: #ffffff;
+    border: none;
+    font-weight: 700;
+    padding: 8px 18px;
+}
+
+.expense-summary-wrap {
+    margin-bottom: 16px;
+}
+
+.expense-summary-card-inner {
+    width: min(380px, 100%);
+    min-height: 106px;
+    border-radius: 0;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.expense-summary-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.expense-summary-left .service-stat-title {
+    font-size: 14px;
+}
+
+.expense-summary-left .service-stat-value {
+    font-size: 40px;
+    line-height: 1;
+}
+
+.expense-dmy {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.expense-eye {
+    color: #0b0b0b;
+}

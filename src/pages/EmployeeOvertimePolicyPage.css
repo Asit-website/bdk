@@ -1,0 +1,129 @@
+.overtime-policy-container {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.ot-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.btn-update-ot {
+    background: #3b82f6;
+    color: #ffffff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Form Styles */
+.ot-form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.ot-section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.ot-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.ot-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ot-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.required {
+    color: #ef4444;
+    margin-left: 4px;
+}
+
+/* Specific Row Layouts */
+.ot-row-dual {
+    display: flex;
+    gap: 24px;
+    align-items: flex-end;
+}
+
+.ot-input-box {
+    width: 280px;
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+.ot-numeric-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #1e293b;
+    font-weight: 500;
+}
+
+.ot-unit {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.ot-select-box {
+    width: 250px;
+    padding: 11px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #475569;
+    outline: none;
+}
+
+.ot-amount-box {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+.ot-symbol {
+    color: #64748b;
+    font-size: 14px;
+}

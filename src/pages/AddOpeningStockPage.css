@@ -1,0 +1,127 @@
+.opening-stock-card {
+    padding-top: 20px;
+}
+
+.opening-stock-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+}
+
+.opening-stock-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.opening-stock-date {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 160px;
+}
+
+.opening-stock-date label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.opening-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.opening-grid .form-group.small {
+    grid-column: span 1;
+}
+
+.opening-grid .form-group {
+    grid-column: span 2;
+}
+
+.opening-grid .form-group.add-btn-group {
+    grid-column: span 1;
+    display: flex;
+    align-items: flex-end;
+}
+
+.opening-add-btn {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background-color: #60a5fa;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.opening-actions {
+    justify-content: flex-end;
+}
+
+.opening-actions .btn-cancel {
+    background-color: #042954;
+    color: #ffffff;
+}
+
+.opening-actions .btn-save {
+    background-color: #ffca28;
+    color: #111111;
+}
+
+@media (max-width: 1200px) {
+    .opening-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .opening-grid .form-group,
+    .opening-grid .form-group.small,
+    .opening-grid .form-group.add-btn-group {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 800px) {
+    .opening-stock-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .opening-stock-date {
+        width: 100%;
+    }
+
+    .opening-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Table column refinements */
+.col-model {
+    min-width: 250px;
+}
+
+.col-rate,
+.col-cost,
+.col-sgst {
+    min-width: 160px;
+}
+
+.col-total {
+    min-width: 200px;
+}
+
+
+
+.items-table td .table-input {
+    width: 100%;
+}

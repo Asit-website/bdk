@@ -1,0 +1,228 @@
+.quotation-filters-container {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Row 1: Search & Secondary Actions */
+.filter-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.search-transactions {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    width: 320px;
+    gap: 10px;
+}
+
+.search-transactions input {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #1e293b;
+    width: 100%;
+}
+
+.filter-actions-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-secondary {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-secondary.sale {
+    color: #ef4444;
+    background-color: #fee2e2;
+}
+
+.btn-secondary.purchase {
+    color: #3b82f6;
+    background-color: #dbeafe;
+}
+
+.btn-icon-blue {
+    background-color: #dbeafe;
+    color: #3b82f6;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btn-icon-gray {
+    background-color: #f1f5f9;
+    color: #64748b;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Row 2: Title & Primary Action */
+.filter-middle-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.quotation-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quotation-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.title-chevron {
+    color: #64748b;
+    cursor: pointer;
+}
+
+.quotation-actions-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-add-quotation {
+    background-color: #22c55e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-add-quotation:hover {
+    background-color: #16a34a;
+}
+
+.btn-settings-gray {
+    background-color: #f1f5f9;
+    border: none;
+    border-radius: 6px;
+    height: 38px;
+    width: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    cursor: pointer;
+}
+
+/* Row 3: Filter Selectors Bar */
+.filters-selectors-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-top: 20px;
+    border-top: 1px solid #f1f5f9;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.filter-dropdown {
+    height: 36px;
+    padding: 0 15px;
+    background-color: #f1f5f9;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    cursor: pointer;
+    min-width: 110px;
+}
+
+.date-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f1f5f9;
+    border-radius: 6px;
+    padding: 0 12px;
+    height: 36px;
+}
+
+.date-input-hidden {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    color: #64748b;
+    cursor: pointer;
+    width: 85px;
+    padding: 0;
+    font-weight: 600;
+}
+
+.date-input-hidden::-webkit-inner-spin-button,
+.date-input-hidden::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.date-separator {
+    color: #64748b;
+    font-weight: 500;
+    font-size: 12px;
+    margin: 0 4px;
+}
+
+.min-w-80 {
+    min-width: 80px;
+}
+
+.min-w-120 {
+    min-width: 120px;
+}

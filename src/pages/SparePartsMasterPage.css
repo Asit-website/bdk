@@ -1,0 +1,127 @@
+/* Spare Parts Master Page Styles */
+/* Reusing most of the ProductMasterPage.css layout classes */
+
+.form-content-pm {
+    padding-top: 10px;
+}
+
+.pm-sub-header {
+    font-size: 14px;
+    font-weight: 850;
+    color: #1e293b;
+    margin-bottom: 30px;
+    padding-left: 2px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.pm-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px; /* Large gap as seen in screenshot */
+    margin-bottom: 50px;
+}
+
+.pm-column {
+    display: flex;
+    flex-direction: column;
+    gap: 32px; /* Vertical spacing between fields */
+}
+
+.pm-field label {
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    color: #1e293b !important;
+    margin-bottom: 12px !important;
+    text-transform: uppercase;
+}
+
+.pm-input {
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 6px !important;
+    padding: 10px 14px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    width: 100%;
+}
+
+.input-with-plus {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.pm-add-small-btn {
+    background-color: #f1f5f9;
+    color: #22c55e;
+    border: 1px solid #e2e8f0;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.pm-add-small-btn:hover {
+    background-color: #dcfce7;
+}
+
+/* Footer Styles */
+.pm-form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.pm-btn-import {
+    background-color: #22c55e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 24px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.2);
+}
+
+.pm-footer-right {
+    display: flex;
+    gap: 16px;
+}
+
+.pm-btn-cancel {
+    background-color: #1e293b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 30px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.pm-btn-save {
+    background-color: #facc15;
+    color: #1e293b;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 40px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(250, 204, 21, 0.2);
+}
+
+.pm-btn-cancel:hover { background-color: #0f172a; }
+.pm-btn-save:hover { background-color: #eab308; }
+.pm-btn-import:hover { background-color: #15803d; }

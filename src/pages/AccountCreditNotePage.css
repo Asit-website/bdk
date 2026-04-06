@@ -1,0 +1,63 @@
+@import './AccountPaymentOutPage.css';
+
+.creditnote-filters {
+    gap: 14px;
+}
+
+.creditnote-search-wrap {
+    max-width: 220px;
+}
+
+.creditnote-search {
+    height: 30px;
+    font-size: 12px;
+}
+
+.btn-add-credit-note {
+    background-color: #3b82f6;
+    padding: 8px 14px;
+}
+
+.btn-add-credit-note:hover {
+    background-color: #2563eb;
+}
+
+.creditnote-filter-selectors {
+    margin-top: -6px;
+}
+
+.creditnote-between {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b;
+}
+
+.creditnote-type-select .select-input {
+    min-width: 110px;
+}
+
+.creditnote-table-wrap {
+    margin-top: 14px;
+}
+
+.creditnote-header-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.creditnote-footer-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e2e8f0;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 700;
+}
+
+.creditnote-footer-total strong {
+    color: #06b6d4;
+    font-weight: 800;
+}

@@ -1,0 +1,117 @@
+/* Branch Location Master Page Styles */
+
+.branch-master-content {
+    padding: 30px 40px;
+}
+
+.branch-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 30px;
+    margin-bottom: 35px;
+}
+
+.branch-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.branch-input-group label {
+    font-size: 11.5px;
+    font-weight: 850;
+    color: #475569;
+    text-transform: uppercase;
+}
+
+.pm-input {
+    height: 42px;
+    padding: 0 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #1e293b;
+    background-color: #f8fafc;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.pm-input:focus {
+    border-color: #facc15;
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(250, 204, 21, 0.1);
+}
+
+.branch-input-group.span-2 {
+    grid-column: span 2;
+}
+
+/* Incharge Section */
+.incharge-section-container {
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 2px dashed #f1f5f9;
+}
+
+.section-sub-title {
+    font-size: 16px;
+    font-weight: 900;
+    color: #1e293b;
+    margin-bottom: 25px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.section-sub-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 18px;
+    background-color: #facc15;
+    border-radius: 2px;
+}
+
+.mt-20 { margin-top: 20px; }
+
+/* Standardized Footer */
+.pm-form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.pm-footer-right {
+    display: flex;
+    gap: 16px;
+}
+
+.pm-btn-cancel {
+    background-color: #1e293b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 35px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.pm-btn-save {
+    background-color: #facc15;
+    color: #1e293b;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 50px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(250, 204, 21, 0.2);
+}

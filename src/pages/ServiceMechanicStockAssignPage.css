@@ -1,0 +1,137 @@
+@import './ServiceDashboardPage.css';
+
+.btn-new-service {
+    color: #16a34a;
+    background-color: #eafaf0;
+    border: 1px solid #bbf7d0;
+}
+
+.btn-assign-stock {
+    background: #16a34a;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.ms-summary-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 12px 0 18px;
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+}
+
+.ms-summary-card-inner {
+    width: min(360px, calc((100% - 48px) / 5));
+    align-items: stretch;
+    min-height: 96px;
+}
+
+.ms-summary-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ms-summary-title {
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.ms-summary-sub {
+    font-size: 13px;
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+.ms-summary-sub-secondary {
+    margin-top: 10px;
+}
+
+.ms-summary-values {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.ms-summary-value {
+    line-height: 1;
+}
+
+.ms-summary-value-secondary {
+    margin-top: 10px;
+}
+
+.ms-name {
+    color: #1d4ed8;
+    font-weight: 700;
+}
+
+.ms-link {
+    background: none;
+    border: none;
+    color: #2563eb;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.return-btn {
+    background: #16a34a;
+    color: #ffffff;
+    border: none;
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.stock-popup {
+    min-width: 180px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.15);
+    padding: 8px 10px;
+    z-index: 10000;
+}
+
+.stock-popup-head,
+.stock-popup-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    padding: 4px 0;
+}
+
+.stock-popup-head {
+    font-weight: 700;
+    color: #475569;
+    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 4px;
+}
+
+@media (max-width: 640px) {
+    .ms-summary-card-inner {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1400px) {
+    .ms-summary-card-inner {
+        width: min(360px, calc((100% - 24px) / 3));
+    }
+}
+
+@media (max-width: 900px) {
+    .ms-summary-card-inner {
+        width: min(360px, calc((100% - 12px) / 2));
+    }
+}

@@ -1,0 +1,119 @@
+/* Quotation Product View Modal Styles - SS4 */
+
+.product-view-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    backdrop-filter: blur(1px);
+    animation: overdueFadeIn 0.3s ease-out;
+}
+
+.product-view-modal {
+    background: white;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    animation: overdueScaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+}
+
+.product-view-content {
+    padding: 30px;
+}
+
+.product-view-table-container {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.product-view-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-view-table th {
+    background-color: #f1f5f9;
+    color: #1e293b;
+    font-size: 13px;
+    font-weight: 850;
+    text-align: left;
+    padding: 14px 20px;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.product-view-table td {
+    padding: 14px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #1e293b;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.product-view-table tr:last-child td {
+    border-bottom: none;
+}
+
+.product-view-table .bold {
+    font-weight: 700;
+}
+
+.product-view-table .text-center {
+    text-align: center;
+}
+
+.product-view-table .text-right {
+    text-align: right;
+}
+
+/* Link Style for Main Table */
+.product-view-link {
+    color: #3b82f6;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 11px;
+}
+
+.product-view-link:hover {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+@keyframes overdueFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes overdueScaleUp {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Re-opening animations */
+.product-view-modal-overlay.fade-out {
+    animation: overdueFadeOut 0.15s ease-in forwards;
+}
+
+.product-view-modal.scale-down {
+    animation: overdueScaleDown 0.15s ease-in forwards;
+}
+
+@keyframes overdueFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes overdueScaleDown {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.95); }
+}

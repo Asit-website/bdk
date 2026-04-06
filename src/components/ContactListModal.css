@@ -1,0 +1,247 @@
+/* Reuse logic from BulkFollowUpModal.css for consistency */
+.lead-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.lead-modal.contact-list-modal {
+    width: 95%;
+    max-width: 1100px;
+    max-height: 95vh;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.3s forwards ease-out;
+}
+
+.fade-out {
+    animation: fadeOut 0.3s forwards ease-in;
+}
+
+.scale-up {
+    animation: scaleUp 0.3s forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scale-down {
+    animation: scaleDown 0.3s forwards ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes scaleDown {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+
+/* Header Styling */
+.lead-modal-header {
+    padding: 18px 25px;
+    background: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lead-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.lead-header-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.lead-header-icons svg {
+    color: #64748b;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-icon {
+    color: #94a3b8;
+}
+
+/* Internal Layout */
+.lead-form-wrapper {
+    padding: 20px 25px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Table Section Styles */
+.bulk-table-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #f1f5f9;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.bulk-table-header {
+    background: #f8fafc;
+    padding: 10px 15px;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bulk-search-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 4px 12px;
+    border-radius: 20px;
+    width: 200px;
+}
+
+.bulk-search-box input {
+    border: none;
+    outline: none;
+    font-size: 12px;
+    width: 100%;
+}
+
+.bulk-table-wrapper {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.bulk-inner-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.bulk-inner-table th {
+    background: #ffffff;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    border-bottom: 2px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.bulk-inner-table td {
+    padding: 12px 15px;
+    font-size: 13px;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.bulk-inner-table tr:hover {
+    background: #f8fafc;
+}
+
+.th-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.sort-icon {
+    color: #cbd5e1;
+    transition: color 0.2s;
+}
+
+.th-content:hover .sort-icon {
+    color: #1e293b;
+}
+
+/* Footer & Buttons */
+.lead-footer {
+    padding: 15px 25px;
+    border-top: 1px solid #f1f5f9;
+    background: #ffffff;
+    display: flex;
+    gap: 12px;
+}
+
+.btn-save {
+    background-color: var(--primary);
+    color: #1a1a1a;
+    font-weight: 700;
+    padding: 8px 24px;
+    border-radius: 4px;
+    font-size: 13px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-save:hover {
+    opacity: 0.9;
+}
+
+/* Custom Checkbox */
+.bulk-inner-table input[type="checkbox"] {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary);
+}

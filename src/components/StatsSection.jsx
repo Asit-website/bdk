@@ -2,10 +2,10 @@ import React from 'react';
 import { Target, Clock, CheckCircle } from 'lucide-react';
 import './StatsSection.css';
 
-const StatsSection = () => {
+const StatsSection = ({ title = 'Total Lead' }) => {
     const stats = [
         {
-            label: 'Total Lead',
+            label: title,
             value: '500',
             percent: '100%',
             subText: 'vs last month',

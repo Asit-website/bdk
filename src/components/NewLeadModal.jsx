@@ -44,7 +44,9 @@ const NewLeadModal = ({ closeModal }) => {
               <label>Location/Leadsource</label>
               <div className="select-box">
                 <select>
-                  <option>Office/Workshop/Field</option>
+                  <option>Office</option>
+                  <option>Workshop</option>
+                  <option>Field</option>
                 </select>
                 <span className="select-arrow"></span>
               </div>
@@ -113,7 +115,9 @@ const NewLeadModal = ({ closeModal }) => {
               <label>Billing Source</label>
               <div className="select-box">
                 <select>
-                  <option>Subsidy/Cash/Finance</option>
+                  <option>Subsidy</option>
+                  <option>Cash</option>
+                  <option>Finance</option>
                 </select>
                 <span className="select-arrow"></span>
               </div>
@@ -131,8 +135,13 @@ const NewLeadModal = ({ closeModal }) => {
 
         {/* FOOTER */}
         <div className="lead-footer">
+          <div className="share-group">
+            <button className="btn-share">Share</button>
+            <div className="btn-share-dropdown">
+              <div className="share-arrow"></div>
+            </div>
+          </div>
           <button className="btn-save">Save</button>
-          <button className="btn-reset" onClick={handleClose}>Reset</button>
         </div>
 
       </div>

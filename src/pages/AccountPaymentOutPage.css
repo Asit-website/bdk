@@ -1,0 +1,35 @@
+@import './AccountPaymentInPage.css';
+
+.btn-add-paymentout {
+    background-color: #f43f5e;
+}
+
+.btn-add-paymentout:hover {
+    background-color: #e11d48;
+}
+
+.paymentout-inline-action {
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: #64748b;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.paymentout-inline-action:hover {
+    background: #f1f5f9;
+}
+
+.paymentout-inline-print {
+    color: #334155;
+}
+
+.paymentout-inline-share {
+    color: #2563eb;
+}

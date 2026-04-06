@@ -1,0 +1,165 @@
+.job-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.job-modal {
+    background: #ffffff;
+    width: 95%;
+    max-width: 1200px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: scale-up 0.3s ease-out;
+}
+
+.booking-modal-header {
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f3f7;
+}
+
+.booking-title-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.booking-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111111;
+    text-transform: uppercase;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.close-icon {
+    cursor: pointer;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+
+.close-icon:hover {
+    color: #ef4444;
+}
+
+.job-modal-body {
+    padding: 20px 25px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.job-search-filters {
+    display: flex;
+    gap: 12px;
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 16px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.search-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.search-field label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+}
+
+.search-field input,
+.search-field select {
+    height: 32px;
+    padding: 0 8px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 12px;
+    background: #ffffff;
+    outline: none;
+}
+
+.fetch-btn {
+    background: #22c55e;
+    color: #ffffff;
+    border: none;
+    padding: 0 16px;
+    height: 32px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.job-table-container {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+}
+
+.job-search-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+}
+
+.job-search-table th,
+.job-search-table td {
+    border: 1px solid #e2e8f0;
+    padding: 8px;
+    text-align: left;
+}
+
+.job-search-table th {
+    background: #f1f5f9;
+    font-weight: 700;
+    color: #1e293b;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.job-search-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.job-select-check {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.fade-in { animation: fadeIn 0.3s; }
+.fade-out { animation: fadeOut 0.3s forwards; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }

@@ -1,0 +1,88 @@
+@import './ServiceDashboardPage.css';
+
+.btn-new-service {
+    color: #16a34a;
+    background-color: #eafaf0;
+    border: 1px solid #bbf7d0;
+}
+
+.btn-add-material {
+    background: #16a34a;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.material-summary-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 12px 0 18px;
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+}
+
+.material-summary-card-inner {
+    width: min(360px, calc((100% - 48px) / 5));
+    align-items: center;
+    min-height: 64px;
+}
+
+.material-summary-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.material-summary-title {
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.material-summary-sub {
+    font-size: 13px;
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+.material-summary-sub-secondary {
+    margin-top: 10px;
+}
+
+.material-summary-values {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.material-summary-value {
+    line-height: 1;
+}
+
+.material-summary-value-secondary {
+    margin-top: 10px;
+}
+
+@media (max-width: 640px) {
+    .material-summary-card-inner {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1400px) {
+    .material-summary-card-inner {
+        width: min(360px, calc((100% - 24px) / 3));
+    }
+}
+
+@media (max-width: 900px) {
+    .material-summary-card-inner {
+        width: min(360px, calc((100% - 12px) / 2));
+    }
+}

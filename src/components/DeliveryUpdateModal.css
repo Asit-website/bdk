@@ -1,0 +1,182 @@
+/* Delivery Update Modal Styles - SS5 */
+
+.delivery-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    backdrop-filter: blur(1px);
+    animation: overdueFadeIn 0.3s ease-out;
+}
+
+.delivery-modal {
+    background: white;
+    width: 90%;
+    max-width: 850px;
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    animation: overdueScaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+}
+
+.delivery-modal-content {
+    padding: 20px 25px;
+}
+
+.delivery-table-container {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.delivery-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.delivery-table th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 850;
+    text-align: left;
+    padding: 10px 15px;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.delivery-table td {
+    padding: 8px 15px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #1e293b;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.delivery-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 800;
+    display: inline-block;
+}
+
+.status-badge.given {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.status-badge.due {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.status-badge.na {
+    background-color: #f1f5f9;
+    color: #475569;
+}
+
+/* Form Controls */
+.modal-select {
+    width: 100%;
+    padding: 4px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 11px;
+    outline: none;
+    background-color: #ffffff;
+    height: 28px;
+}
+
+.modal-select.empty {
+    background-color: #fff1f2;
+}
+
+/* Footer Section */
+.delivery-modal-footer {
+    padding: 0 25px 20px;
+}
+
+.transported-info {
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 15px;
+}
+
+.transport-name {
+    color: #1e293b;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.btn-delivery {
+    padding: 8px 25px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 850;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+
+.btn-delivery.cancel {
+    background-color: #042954;
+    color: white;
+}
+
+.btn-delivery.save {
+    background-color: #ffca28;
+    color: #111111;
+}
+
+.btn-delivery:hover {
+    filter: brightness(0.9);
+    transform: translateY(-1px);
+}
+
+@keyframes overdueFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes overdueScaleUp {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Re-opening animations */
+.delivery-modal-overlay.fade-out {
+    animation: overdueFadeOut 0.15s ease-in forwards;
+}
+
+.delivery-modal.scale-down {
+    animation: overdueScaleDown 0.15s ease-in forwards;
+}
+
+@keyframes overdueFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes overdueScaleDown {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.95); }
+}

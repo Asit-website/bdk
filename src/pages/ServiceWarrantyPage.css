@@ -1,0 +1,39 @@
+@import './ServiceMaterialIssuePage.css';
+
+.warranty-summary-card-inner {
+    width: min(560px, calc((100% - 24px) / 2));
+    justify-content: space-between;
+    min-height: 76px;
+}
+
+.warranty-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 120px;
+}
+
+.warranty-stat-item .material-summary-title {
+    font-size: 18px;
+}
+
+.warranty-status-pending {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+.warranty-status-settled {
+    color: #22c55e;
+    font-weight: 700;
+}
+
+@media (max-width: 1200px) {
+    .warranty-summary-card-inner {
+        width: 100%;
+        gap: 18px;
+    }
+
+    .warranty-stat-item .material-summary-title {
+        font-size: 14px;
+    }
+}

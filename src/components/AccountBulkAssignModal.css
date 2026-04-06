@@ -1,0 +1,41 @@
+/* Specialized styles for Account Bulk Assign Modal */
+@import "./BulkAssignModal.css";
+
+.account-bulk-assign .lead-form-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+}
+
+.account-bulk-assign .due-amount-red {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+.account-bulk-assign .inline-remark-input {
+    width: 100%;
+    height: 30px;
+    padding: 4px 10px;
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 12px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.account-bulk-assign .inline-remark-input:focus {
+    background-color: #ffffff;
+    border-color: #ffca28;
+}
+
+.account-bulk-assign .bulk-table-container {
+    margin-top: 15px;
+}
+
+.account-bulk-assign .bulk-inner-table td {
+    padding: 8px 15px;
+    vertical-align: middle;
+}
+
+.account-bulk-assign .bulk-table-wrapper {
+    max-height: 350px;
+}

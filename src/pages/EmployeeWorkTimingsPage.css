@@ -1,0 +1,211 @@
+@import './ServiceDashboardPage.css';
+
+.wt-content-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.wt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.wt-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.crumb-inactive {
+    color: #3b82f6;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.crumb-active {
+    color: #64748b;
+    font-weight: 600;
+}
+
+.btn-update-details {
+    background: #3b82f6;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-update-details:hover {
+    background: #2563eb;
+}
+
+/* Timing Type Selector */
+.wt-type-selector {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 32px;
+}
+
+.type-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.type-radios {
+    display: flex;
+    gap: 24px;
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #334155;
+    font-weight: 600;
+}
+
+.radio-mark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #cbd5e1;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+input[type="radio"]:checked+.radio-mark {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    box-shadow: inset 0 0 0 3px #ffffff;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+/* Table Management */
+.wt-table-head {
+    display: flex;
+    padding: 12px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 14px;
+}
+
+.col-day {
+    flex: 1;
+}
+
+.col-weekoff {
+    flex: 1;
+    text-align: center;
+}
+
+.col-shifts {
+    flex: 4;
+}
+
+.required-star {
+    color: #ef4444;
+    margin-right: 4px;
+}
+
+.wt-row {
+    display: flex;
+    padding: 12px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    align-items: flex-start;
+}
+
+.shift-entry {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.shift-entry:last-child {
+    margin-bottom: 0;
+}
+
+.shift-name-box,
+.shift-time-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    min-width: 140px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.shift-time-box {
+    min-width: 180px;
+}
+
+/* Action Buttons */
+.btn-shift-plus,
+.btn-shift-minus {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1.5px solid;
+    background: #ffffff;
+    transition: all 0.2s;
+}
+
+.btn-shift-plus {
+    color: #3b82f6;
+    border-color: #3b82f6;
+}
+
+.btn-shift-minus {
+    color: #ef4444;
+    border-color: #ef4444;
+}
+
+.btn-shift-plus:hover {
+    background: #eff6ff;
+}
+
+.btn-shift-minus:hover {
+    background: #fef2f2;
+}
+
+.shift-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.wt-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.is-weekoff {
+    background: #fdf2f2;
+}

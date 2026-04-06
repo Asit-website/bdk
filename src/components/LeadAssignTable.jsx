@@ -3,36 +3,15 @@ import { createPortal } from 'react-dom';
 import { MoreVertical, Filter, Printer, Download, ChevronsUpDown, Eye, Edit2, UserPlus, XCircle, Trash2, History } from 'lucide-react';
 import './LeadTable.css';
 
-const ActionMenu = ({ isOpen, anchorRect, onClose }) => {
-    if (!isOpen || !anchorRect) return null;
-
-    const menuHeight = 220;
-    const spaceBelow = window.innerHeight - anchorRect.bottom;
-    const showAbove = spaceBelow < menuHeight;
-
-    const style = {
-        position: 'fixed',
-        top: showAbove ? anchorRect.top - menuHeight - 5 : anchorRect.bottom + 5,
-        left: anchorRect.left - 130,
-        zIndex: 10000,
-    };
-
-    return createPortal(
-        <div className="action-dropdown shadow-lg" style={style}>
-            <button className="dropdown-item" onClick={onClose}><Eye size={14} /> View/Edit</button>
-            <button className="dropdown-item" onClick={onClose}><UserPlus size={14} /> Assign</button>
-            <button className="dropdown-item" onClick={onClose}><XCircle size={14} /> Cancel</button>
-            <button className="dropdown-item delete" onClick={onClose}><Trash2 size={14} /> Delete</button>
-            <div className="dropdown-divider"></div>
-            <button className="dropdown-item" onClick={onClose}><History size={14} /> View History</button>
-        </div>,
-        document.body
-    );
-};
+import ActionMenu from './ActionMenu';
+import LeadAssignModal from './LeadAssignModal';
+import LeadUpdateModal from './LeadUpdateModal';
 
 const LeadAssignTable = () => {
     const [openMenuId, setOpenMenuId] = useState(null);
     const [anchorRect, setAnchorRect] = useState(null);
+    const [isAssignModalOpen, setIsAssignModalOpen] = useState(false);
+    const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
 
     const leads = [
         {
@@ -114,7 +93,10 @@ const LeadAssignTable = () => {
                                     </div>
                                 </td>
                                 <td>
-                                    <button className="btn-assign-now">
+                                    <button
+                                        className="btn-assign-now"
+                                        onClick={() => setIsAssignModalOpen(true)}
+                                    >
                                         Assign Now
                                     </button>
                                 </td>
@@ -136,6 +118,19 @@ const LeadAssignTable = () => {
                 isOpen={openMenuId !== null}
                 anchorRect={anchorRect}
                 onClose={() => setOpenMenuId(null)}
+                onAssign={() => setIsAssignModalOpen(true)}
+                onUpdate={() => setIsUpdateModalOpen(true)}
+                showUpdate={true}
+            />
+
+            <LeadAssignModal
+                open={isAssignModalOpen}
+                onClose={() => setIsAssignModalOpen(false)}
+            />
+
+            <LeadUpdateModal
+                open={isUpdateModalOpen}
+                onClose={() => setIsUpdateModalOpen(false)}
             />
         </div>
     );

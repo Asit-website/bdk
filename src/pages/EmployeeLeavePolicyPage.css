@@ -1,0 +1,156 @@
+.leave-policy-container {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.lp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.lp-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.btn-update-policy {
+    background: #3b82f6;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/* Cycle Selector */
+.lp-cycle-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 32px;
+}
+
+.cycle-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #334155;
+}
+
+.cycle-options {
+    display: flex;
+    gap: 32px;
+}
+
+.cycle-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.cycle-radio {
+    width: 18px;
+    height: 18px;
+    accent-color: #3b82f6;
+}
+
+/* Leave Sections */
+.lp-section {
+    padding: 24px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.lp-section:first-of-type {
+    padding-top: 0;
+}
+
+.lp-section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+.lp-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lp-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.lp-row-label {
+    min-width: 200px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.lp-input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+}
+
+.lp-input {
+    width: 64px;
+    padding: 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.lp-inline-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #94a3b8;
+    min-width: 150px;
+}
+
+/* Add Link */
+.lp-add-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #3b82f6;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 24px;
+}
+
+.lp-add-link:hover {
+    text-decoration: underline;
+}
+
+/* Status Row */
+.staff-status-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}

@@ -1,0 +1,350 @@
+@import './ServiceDashboardPage.css';
+
+.employee-payroll-page {
+    padding-top: 6px;
+}
+
+.employee-payroll-shell {
+    border: 1px solid #d9e3ef;
+    border-radius: 6px;
+    background: #f7fbff;
+    min-height: calc(100vh - 146px);
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);
+    overflow: hidden;
+}
+
+.payroll-filter-panel {
+    border-right: 1px solid #dbe4ef;
+    background: #ffffff;
+    padding: 10px 8px;
+}
+
+.payroll-filter-head {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.payroll-filter-head h3 {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.payroll-reset-btn {
+    border: none;
+    background: transparent;
+    color: #3b82f6;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.payroll-filter-controls {
+    height: 30px;
+    border: 1px solid #d7dee8;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    align-items: center;
+    margin-bottom: 10px;
+    background: #ffffff;
+}
+
+.payroll-filter-icon-btn {
+    border: none;
+    border-right: 1px solid #e2e8f0;
+    background: #ffffff;
+    color: #ef4444;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.payroll-filter-controls .payroll-reset-btn {
+    justify-self: end;
+    margin-right: 8px;
+}
+
+.payroll-filter-group {
+    margin-bottom: 8px;
+}
+
+.payroll-filter-group label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 10px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.payroll-select-wrap {
+    height: 30px;
+    border: 1px solid #d7dee8;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    color: #94a3b8;
+    background: #ffffff;
+}
+
+.payroll-month-picker-wrap {
+    height: 30px;
+    border: 1px solid #d7dee8;
+    border-radius: 4px;
+    background: #ffffff;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+}
+
+.payroll-month-picker {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 11px;
+    color: #334155;
+    background: transparent;
+}
+
+.payroll-select-wrap select {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 11px;
+    color: #334155;
+    background: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.payroll-date-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.payroll-date-grid input {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    height: 28px;
+    border: 1px solid #d7dee8;
+    border-radius: 4px;
+    padding: 0 7px;
+    font-size: 10px;
+    outline: none;
+    background: #ffffff;
+}
+
+.payroll-month-picker:focus,
+.payroll-date-grid input:focus,
+.payroll-select-wrap select:focus {
+    outline: none;
+}
+
+.payroll-month-picker-wrap:focus-within,
+.payroll-select-wrap:focus-within,
+.payroll-date-grid input:focus {
+    border-color: #93c5fd;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.12);
+}
+
+.payroll-inactive-check,
+.payroll-breakdown-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    color: #475569;
+}
+
+.payroll-main-panel {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.payroll-toolbar-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.payroll-action-strip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.payroll-action-strip button {
+    border: 1px solid #d5deea;
+    background: #ffffff;
+    color: #2563eb;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 4px;
+    height: 24px;
+    padding: 0 8px;
+    cursor: pointer;
+}
+
+.payroll-search-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.payroll-search-box {
+    width: 280px;
+    height: 28px;
+    border: 1px solid #d4dde8;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 8px;
+    color: #94a3b8;
+    background: #ffffff;
+}
+
+.payroll-search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 11px;
+    background: transparent;
+}
+
+.payroll-meta-note {
+    font-size: 10px;
+    color: #64748b;
+}
+
+.payroll-meta-note button {
+    border: none;
+    background: transparent;
+    color: #3b82f6;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.payroll-table-wrap {
+    border: 1px solid #dbe4ef;
+    border-radius: 4px;
+    overflow: auto;
+    background: #ffffff;
+}
+
+.payroll-table th,
+.payroll-table td {
+    white-space: nowrap;
+    font-size: 11px;
+}
+
+.payroll-table th {
+    font-size: 10px;
+}
+
+.payroll-checkbox-col {
+    width: 28px;
+    min-width: 28px;
+    text-align: center;
+}
+
+.payroll-checkbox-col input {
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+
+.payroll-th-with-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.payroll-th-with-filter svg {
+    color: #9ca3af;
+}
+
+.payroll-payable-btn {
+    border: none;
+    background: transparent;
+    color: inherit;
+    font-size: 11px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.payroll-payable-btn:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+.payroll-total-btn {
+    border: none;
+    background: transparent;
+    color: inherit;
+    font-size: 11px;
+    padding: 0;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.payroll-total-btn:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+    .employee-payroll-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .payroll-filter-panel {
+        border-right: none;
+        border-bottom: 1px solid #dbe4ef;
+    }
+}
+
+@media (max-width: 720px) {
+    .payroll-search-row,
+    .payroll-toolbar-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .payroll-search-box {
+        width: 100%;
+    }
+}
+
+.employee-name-link {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: #1e293b;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: left;
+}
+
+.employee-name-link:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}

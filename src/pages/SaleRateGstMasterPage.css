@@ -1,0 +1,186 @@
+/* Sale Rate & GST Master Page Styles */
+
+.salerate-master-content {
+    padding: 30px 40px;
+}
+
+.salerate-table-container {
+    margin-bottom: 30px;
+    border: 1px solid #f1f5f9;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.salerate-table-pm {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.salerate-table-pm th {
+    background-color: #f8fafc;
+    padding: 12px 16px;
+    font-size: 11.5px;
+    font-weight: 850;
+    color: #475569;
+    text-align: left;
+    border-bottom: 2px solid #f1f5f9;
+    text-transform: uppercase;
+}
+
+.salerate-table-pm td {
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    border-bottom: 1px solid #f1f5f9;
+    background-color: #ffffff;
+}
+
+/* Rate Cell Styles */
+.rate-cell-pm {
+    display: flex;
+    align-items: center;
+}
+
+.rate-display-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.rate-value {
+    font-weight: 900;
+    color: #1e293b;
+}
+
+.rate-edit-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    background-color: #f8fafc;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+}
+
+.currency-prefix {
+    font-weight: 800;
+    color: #64748b;
+}
+
+.rate-edit-input {
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 900;
+    color: #1e293b;
+    width: 100px;
+    outline: none;
+}
+
+.rate-action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.rate-action-btn.edit { color: #3b82f6; }
+.rate-action-btn.check { color: #22c55e; }
+
+.rate-action-btn:hover {
+    background-color: #f1f5f9;
+}
+
+/* Bulk Update Section */
+.bulk-update-section {
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.bulk-label {
+    font-size: 12px;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.pm-btn-import {
+    background-color: #22c55e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 24px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.2);
+    transition: all 0.2s;
+}
+
+.pm-btn-import:hover {
+    background-color: #15803d;
+    box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.3);
+}
+
+/* Standardized Footer */
+.pm-form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.pm-footer-right {
+    display: flex;
+    gap: 16px;
+}
+
+.pm-btn-cancel {
+    background-color: #1e293b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 30px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.pm-btn-save:hover {
+    background-color: #eab308;
+}
+
+/* Inline Edit Styles */
+.inline-edit-input {
+    width: 100%;
+    height: 32px;
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 0 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e293b;
+    outline: none;
+}
+
+.inline-edit-input.small {
+    width: 60px;
+}
+
+.inline-edit-input:focus {
+    border-color: #3b82f6;
+    background-color: #ffffff;
+}

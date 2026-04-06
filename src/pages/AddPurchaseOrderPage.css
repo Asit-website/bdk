@@ -1,0 +1,32 @@
+.purchase-order-grid {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.purchase-order-grid .form-group {
+    grid-column: span 2;
+}
+
+.purchase-order-grid .form-group.small {
+    grid-column: span 1;
+}
+
+.purchase-order-grid .form-group.add-btn-group {
+    grid-column: span 1;
+}
+
+@media (max-width: 1200px) {
+    .purchase-order-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .purchase-order-grid .form-group,
+    .purchase-order-grid .form-group.small,
+    .purchase-order-grid .form-group.add-btn-group {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 800px) {
+    .purchase-order-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

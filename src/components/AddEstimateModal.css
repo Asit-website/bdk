@@ -1,0 +1,7 @@
+/* Reusing premium modal styles */
+@import './AddTrainingWarrantyModal.css';
+
+/* Override or specific styles if needed */
+.booking-modal {
+    width: 1000px; /* Slightly narrower for estimate fields */
+}

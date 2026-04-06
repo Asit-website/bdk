@@ -1,0 +1,44 @@
+@import './ServiceMaterialIssuePage.css';
+
+.account-filter-selectors {
+    margin-top: -6px;
+}
+
+.account-stats-grid {
+    grid-template-columns: 1fr;
+    padding-top: 16px;
+    margin-bottom: 18px;
+}
+
+.account-stat-card {
+    width: 380px;
+    max-width: 100%;
+}
+
+.account-stat-icon {
+    width: 48px;
+    height: 48px;
+    background: #ecfdf5;
+    color: #10b981;
+}
+
+.account-green {
+    color: #10b981;
+}
+
+.account-received-row {
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.payment-date-range {
+    gap: 8px;
+    min-width: 245px;
+    justify-content: flex-start;
+}
+
+.account-table-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -1,0 +1,129 @@
+@import './ServiceDashboardPage.css';
+
+.ma-summary-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 12px 0 18px;
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+}
+
+.ma-summary-card-inner {
+    width: min(320px, calc((100% - 48px) / 5));
+}
+
+.btn-assign-mechanic {
+    background: #16a34a;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.btn-new-service {
+    color: #16a34a;
+    background-color: #eafaf0;
+    border: 1px solid #bbf7d0;
+}
+
+.ma-view {
+    background: none;
+    border: none;
+    color: #2563eb;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.ma-count {
+    background: none;
+    border: none;
+    color: #1d4ed8;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.ma-bold {
+    font-weight: 700;
+    color: #111827;
+}
+
+.ma-popup {
+    min-width: 160px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.15);
+    padding: 8px 10px;
+    z-index: 10000;
+}
+
+.ma-popup.wide {
+    min-width: 220px;
+}
+
+.ma-popup-header {
+    font-size: 11px;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 6px;
+}
+
+.ma-popup-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #334155;
+    padding: 4px 0;
+}
+
+.ma-popup-header-grid,
+.ma-popup-row-grid {
+    display: grid;
+    grid-template-columns: 0.4fr 1.2fr 1fr;
+    gap: 10px;
+    font-size: 10px;
+    color: #334155;
+    padding: 4px 0;
+}
+
+.ma-popup-header-grid {
+    font-weight: 700;
+    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 4px;
+}
+
+.ma-popup-row-grid.clickable {
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+.ma-popup-row-grid.clickable:hover {
+    background-color: #f1f5f9;
+}
+
+.ma-popup-name {
+    color: #2563eb;
+    font-weight: 700;
+}
+
+@media (max-width: 640px) {
+    .ma-summary-card-inner {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1400px) {
+    .ma-summary-card-inner {
+        width: min(360px, calc((100% - 24px) / 3));
+    }
+}
+
+@media (max-width: 900px) {
+    .ma-summary-card-inner {
+        width: min(360px, calc((100% - 12px) / 2));
+    }
+}

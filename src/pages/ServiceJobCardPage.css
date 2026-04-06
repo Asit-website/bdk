@@ -1,0 +1,113 @@
+@import './ServiceDashboardPage.css';
+
+.btn-new-service {
+    color: #16a34a;
+    background-color: #eafaf0;
+    border: 1px solid #bbf7d0;
+}
+
+.btn-add-job {
+    background: #16a34a;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.jobcard-summary-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 12px 0 18px;
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+}
+
+.jobcard-summary-card-inner {
+    width: min(360px, calc((100% - 48px) / 5));
+    align-items: center;
+    min-height: 64px;
+}
+
+.jobcard-summary-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.jobcard-summary-title {
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.jobcard-summary-sub {
+    font-size: 13px;
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+.jobcard-summary-sub-secondary {
+    margin-top: 10px;
+}
+
+.jobcard-summary-values {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.jobcard-summary-value {
+    line-height: 1;
+}
+
+.jobcard-summary-value-secondary {
+    margin-top: 10px;
+}
+
+.jobcard-head.uw {
+    color: #16a34a;
+    font-weight: 700;
+}
+
+.jobcard-head.nw {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+.jobcard-status.pending {
+    color: #f59e0b;
+    font-weight: 700;
+}
+
+.jobcard-status.ongoing {
+    color: #7c3aed;
+    font-weight: 700;
+}
+
+.jobcard-status.complete {
+    color: #16a34a;
+    font-weight: 700;
+}
+
+@media (max-width: 640px) {
+    .jobcard-summary-card-inner {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1400px) {
+    .jobcard-summary-card-inner {
+        width: min(360px, calc((100% - 24px) / 3));
+    }
+}
+
+@media (max-width: 900px) {
+    .jobcard-summary-card-inner {
+        width: min(360px, calc((100% - 12px) / 2));
+    }
+}

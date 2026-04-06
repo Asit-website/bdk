@@ -1,0 +1,250 @@
+@import './ServiceDashboardPage.css';
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.breadcrumb-item {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.breadcrumb-item.active {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.breadcrumb-separator {
+    color: #cbd5e1;
+}
+
+.pdi-form-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+}
+
+.pdi-form-header {
+    background: #5cc6f3;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+}
+
+.pdi-form-body {
+    padding: 12px 14px 16px;
+}
+
+.pdi-form-section {
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+}
+
+.pdi-form-grid {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.pdi-form-grid.grid-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.pdi-form-grid.grid-6 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.pdi-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.pdi-field label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+}
+
+.pdi-field input,
+.pdi-field select {
+    width: 100%;
+    height: 32px;
+    padding: 0 8px;
+    border-radius: 4px;
+    border: 1px solid #d1d5db;
+    background: #f8fafc;
+    font-size: 12px;
+    color: #1f2937;
+    outline: none;
+}
+
+.pdi-field input:focus,
+.pdi-field select:focus {
+    border-color: #3b82f6;
+    background: #ffffff;
+}
+
+.pdi-assign-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.pdi-assign-card {
+    border: 1px solid #dbe3ee;
+    border-radius: 6px;
+    background: #f8fafc;
+    padding: 10px;
+}
+
+.pdi-assign-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+.pdi-form-grid.grid-assign {
+    grid-template-columns: 1fr;
+}
+
+.pdi-form-grid.grid-parts {
+    grid-template-columns: 2fr 1fr;
+}
+
+.pdi-form-grid.grid-parts .span-2 {
+    grid-column: span 1;
+}
+
+.pdi-assign-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4px;
+}
+
+.pdi-add-btn {
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    background: #38bdf8;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0 16px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.pdi-table-wrap {
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    overflow: auto;
+}
+
+.pdi-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.pdi-table th,
+.pdi-table td {
+    border: 1px solid #e2e8f0;
+    padding: 6px 8px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.pdi-table th {
+    background: #f8fafc;
+    color: #475569;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.pdi-action-icons {
+    display: flex;
+    gap: 6px;
+}
+
+.pdi-action {
+    width: 18px;
+    height: 18px;
+    border: none;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.pdi-action.edit {
+    background: #e0f2fe;
+    color: #0284c7;
+}
+
+.pdi-action.delete {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.pdi-form-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 10px 16px;
+    background: #e5e7eb;
+    border-top: 1px solid #d1d5db;
+}
+
+.pdi-action-btn {
+    border: none;
+    border-radius: 6px;
+    padding: 8px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.pdi-action-btn.cancel {
+    background-color: #042954;
+    color: #ffffff;
+}
+
+.pdi-action-btn.save {
+    background-color: #ffca28;
+    color: #111111;
+}
+
+@media (max-width: 1200px) {
+    .pdi-form-grid.grid-5,
+    .pdi-form-grid.grid-6 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pdi-assign-wrap {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .pdi-form-grid.grid-5,
+    .pdi-form-grid.grid-6,
+    .pdi-form-grid.grid-parts {
+        grid-template-columns: 1fr;
+    }
+}

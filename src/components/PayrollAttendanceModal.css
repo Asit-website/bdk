@@ -1,0 +1,284 @@
+.payroll-attendance-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.payroll-attendance-modal {
+    width: min(500px, calc(100vw - 48px));
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    position: relative;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: auto;
+}
+
+.payroll-attendance-head {
+    height: 42px;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    background: #ffffff;
+}
+
+.payroll-attendance-head h3 {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.payroll-attendance-head button {
+    border: none;
+    background: transparent;
+    color: #64748b;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.payroll-attendance-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 396px;
+}
+
+.attendance-left-pane {
+    border-right: 1px solid #e5e7eb;
+    padding: 8px;
+}
+
+.attendance-right-pane {
+    padding: 8px;
+}
+
+.attendance-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+}
+
+.attendance-stat-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 2px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.attendance-stat-card span {
+    font-size: 8px;
+    color: #64748b;
+    font-weight: 700;
+}
+
+.attendance-stat-card strong {
+    font-size: 13px;
+    line-height: 1;
+    color: #0f172a;
+}
+
+.attendance-stat-card.present { background: #ecfdf5; }
+.attendance-stat-card.absent { background: #fef2f2; }
+.attendance-stat-card.half { background: #fffbeb; }
+.attendance-stat-card.leave { background: #f5f3ff; }
+.attendance-stat-card.weekoff { background: #f8fafc; }
+
+.attendance-mini-calendar {
+    margin-top: 8px;
+}
+
+.calendar-week-head,
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 4px;
+}
+
+.calendar-week-head span {
+    font-size: 8px;
+    color: #64748b;
+    text-align: center;
+    font-weight: 700;
+}
+
+.calendar-day-chip {
+    height: 16px;
+    border-radius: 2px;
+    color: #ffffff;
+    font-size: 8px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-day-chip.green { background: #22c55e; }
+.calendar-day-chip.red { background: #ef4444; }
+.calendar-day-chip.amber { background: #f59e0b; }
+.calendar-day-chip.danger { background: #e11d48; }
+
+.attendance-date-row {
+    border-bottom: 1px solid #eef2f7;
+    padding-bottom: 6px;
+}
+
+.attendance-date-row strong {
+    font-size: 10px;
+    color: #111827;
+}
+
+.attendance-row-title {
+    font-size: 9px;
+    color: #64748b;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 4px;
+    margin-top: 6px;
+}
+
+.attendance-pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+.attendance-pill {
+    font-size: 7px;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+
+.attendance-pill.red { color: #dc2626; border-color: #fecaca; background: #fef2f2; }
+.attendance-pill.amber { color: #b45309; border-color: #fde68a; background: #fffbeb; }
+.attendance-pill.green { color: #16a34a; border-color: #86efac; background: #ecfdf5; }
+.attendance-pill.gray { color: #64748b; border-color: #cbd5e1; background: #f8fafc; }
+.attendance-pill.purple { color: #a855f7; border-color: #e9d5ff; background: #faf5ff; }
+.attendance-pill.blue { color: #0284c7; border-color: #bae6fd; background: #f0f9ff; }
+
+.attendance-punch-list {
+    margin-top: 8px;
+    border-top: 1px solid #eef2f7;
+}
+
+.attendance-punch-item {
+    display: grid;
+    grid-template-columns: 16px minmax(0, 1fr) auto;
+    gap: 6px;
+    align-items: start;
+    padding: 6px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.avatar-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #22d3ee, #f97316);
+}
+
+.attendance-punch-meta strong {
+    font-size: 8px;
+    color: #111827;
+    display: block;
+}
+
+.attendance-punch-meta span {
+    font-size: 7px;
+    color: #64748b;
+    line-height: 1.3;
+}
+
+.attendance-punch-item em {
+    font-size: 7px;
+    color: #94a3b8;
+    font-style: normal;
+}
+
+.attendance-add-links {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.attendance-add-links button {
+    border: none;
+    background: transparent;
+    color: #0ea5e9;
+    font-size: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+}
+
+.attendance-right-pane textarea {
+    width: 100%;
+    border: 1px solid #dbe4ef;
+    border-radius: 2px;
+    padding: 6px;
+    font-size: 10px;
+    resize: none;
+    outline: none;
+}
+
+.attendance-chat-fab {
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    width: 26px;
+    height: 26px;
+    border: none;
+    border-radius: 50%;
+    background: #1d9bf0;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.payroll-attendance-overlay.fade-in { animation: attendanceFadeIn 0.2s ease; }
+.payroll-attendance-overlay.fade-out { animation: attendanceFadeOut 0.2s ease; }
+.payroll-attendance-modal.scale-up { animation: attendanceScaleUp 0.2s ease; }
+.payroll-attendance-modal.scale-down { animation: attendanceScaleDown 0.2s ease; }
+
+@keyframes attendanceFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes attendanceFadeOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes attendanceScaleUp { from { transform: translateY(8px) scale(0.98); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
+@keyframes attendanceScaleDown { from { transform: translateY(0) scale(1); opacity: 1; } to { transform: translateY(8px) scale(0.98); opacity: 0; } }
+
+@media (max-width: 900px) {
+    .payroll-attendance-modal {
+        width: calc(100vw - 18px);
+    }
+
+    .payroll-attendance-body {
+        grid-template-columns: 1fr;
+    }
+
+    .attendance-left-pane {
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+    }
+}
