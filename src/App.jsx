@@ -84,6 +84,10 @@ import EmployeeSalaryProfilePage from './pages/EmployeeSalaryProfilePage'
 import EmployeeVerifyAttendancePage from './pages/EmployeeVerifyAttendancePage'
 import EmployeeVerifySalaryPage from './pages/EmployeeVerifySalaryPage'
 import EmployeeMasterPage from './pages/EmployeeMasterPage'
+import EmployeeAddPage from './pages/EmployeeAddPage'
+import DesignationMasterPage from './pages/DesignationMasterPage'
+import DesignationRightsMasterPage from './pages/DesignationRightsMasterPage'
+import EmployeeRightsMasterPage from './pages/EmployeeRightsMasterPage'
 import EmployeeAttendanceDetailsPage from './pages/EmployeeAttendanceDetailsPage'
 import EmployeeWorkTimingsPage from './pages/EmployeeWorkTimingsPage'
 import EmployeeAttendanceModesPage from './pages/EmployeeAttendanceModesPage'
@@ -218,6 +222,10 @@ function App() {
           <Route path="/employee/payroll/verify-salary/:id" element={<EmployeeVerifySalaryPage />} />
           <Route path="/employee/profile" element={<EmployeeProfilePage />} />
           <Route path="/master/employee" element={<EmployeeMasterPage />} />
+          <Route path="/master/employee/add" element={<EmployeeAddPage />} />
+          <Route path="/master/employee/designation" element={<DesignationMasterPage />} />
+          <Route path="/master/employee/rights" element={<DesignationRightsMasterPage />} />
+          <Route path="/master/employee/employee-rights" element={<EmployeeRightsMasterPage />} />
           <Route path="/master/employee/attendance" element={<EmployeeAttendanceDetailsPage />} />
           <Route path="/master/employee/attendance/work-timings" element={<EmployeeWorkTimingsPage />} />
           <Route path="/master/employee/attendance/modes" element={<EmployeeAttendanceModesPage />} />

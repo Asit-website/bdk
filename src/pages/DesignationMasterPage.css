@@ -1,0 +1,26 @@
+/* Designation Master Page Styles */
+
+.designation-quick-add {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    padding-bottom: 25px;
+    border-bottom: 1px dashed #e2e8f0;
+}
+
+.designation-quick-add .pm-field {
+    margin-bottom: 0;
+}
+
+.designation-quick-add label {
+    font-size: 13px;
+    font-weight: 850;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.pm-action-btn.edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

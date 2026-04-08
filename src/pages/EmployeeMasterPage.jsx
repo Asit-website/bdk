@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useNavigate } from 'react-router-dom';
 import { Search, Plus, ChevronDown, Calendar, Settings, MoreVertical, Filter, Printer, Download } from 'lucide-react';
 import '../components/Filters.css';
 import '../components/LeadTable.css';
 import './EmployeeMasterPage.css';
 
 const EmployeeMasterPage = () => {
+    const navigate = useNavigate();
     const [startDate, setStartDate] = useState('2026-02-01');
     const [endDate, setEndDate] = useState('2026-02-28');
     const [openActionId, setOpenActionId] = useState(null);
@@ -99,7 +101,12 @@ const EmployeeMasterPage = () => {
                     </div>
 
                     <div className="filter-row-right">
-                        <button className="btn btn-primary btn-add-employee">+ Add New Employee</button>
+                        <button 
+                            className="btn btn-primary btn-add-employee"
+                            onClick={() => navigate('/master/employee/add')}
+                        >
+                            + Add New Employee
+                        </button>
                         <button className="btn-settings">
                             <Settings size={18} color="#64748b" />
                         </button>
