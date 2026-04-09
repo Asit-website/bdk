@@ -1,23 +1,44 @@
 import React, { useState } from 'react';
-import { Search, Plus, MoreVertical, ChevronRight } from 'lucide-react';
+import { Search, Plus, MoreVertical, ChevronRight, Trash2, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import './EmployeeLeavePolicyPage.css';
 
 const EmployeeLeavePolicyPage = () => {
     const navigate = useNavigate();
     const [leaveCycle, setLeaveCycle] = useState('Yearly');
-    const [leaveStats, setLeaveStats] = useState({
-        privileged: { allowed: '0', carry: '0' },
-        sick: { allowed: '0', carry: '0' },
-        casual: { allowed: '0', carry: '0' },
-        od: { allowed: '0', carry: '0' }
-    });
+    const [leaveStats, setLeaveStats] = useState([
+        { id: 'privileged', title: 'Privileged Leave', allowed: '0', carry: '0' },
+        { id: 'sick', title: 'Sick Leave', allowed: '0', carry: '0' },
+        { id: 'casual', title: 'Casual Leave', allowed: '0', carry: '0' },
+        { id: 'od', title: '0.5 day', allowed: '0', carry: '0' }
+    ]);
 
-    const updateStat = (type, field, val) => {
-        setLeaveStats({
-            ...leaveStats,
-            [type]: { ...leaveStats[type], [field]: val }
-        });
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [customLeaveName, setCustomLeaveName] = useState('');
+
+    const updateStat = (id, field, val) => {
+        setLeaveStats(leaveStats.map(item => 
+            item.id === id ? { ...item, [field]: val } : item
+        ));
+    };
+
+    const deleteLeaveType = (id) => {
+        setLeaveStats(leaveStats.filter(item => item.id !== id));
+    };
+
+    const handleAddLeave = () => {
+        if (!customLeaveName.trim()) return;
+        
+        const newLeave = {
+            id: `custom-${Date.now()}`,
+            title: customLeaveName,
+            allowed: '0',
+            carry: '0'
+        };
+        
+        setLeaveStats([...leaveStats, newLeave]);
+        setCustomLeaveName('');
+        setIsModalOpen(false);
     };
 
     return (
@@ -85,14 +106,19 @@ const EmployeeLeavePolicyPage = () => {
                 </div>
 
                 {/* Sections */}
-                {[
-                    { id: 'privileged', title: 'Privileged Leave' },
-                    { id: 'sick', title: 'Sick Leave' },
-                    { id: 'casual', title: 'Casual Leave' },
-                    { id: 'od', title: '0.5 day' }
-                ].map((section) => (
+                {leaveStats.map((section) => (
                     <div className="lp-section" key={section.id}>
-                        <h3 className="lp-section-title">{section.title}</h3>
+                        <div className="lp-section-header">
+                            <h3 className="lp-section-title">{section.title}</h3>
+                            <button 
+                                className="lp-delete-btn"
+                                onClick={() => deleteLeaveType(section.id)}
+                                title="Delete Leave Type"
+                            >
+                                <Trash2 size={16} color="#ef4444" />
+                            </button>
+                        </div>
+                        
                         <div className="lp-field-group">
                             <div className="lp-row">
                                 <span className="lp-row-label">Allowed Leaves</span>
@@ -100,7 +126,7 @@ const EmployeeLeavePolicyPage = () => {
                                     <input 
                                         type="text" 
                                         className="lp-input" 
-                                        value={leaveStats[section.id].allowed} 
+                                        value={section.allowed} 
                                         onChange={(e) => updateStat(section.id, 'allowed', e.target.value)}
                                     />
                                     <span className="lp-inline-label">leaves per year</span>
@@ -112,7 +138,7 @@ const EmployeeLeavePolicyPage = () => {
                                     <input 
                                         type="text" 
                                         className="lp-input" 
-                                        value={leaveStats[section.id].carry} 
+                                        value={section.carry} 
                                         onChange={(e) => updateStat(section.id, 'carry', e.target.value)}
                                     />
                                     <span className="lp-inline-label">leaves on year end</span>
@@ -122,11 +148,41 @@ const EmployeeLeavePolicyPage = () => {
                     </div>
                 ))}
 
-                <div className="lp-add-link">
+                <div className="lp-add-link" onClick={() => setIsModalOpen(true)}>
                     <Plus size={16} />
                     <span>Add Leave Type</span>
                 </div>
             </div>
+
+            {/* Add Custom Paid Leave Modal */}
+            {isModalOpen && (
+                <div className="lp-modal-overlay">
+                    <div className="lp-modal-content">
+                        <div className="lp-modal-header">
+                            <h4>Add Custom Paid Leave</h4>
+                            <button className="lp-modal-close" onClick={() => setIsModalOpen(false)}>
+                                <X size={20} />
+                            </button>
+                        </div>
+                        <div className="lp-modal-body">
+                            <div className="lp-modal-field">
+                                <label>Custom Leave Name</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="Enter leave name"
+                                    value={customLeaveName}
+                                    onChange={(e) => setCustomLeaveName(e.target.value)}
+                                    autoFocus
+                                />
+                            </div>
+                        </div>
+                        <div className="lp-modal-footer">
+                            <button className="lp-modal-btn-cancel" onClick={() => setIsModalOpen(false)}>Cancel</button>
+                            <button className="lp-modal-btn-save" onClick={handleAddLeave}>Save</button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
