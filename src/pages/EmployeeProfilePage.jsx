@@ -12,6 +12,16 @@ const EmployeeProfilePage = () => {
     const [selectedDate, setSelectedDate] = useState(18);
     const [isEditDrawerOpen, setIsEditDrawerOpen] = useState(false);
     const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
+    
+    // Modernized States
+    const [attendanceType, setAttendanceType] = useState('present');
+    const [activeLeave, setActiveLeave] = useState(null);
+    const [showTimeInModal, setShowTimeInModal] = useState(false);
+    const [showTimePicker, setShowTimePicker] = useState(false);
+    const [showImageModal, setShowImageModal] = useState(false);
+    const [punchTime, setPunchTime] = useState('08:30');
+    const [punchPeriod, setPunchPeriod] = useState('AM');
+
     const selectedDay = 18;
     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -150,7 +160,7 @@ const EmployeeProfilePage = () => {
                                 <span>Thu</span>
                                 <span>Fri</span>
                                 <span>Sat</span>
-                            </div>
+                             </div>
 
                             <div className="employee-days-grid">
                                 {dayCells.map((item, index) => (
@@ -189,17 +199,16 @@ const EmployeeProfilePage = () => {
 
                         <div className="employee-request-card">
                             <h4>Request</h4>
-                            <button
-                                type="button"
-                                className="request-row"
-                                onClick={() => setIsRequestModalOpen(true)}
-                            >
-                                <span className="employee-profile-avatar small" />
-                                <div>
-                                    <div className="request-name">{employee.name}</div>
-                                    <div className="request-meta">18 June 2026 | 1 Day</div>
+                            <div className="flex justify-between items-center mb-4">
+                               <div className="request-row">
+                                    <span className="employee-profile-avatar small" />
+                                    <div>
+                                        <div className="request-name">{employee.name}</div>
+                                        <div className="request-meta">18 June 2026 | 1 Day</div>
+                                    </div>
                                 </div>
-                            </button>
+                                <button className="status-group-label clickable" onClick={() => setIsRequestModalOpen(true)}>View All</button>
+                            </div>
                         </div>
 
                         <div className="employee-message-card">
@@ -232,41 +241,71 @@ const EmployeeProfilePage = () => {
 
                         <div className="employee-edit-date-row">
                             <strong>{selectedDate} {monthNames[calendarMonth]}</strong>
-                            <button type="button" className="refresh-mini-btn"><RotateCw size={14} /></button>
+                            <div className="flex gap-2">
+                                <span className="status-group-label">All Clickable</span>
+                                <button type="button" className="refresh-mini-btn"><RotateCw size={14} /></button>
+                            </div>
                         </div>
 
                         <div className="employee-tag-group">
-                            <span className="employee-tag absent">ABSENT</span>
-                            <span className="employee-tag half">HALF DAY</span>
-                            <span className="employee-tag present">PRESENT</span>
-                            <span className="employee-tag weekoff">WEEK OFF</span>
-                            <span className="employee-tag holiday">HOLIDAY</span>
+                            <span 
+                                className={`employee-tag absent ${attendanceType === 'absent' ? 'active' : ''}`}
+                                onClick={() => setAttendanceType('absent')}
+                            >ABSENT</span>
+                            <span 
+                                className={`employee-tag half ${attendanceType === 'half' ? 'active' : ''}`}
+                                onClick={() => setAttendanceType('half')}
+                            >HALF DAY</span>
+                            <span 
+                                className={`employee-tag present ${attendanceType === 'present' ? 'active' : ''}`}
+                                onClick={() => setAttendanceType('present')}
+                            >PRESENT</span>
+                            <span 
+                                className={`employee-tag weekoff ${attendanceType === 'weekoff' ? 'active' : ''}`}
+                                onClick={() => setAttendanceType('weekoff')}
+                            >WEEK OFF</span>
+                            <span 
+                                className={`employee-tag holiday ${attendanceType === 'holiday' ? 'active' : ''}`}
+                                onClick={() => setAttendanceType('holiday')}
+                            >HOLIDAY</span>
                         </div>
 
                         <div className="employee-divider" />
 
-                        <div className="employee-edit-subtitle">Leaves</div>
+                        <div className="flex justify-between items-center mb-2">
+                            <div className="employee-edit-subtitle">Leaves</div>
+                            <span className="status-group-label">All Clickable</span>
+                        </div>
                         <div className="employee-tag-group leaves">
-                            <span className="employee-tag paid-leave">PAID LEAVE</span>
-                            <span className="employee-tag half-leave">HALF DAY LEAVE</span>
-                            <span className="employee-tag unpaid-leave">UNPAID LEAVE</span>
+                            <span 
+                                className={`employee-tag paid-leave ${activeLeave === 'paid' ? 'active' : ''}`}
+                                onClick={() => setActiveLeave(activeLeave === 'paid' ? null : 'paid')}
+                            >PAID LEAVE</span>
+                            <span 
+                                className={`employee-tag half-leave ${activeLeave === 'half' ? 'active' : ''}`}
+                                onClick={() => setActiveLeave(activeLeave === 'half' ? null : 'half')}
+                            >HALF DAY LEAVE</span>
+                            <span 
+                                className={`employee-tag unpaid-leave ${activeLeave === 'unpaid' ? 'active' : ''}`}
+                                onClick={() => setActiveLeave(activeLeave === 'unpaid' ? null : 'unpaid')}
+                            >UNPAID LEAVE</span>
                         </div>
 
                         <div className="employee-divider" />
 
                         <div className="employee-punch-log">
-                            <div className="punch-row">
+                            <div className="punch-row" onClick={() => setShowImageModal(true)} style={{cursor: 'pointer'}}>
                                 <span className="employee-profile-avatar small" />
                                 <div className="punch-body">
-                                    <div className="punch-time">8.30AM <span className="in">IN</span></div>
+                                    <div className="punch-time">08:30 AM <span className="in">IN</span></div>
                                     <div className="punch-address">W726+3M8, Bhandirban, West Bengal 722149, India</div>
                                 </div>
                                 <span className="punch-shift">General Shift</span>
                             </div>
-                            <div className="punch-row">
+                            <div className="punch-row" onClick={() => setShowImageModal(true)} style={{cursor: 'pointer'}}>
                                 <span className="employee-profile-avatar small" />
                                 <div className="punch-body">
-                                    <div className="punch-time">8.30PM <span className="out">OUT</span></div>
+                                    <div className="punch-time">08:30 PM <span className="out">OUT</span></div>
                                     <div className="punch-address">W726+3M8, Bhandirban, West Bengal 722149, India</div>
                                 </div>
                                 <span className="punch-shift">General Shift</span>
@@ -274,13 +313,103 @@ const EmployeeProfilePage = () => {
                         </div>
 
                         <div className="employee-edit-links">
-                            <button type="button">+ ADD PUNCHOUT</button>
+                            <button type="button" onClick={() => setShowTimeInModal(true)}>+ ADD PUNCH IN</button>
+                            <button type="button">+ ADD PUNCH OUT</button>
                             <button type="button">+ ADD BREAK START</button>
                         </div>
 
                         <textarea className="employee-edit-note" placeholder="Add Note" rows={3} />
                     </div>
                 </div>
+
+                {/* Nested Modal: In Time */}
+                {showTimeInModal && (
+                    <div className="nested-modal-overlay" onClick={() => setShowTimeInModal(false)}>
+                        <div className="nested-modal-container" onClick={e => e.stopPropagation()}>
+                            <div className="nested-modal-header">
+                                <h4>In Time</h4>
+                                <button className="refresh-mini-btn" onClick={() => setShowTimeInModal(false)}><X size={18}/></button>
+                            </div>
+                            <div className="nested-modal-body">
+                                <div className="modal-field">
+                                    <label className="modal-label">Select Shift</label>
+                                    <select className="modal-select">
+                                        <option>General Shift | 08:30 AM - 05:30 PM</option>
+                                    </select>
+                                </div>
+                                <div className="modal-field">
+                                    <label className="modal-label">Select Time</label>
+                                    <div className="modal-input-box" onClick={() => setShowTimePicker(true)} style={{cursor: 'pointer'}}>
+                                        {punchTime} {punchPeriod}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="nested-modal-footer">
+                                <button className="modal-btn-delete">Delete</button>
+                                <button className="modal-btn-confirm" onClick={() => setShowTimeInModal(false)}>Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* Nested Modal: Time Picker */}
+                {showTimePicker && (
+                    <div className="nested-modal-overlay" onClick={() => setShowTimePicker(false)}>
+                        <div className="nested-modal-container" onClick={e => e.stopPropagation()}>
+                            <div className="nested-modal-header">
+                                <button className="refresh-mini-btn" onClick={() => setShowTimePicker(false)}><ChevronLeft size={18}/></button>
+                                <h4>3rd April 2026</h4>
+                                <button className="refresh-mini-btn"><ChevronRight size={18}/></button>
+                            </div>
+                            <div className="nested-modal-body">
+                                <div className="time-picker-grid">
+                                    {['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11'].map(h => (
+                                        <button 
+                                            key={h} 
+                                            className={`time-btn ${punchTime.startsWith(h) ? 'active' : ''}`}
+                                            onClick={() => setPunchTime(`${h}:30`)}
+                                        >{h}</button>
+                                    ))}
+                                </div>
+                                <div className="am-pm-toggle">
+                                    <button 
+                                        className={`ampm-btn ${punchPeriod === 'AM' ? 'active' : ''}`}
+                                        onClick={() => setPunchPeriod('AM')}
+                                    >AM</button>
+                                    <button 
+                                        className={`ampm-btn ${punchPeriod === 'PM' ? 'active' : ''}`}
+                                        onClick={() => setPunchPeriod('PM')}
+                                    >PM</button>
+                                </div>
+                            </div>
+                            <div className="nested-modal-footer">
+                                <button className="btn-modal-cancel" onClick={() => setShowTimePicker(false)}>Cancel</button>
+                                <button className="modal-btn-confirm" onClick={() => setShowTimePicker(false)}>Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* Nested Modal: Punch Image */}
+                {showImageModal && (
+                    <div className="nested-modal-overlay" onClick={() => setShowImageModal(false)}>
+                        <div className="nested-modal-container" onClick={e => e.stopPropagation()}>
+                            <div className="nested-modal-header">
+                                <h4>Punch Image</h4>
+                                <button className="refresh-mini-btn" onClick={() => setShowImageModal(false)}><X size={18}/></button>
+                            </div>
+                            <div className="nested-modal-body">
+                                <div className="punch-image-view">
+                                    {/* Mocking the drawing icon as per SS2 */}
+                                    <svg width="100" height="150" viewBox="0 0 100 150">
+                                        <path d="M50 10 L10 140 L90 140 Z" fill="none" stroke="currentColor" strokeWidth="2" />
+                                        <circle cx="50" cy="40" r="15" fill="none" stroke="currentColor" strokeWidth="2" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 <RequestDetailsModal
                     isOpen={isRequestModalOpen}

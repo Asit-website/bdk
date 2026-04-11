@@ -221,10 +221,34 @@ const EmployeeMasterPage = () => {
                     <button type="button" className="service-action-item">View / Edit</button>
                     <button type="button" className="service-action-item">Update</button>
                     <button type="button" className="service-action-item danger">Delete</button>
-                    <button type="button" className="service-action-item">Attendance Details</button>
-                    <button type="button" className="service-action-item">Salary Details</button>
-                    <button type="button" className="service-action-item">Leave & Balance Details</button>
-                    <button type="button" className="service-action-item">Penalty & Overtime Details</button>
+                    <button 
+                        type="button" 
+                        className="service-action-item"
+                        onClick={() => navigate(`/master/employee/attendance/${openActionId}`)}
+                    >
+                        Attendance Details
+                    </button>
+                    <button 
+                        type="button" 
+                        className="service-action-item"
+                        onClick={() => navigate(`/master/employee/salary/${openActionId}`)}
+                    >
+                        Salary Details
+                    </button>
+                    <button 
+                        type="button" 
+                        className="service-action-item"
+                        onClick={() => navigate(`/master/employee/leave/${openActionId}`)}
+                    >
+                        Leave & Balance Details
+                    </button>
+                    <button 
+                        type="button" 
+                        className="service-action-item"
+                        onClick={() => navigate(`/master/employee/penalty/${openActionId}`)}
+                    >
+                        Penalty & Overtime Details
+                    </button>
                 </div>,
                 document.body
             )}

@@ -74,7 +74,68 @@ const SalaryDetailDrawer = ({ isOpen, onClose, employee, month, title, amount, e
                                 <span className="form-sub-title">Add {title}</span>
                             </div>
 
-                            {title === 'Reimbursements' || title === 'Bonus' || title === 'Other Earnings' || title === 'Incentives' || title === 'Other Deductions' ? (
+                            {title === 'Incentives' ? (
+                                <>
+                                    <div className="form-field-group">
+                                        <label className="form-label">Type</label>
+                                        <div className="category-select-wrapper">
+                                            <select 
+                                                className="form-input custom-select"
+                                                value={formData.category} // Reusing category field for type
+                                                onChange={(e) => setFormData({...formData, category: e.target.value})}
+                                            >
+                                                <option value="">Select Incentive Type</option>
+                                                <option value="1">Sales Incentive</option>
+                                                <option value="2">Performance Bonus</option>
+                                            </select>
+                                            <div className="category-actions">
+                                                <button className="add-cat-plus" onClick={() => setShowCategoryModal(true)}>
+                                                    <Plus size={16} />
+                                                </button>
+                                                <ChevronDown size={14} className="select-arrow-icon" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="form-field-group">
+                                        <label className="form-label">Amount</label>
+                                        <div className="input-with-prefix">
+                                            <span className="prefix-icon">₹</span>
+                                            <input 
+                                                type="text" 
+                                                className="form-input" 
+                                                placeholder="0"
+                                                value={formData.rate} 
+                                                onChange={(e) => setFormData({...formData, rate: e.target.value})}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="form-field-group">
+                                        <label className="form-label">Date</label>
+                                        <div className="input-with-suffix">
+                                            <input 
+                                                type="date" 
+                                                className="form-input" 
+                                                value={formData.date}
+                                                onChange={(e) => setFormData({...formData, date: e.target.value})}
+                                            />
+                                            <Calendar size={16} className="suffix-icon" />
+                                        </div>
+                                    </div>
+
+                                    <div className="form-field-group">
+                                        <label className="form-label">Notes</label>
+                                        <textarea 
+                                            className="form-textarea" 
+                                            placeholder="Enter notes"
+                                            rows="4"
+                                            value={formData.notes}
+                                            onChange={(e) => setFormData({...formData, notes: e.target.value})}
+                                        ></textarea>
+                                    </div>
+                                </>
+                            ) : title === 'Reimbursements' || title === 'Bonus' || title === 'Other Earnings' || title === 'Other Deductions' ? (
                                 <>
                                     <div className="form-field-group">
                                         <label className="form-label">Amount</label>
@@ -91,7 +152,7 @@ const SalaryDetailDrawer = ({ isOpen, onClose, employee, month, title, amount, e
                                     </div>
 
                                     <div className="form-field-group">
-                                        <label className="form-label">Payment Date</label>
+                                        <label className="form-label">Date</label>
                                         <div className="input-with-suffix">
                                             <input 
                                                 type="date" 
@@ -172,7 +233,7 @@ const SalaryDetailDrawer = ({ isOpen, onClose, employee, month, title, amount, e
                                     </div>
 
                                     <div className="form-field-group">
-                                        <label className="form-label">Payment Date</label>
+                                        <label className="form-label">Date</label>
                                         <div className="input-with-suffix">
                                             <input 
                                                 type="date" 
@@ -219,23 +280,25 @@ const SalaryDetailDrawer = ({ isOpen, onClose, employee, month, title, amount, e
                     )}
                 </div>
 
-                {/* Add New Category Modal */}
+                {/* Add New Category/Type Modal */}
                 {showCategoryModal && (
                     <div className="modal-overlay">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h4>Add New Category</h4>
+                                <h4>{title === 'Incentives' ? 'Add New Incentive Type' : 'Add New Category'}</h4>
                                 <button className="modal-close" onClick={() => setShowCategoryModal(false)}>
                                     <X size={18} />
                                 </button>
                             </div>
                             <div className="modal-body">
                                 <div className="form-field-group">
-                                    <label className="form-label">Category Name</label>
+                                    <label className="form-label">
+                                        {title === 'Incentives' ? 'Incentive Name' : 'Category Name'}
+                                    </label>
                                     <input 
                                         type="text" 
                                         className="form-input" 
-                                        placeholder="Enter category name"
+                                        placeholder={title === 'Incentives' ? 'Enter incentive name' : 'Enter category name'}
                                         value={newCategory}
                                         onChange={(e) => setNewCategory(e.target.value)}
                                     />
@@ -244,7 +307,6 @@ const SalaryDetailDrawer = ({ isOpen, onClose, employee, month, title, amount, e
                             <div className="modal-footer">
                                 <button className="modal-btn-cancel" onClick={() => setShowCategoryModal(false)}>Cancel</button>
                                 <button className="modal-btn-save" onClick={() => {
-                                    // Handle save category
                                     setShowCategoryModal(false);
                                 }}>Save</button>
                             </div>

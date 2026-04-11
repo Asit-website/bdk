@@ -226,15 +226,15 @@ function App() {
           <Route path="/master/employee/designation" element={<DesignationMasterPage />} />
           <Route path="/master/employee/rights" element={<DesignationRightsMasterPage />} />
           <Route path="/master/employee/employee-rights" element={<EmployeeRightsMasterPage />} />
-          <Route path="/master/employee/attendance" element={<EmployeeAttendanceDetailsPage />} />
+          <Route path="/master/employee/attendance/:id" element={<EmployeeAttendanceDetailsPage />} />
           <Route path="/master/employee/attendance/work-timings" element={<EmployeeWorkTimingsPage />} />
           <Route path="/master/employee/attendance/modes" element={<EmployeeAttendanceModesPage />} />
           <Route path="/master/employee/attendance/automation" element={<EmployeeAutomationRulesPage />} />
-          <Route path="/master/employee/salary" element={<EmployeeSalaryDetailsPage />} />
-          <Route path="/master/employee/leave" element={<EmployeeLeaveBalancePage />} />
+          <Route path="/master/employee/salary/:id" element={<EmployeeSalaryDetailsPage />} />
+          <Route path="/master/employee/leave/:id" element={<EmployeeLeaveBalancePage />} />
           <Route path="/master/employee/leave/policy" element={<EmployeeLeavePolicyPage />} />
           <Route path="/master/employee/leave/balance" element={<EmployeeLeaveBalanceConfigPage />} />
-          <Route path="/master/employee/penalty" element={<EmployeePenaltyOvertimePage />} />
+          <Route path="/master/employee/penalty/:id" element={<EmployeePenaltyOvertimePage />} />
           <Route path="/master/employee/penalty/early-leaving" element={<EmployeeEarlyLeavingPolicyPage />} />
           <Route path="/master/employee/penalty/late-coming" element={<EmployeeLateComingPolicyPage />} />
           <Route path="/master/employee/penalty/overtime" element={<EmployeeOvertimePolicyPage />} />

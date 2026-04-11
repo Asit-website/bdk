@@ -204,10 +204,6 @@ const Sidebar = ({ isCollapsed, toggleSidebar, onContactClick }) => {
           label: 'Employee Master',
           path: '/master/employee',
           subItems: [
-            { label: 'ATTENDANCE DETAILS', path: '/master/employee/attendance' },
-            { label: 'SALLARY DETAILS', path: '/master/employee/salary' },
-            { label: 'LEAVE & BALANCE DETAILS', path: '/master/employee/leave' },
-            { label: 'PANALTY & OVERTIME DETAILS', path: '/master/employee/penalty' },
             { label: 'DESIGNATION MASTER', path: '/master/employee/designation' },
             { label: 'DESIGNATION RIGHTS MASTER', path: '/master/employee/rights' },
             { label: 'EMPLOYEE RIGHTS MASTER', path: '/master/employee/employee-rights' }

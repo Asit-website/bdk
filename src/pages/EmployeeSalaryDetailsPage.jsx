@@ -1,16 +1,69 @@
 import React, { useState } from 'react';
-import { Search, Plus, MoreVertical, ChevronRight, Trash2 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Search, Plus, MoreVertical, ChevronRight, Trash2, X } from 'lucide-react';
+import { useNavigate, useParams } from 'react-router-dom';
 import './EmployeeSalaryDetailsPage.css';
 
 const EmployeeSalaryDetailsPage = () => {
     const navigate = useNavigate();
+    const { id } = useParams();
+    
+    // In a real app, you'd fetch the employee name by ID. 
+    // Using the name from SS2 as requested.
+    const employeeName = "BABURAM HAMBRAM";
+
     const [salaryConfig, setSalaryConfig] = useState({
         effectiveDate: '2026-03',
         salaryType: 'Per Month',
         salaryStructure: 'Custom',
         ctcAmount: '13000'
     });
+
+    const [earnings, setEarnings] = useState([
+        { id: 1, name: 'Basic', calculation: 'On Attendance', amount: '10000', deletable: false },
+        { id: 2, name: 'House Allowance', calculation: 'On Attendance', amount: '3000', deletable: true }
+    ]);
+
+    const [deductions, setDeductions] = useState([]);
+
+    const [showAllowanceModal, setShowAllowanceModal] = useState(false);
+    const [showDeductionModal, setShowDeductionModal] = useState(false);
+    const [customName, setCustomName] = useState('');
+
+    const handleAddAllowance = () => {
+        if (!customName.trim()) return;
+        const newAllowance = {
+            id: Date.now(),
+            name: customName,
+            calculation: 'On Attendance',
+            amount: '0',
+            deletable: true
+        };
+        setEarnings([...earnings, newAllowance]);
+        setShowAllowanceModal(false);
+        setCustomName('');
+    };
+
+    const handleAddDeduction = () => {
+        if (!customName.trim()) return;
+        const newDeduction = {
+            id: Date.now(),
+            name: customName,
+            calculation: 'On Attendance',
+            amount: '0',
+            deletable: true
+        };
+        setDeductions([...deductions, newDeduction]);
+        setShowDeductionModal(false);
+        setCustomName('');
+    };
+
+    const handleDeleteEarning = (id) => {
+        setEarnings(earnings.filter(item => item.id !== id));
+    };
+
+    const handleDeleteDeduction = (id) => {
+        setDeductions(deductions.filter(item => item.id !== id));
+    };
 
     return (
         <div className="page-container">
@@ -33,6 +86,8 @@ const EmployeeSalaryDetailsPage = () => {
             <div className="salary-details-container">
                 <div className="sd-header">
                     <div className="sd-breadcrumb">
+                        <span className="crumb-name">{employeeName}</span>
+                        <ChevronRight size={14} color="#94a3b8" />
                         <span className="crumb-inactive" onClick={() => navigate('/master/employee')}>Employee Master</span>
                         <ChevronRight size={14} color="#94a3b8" />
                         <span className="crumb-active">Salary Details</span>
@@ -53,14 +108,14 @@ const EmployeeSalaryDetailsPage = () => {
                     </div>
                     <div className="sd-field">
                         <span className="sd-label">Salary Type</span>
-                        <select className="sd-select" value={salaryConfig.salaryType}>
+                        <select className="sd-select" value={salaryConfig.salaryType} onChange={(e) => setSalaryConfig({...salaryConfig, salaryType: e.target.value})}>
                             <option>Per Month</option>
                             <option>Per Day</option>
                         </select>
                     </div>
                     <div className="sd-field">
                         <span className="sd-label">Salary Structure</span>
-                        <select className="sd-select" value={salaryConfig.salaryStructure}>
+                        <select className="sd-select" value={salaryConfig.salaryStructure} onChange={(e) => setSalaryConfig({...salaryConfig, salaryStructure: e.target.value})}>
                             <option>Custom</option>
                             <option>Standard</option>
                         </select>
@@ -86,30 +141,30 @@ const EmployeeSalaryDetailsPage = () => {
                             <span className="col-amount">Amount</span>
                         </div>
                         
-                        <div className="sd-row">
-                            <span className="col-head">Basic</span>
-                            <div className="col-calc">
-                                <select className="sd-row-select"><option>On Attendance</option></select>
+                        {earnings.map((earn) => (
+                            <div className="sd-row" key={earn.id}>
+                                <span className="col-head">{earn.name}</span>
+                                <div className="col-calc">
+                                    <select className="sd-row-select">
+                                        <option>{earn.calculation}</option>
+                                    </select>
+                                </div>
+                                <div className="col-amount">
+                                    <span>₹</span>
+                                    <input type="text" className="sd-row-input" defaultValue={earn.amount} />
+                                    {earn.deletable && (
+                                        <Trash2 
+                                            size={14} 
+                                            color="#ef4444" 
+                                            style={{cursor: 'pointer'}} 
+                                            onClick={() => handleDeleteEarning(earn.id)}
+                                        />
+                                    )}
+                                </div>
                             </div>
-                            <div className="col-amount">
-                                <span>₹</span>
-                                <input type="text" className="sd-row-input" defaultValue="10000" />
-                            </div>
-                        </div>
+                        ))}
 
-                        <div className="sd-row">
-                            <span className="col-head">House Allowance</span>
-                            <div className="col-calc">
-                                <select className="sd-row-select"><option>On Attendance</option></select>
-                            </div>
-                            <div className="col-amount">
-                                <span>₹</span>
-                                <input type="text" className="sd-row-input" defaultValue="3000" />
-                                <Trash2 size={14} color="#ef4444" style={{cursor: 'pointer'}} />
-                            </div>
-                        </div>
-
-                        <div className="sd-add-link">
+                        <div className="sd-add-link" onClick={() => setShowAllowanceModal(true)}>
                             <Plus size={14} />
                             <span>Add Allowance</span>
                         </div>
@@ -140,7 +195,7 @@ const EmployeeSalaryDetailsPage = () => {
                                     <select className="sd-row-select"><option>{item.calc}</option></select>
                                 </div>
                                 <div className="col-included">
-                                    {item.incl === 'N/A' ? <span style={{fontSize: '11px', color: '#94a3b8'}}>N/A</span> : <input type="checkbox" className="sd-checkbox" defaultChecked={item.incl} />}
+                                    {item.incl === 'N/A' ? <span style={{fontSize: '11px', color: '#94a3b8'}}>N/A</span> : <input type="checkbox" className="sd-checkbox" defaultChecked={item.incl} onChange={() => {}} />}
                                 </div>
                                 <div className="col-amount">
                                     <span>₹</span>
@@ -187,10 +242,35 @@ const EmployeeSalaryDetailsPage = () => {
                             <span className="col-calc">Calculation</span>
                             <span className="col-amount">Amount</span>
                         </div>
-                        <div className="sd-row">
-                            <div className="col-head" style={{fontSize: '12px', color: '#94a3b8', fontStyle: 'italic'}}>No Deductions Added</div>
-                        </div>
-                        <div className="sd-add-link">
+                        
+                        {deductions.length === 0 ? (
+                            <div className="sd-row">
+                                <div className="col-head" style={{fontSize: '12px', color: '#94a3b8', fontStyle: 'italic'}}>No Deductions Added</div>
+                            </div>
+                        ) : (
+                            deductions.map((ded) => (
+                                <div className="sd-row" key={ded.id}>
+                                    <span className="col-head">{ded.name}</span>
+                                    <div className="col-calc">
+                                        <select className="sd-row-select">
+                                            <option>{ded.calculation}</option>
+                                        </select>
+                                    </div>
+                                    <div className="col-amount">
+                                        <span>₹</span>
+                                        <input type="text" className="sd-row-input" defaultValue={ded.amount} />
+                                        <Trash2 
+                                            size={14} 
+                                            color="#ef4444" 
+                                            style={{cursor: 'pointer'}} 
+                                            onClick={() => handleDeleteDeduction(ded.id)}
+                                        />
+                                    </div>
+                                </div>
+                            ))
+                        )}
+
+                        <div className="sd-add-link" onClick={() => setShowDeductionModal(true)}>
                             <Plus size={14} />
                             <span>Add Deduction</span>
                         </div>
@@ -203,6 +283,70 @@ const EmployeeSalaryDetailsPage = () => {
                 <span>Total CTC: -</span>
                 <div className="ctc-val">₹ {salaryConfig.ctcAmount}.00 / Month</div>
             </div>
+
+            {/* Allowances Modal */}
+            {showAllowanceModal && (
+                <div className="sd-modal-overlay" onClick={() => setShowAllowanceModal(false)}>
+                    <div className="sd-modal-content" onClick={e => e.stopPropagation()}>
+                        <div className="sd-modal-header">
+                            <h4>Add Custom Allowances</h4>
+                            <button className="sd-modal-close" onClick={() => setShowAllowanceModal(false)}>
+                                <X size={20} />
+                            </button>
+                        </div>
+                        <div className="sd-modal-body">
+                            <div className="sd-form-group">
+                                <label>Enter Custom Allowance Name</label>
+                                <input 
+                                    type="text" 
+                                    className="modal-input" 
+                                    placeholder="Enter name"
+                                    value={customName}
+                                    onChange={e => setCustomName(e.target.value)}
+                                    autoFocus
+                                    onKeyDown={e => e.key === 'Enter' && handleAddAllowance()}
+                                />
+                            </div>
+                        </div>
+                        <div className="sd-modal-footer">
+                            <button className="btn-modal-cancel" onClick={() => setShowAllowanceModal(false)}>Cancel</button>
+                            <button className="btn-modal-add" onClick={handleAddAllowance}>Add</button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Deductions Modal */}
+            {showDeductionModal && (
+                <div className="sd-modal-overlay" onClick={() => setShowDeductionModal(false)}>
+                    <div className="sd-modal-content" onClick={e => e.stopPropagation()}>
+                        <div className="sd-modal-header">
+                            <h4>Add Custom Deductions</h4>
+                            <button className="sd-modal-close" onClick={() => setShowDeductionModal(false)}>
+                                <X size={20} />
+                            </button>
+                        </div>
+                        <div className="sd-modal-body">
+                            <div className="sd-form-group">
+                                <label>Enter Custom Deduction Name</label>
+                                <input 
+                                    type="text" 
+                                    className="modal-input" 
+                                    placeholder="Enter name"
+                                    value={customName}
+                                    onChange={e => setCustomName(e.target.value)}
+                                    autoFocus
+                                    onKeyDown={e => e.key === 'Enter' && handleAddDeduction()}
+                                />
+                            </div>
+                        </div>
+                        <div className="sd-modal-footer">
+                            <button className="btn-modal-cancel" onClick={() => setShowDeductionModal(false)}>Cancel</button>
+                            <button className="btn-modal-add" onClick={handleAddDeduction}>Add</button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

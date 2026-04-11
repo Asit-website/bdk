@@ -414,6 +414,30 @@
     font-size: 18px;
 }
 
+.employee-edit-subtitle {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111827;
+}
+
+/* Modernized Status Group */
+.status-group-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #ef4444;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.status-group-label.clickable {
+    color: #3b82f6;
+    cursor: pointer;
+}
+
+.status-group-label.clickable:hover {
+    text-decoration: underline;
+}
+
 .employee-tag-group {
     display: flex;
     gap: 8px;
@@ -422,77 +446,262 @@
 }
 
 .employee-tag {
-    padding: 4px 12px;
-    border-radius: 14px;
+    padding: 6px 14px;
+    border-radius: 6px;
     font-size: 11px;
     font-weight: 700;
-    border: 1px solid transparent;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: #ffffff;
+    min-width: 80px;
+    text-align: center;
 }
 
 .employee-tag.absent { color: #ef4444; border-color: #fca5a5; }
-.employee-tag.half { color: #ca8a04; border-color: #facc15; }
+.employee-tag.absent.active { background: #fee2e2; border-color: #ef4444; }
+
+.employee-tag.half { color: #f59e0b; border-color: #fde68a; }
+.employee-tag.half.active { background: #fef3c7; border-color: #f59e0b; }
+
 .employee-tag.present { color: #16a34a; border-color: #86efac; }
-.employee-tag.weekoff { color: #475569; border-color: #94a3b8; }
-.employee-tag.holiday { color: #64748b; border-color: #cbd5e1; }
-.employee-tag.paid-leave { color: #a855f7; border-color: #d8b4fe; }
-.employee-tag.half-leave { color: #c026d3; border-color: #e9d5ff; }
-.employee-tag.unpaid-leave { color: #0284c7; border-color: #7dd3fc; }
+.employee-tag.present.active { background: #dcfce7; border-color: #16a34a; }
+
+.employee-tag.weekoff { color: #475569; border-color: #cbd5e1; }
+.employee-tag.weekoff.active { background: #f1f5f9; border-color: #475569; }
+
+.employee-tag.holiday { color: #64748b; border-color: #e2e8f0; }
+.employee-tag.holiday.active { background: #f8fafc; border-color: #64748b; }
+
+.employee-tag.paid-leave { color: #a855f7; border-color: #ddd6fe; }
+.employee-tag.paid-leave.active { background: #f3e8ff; border-color: #a855f7; }
+
+.employee-tag.half-leave { color: #c026d3; border-color: #f5d0fe; }
+.employee-tag.half-leave.active { background: #fae8ff; border-color: #c026d3; }
+
+.employee-tag.unpaid-leave { color: #0ea5e9; border-color: #bae6fd; }
+.employee-tag.unpaid-leave.active { background: #e0f2fe; border-color: #0ea5e9; }
 
 .employee-divider {
     margin: 12px 0;
     border-top: 1px solid #d1d5db;
 }
 
-.employee-edit-subtitle {
-    font-size: 13px;
-    font-weight: 700;
-    color: #111827;
-}
-
+/* Punch Log Modernization */
 .employee-punch-log {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 .punch-row {
-    display: grid;
-    grid-template-columns: 24px minmax(0, 1fr) auto;
-    gap: 8px;
-    align-items: start;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
 }
 
 .punch-body {
+    flex: 1;
     min-width: 0;
 }
 
 .punch-time {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
-    color: #111827;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
-.punch-time .in {
-    color: #16a34a;
-    margin-left: 6px;
-}
-
-.punch-time .out {
-    color: #ef4444;
-    margin-left: 6px;
-}
+.punch-time .in { color: #16a34a; font-size: 11px; }
+.punch-time .out { color: #ef4444; font-size: 11px; }
 
 .punch-address {
-    margin-top: 2px;
     font-size: 10px;
     color: #64748b;
-    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .punch-shift {
-    font-size: 11px;
-    color: #334155;
-    white-space: nowrap;
+    font-size: 10px;
+    font-weight: 600;
+    color: #94a3b8;
+    background: #f8fafc;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* Modals Overlay */
+.nested-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+}
+
+.nested-modal-container {
+    background: #ffffff;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    animation: modalSlideUp 0.3s ease-out;
+}
+
+@keyframes modalSlideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.nested-modal-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nested-modal-header h4 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.nested-modal-body {
+    padding: 20px;
+}
+
+.modal-field {
+    margin-bottom: 20px;
+}
+
+.modal-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.modal-select, .modal-input-box {
+    display: block;
+    width: 100%;
+    height: 42px;
+    padding: 0 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 13px;
+    background: #ffffff;
+    color: #1e293b;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.modal-select {
+    cursor: pointer;
+    appearance: auto;
+}
+
+.modal-input-box {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Time Picker Grid */
+.time-picker-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.time-btn {
+    padding: 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.time-btn.active {
+    background: #3b82f6;
+    color: #ffffff;
+    border-color: #3b82f6;
+}
+
+.am-pm-toggle {
+    display: flex;
+    gap: 10px;
+}
+
+.ampm-btn {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.ampm-btn.active {
+    background: #0f172a;
+    color: #ffffff;
+}
+
+.nested-modal-footer {
+    padding: 16px 20px;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    gap: 10px;
+}
+
+.modal-btn-delete {
+    background: #fee2e2;
+    color: #ef4444;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.modal-btn-confirm {
+    flex: 1;
+    background: #3b82f6;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.punch-image-view {
+    width: 100%;
+    aspect-ratio: 1;
+    background: #f1f5f9;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.punch-image-view svg {
+    color: #84cc16;
 }
 
 .employee-edit-links {
