@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { MoreVertical, Filter, Printer, Download, ChevronsUpDown, Eye, FileText, Trash2, History, Search } from 'lucide-react';
+import StockTransferDetailsModal from './StockTransferDetailsModal';
 import './LeadTable.css';
 
 const PurchaseActionMenu = ({ isOpen, anchorRect, onClose }) => {
@@ -33,28 +34,48 @@ const PurchaseActionMenu = ({ isOpen, anchorRect, onClose }) => {
 const StockTransferInTable = () => {
     const [openMenuId, setOpenMenuId] = useState(null);
     const [anchorRect, setAnchorRect] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedData, setSelectedData] = useState(null);
     const tableRef = useRef(null);
 
     const data = [
         {
             id: 1,
-            srNo: 1,
-            date: '',
-            transferNo: '',
-            qty: '',
-            location: '',
-            totalAmount: ''
+            slNo: 1,
+            date: '23/03/2026',
+            transferNo: '235',
+            transferFrom: 'WORKSHOP',
+            receiveLocation: 'MAIN BRANCH',
+            receivedBy: 'SWARUP NAG',
+            transportedBy: 'SOMANTAH MURMU',
+            status: 'Received'
+        },
+        {
+            id: 2,
+            slNo: 2,
+            date: '12/02/2026',
+            transferNo: '212',
+            transferFrom: 'SHOP',
+            receiveLocation: 'WORKSHOP',
+            receivedBy: '',
+            transportedBy: 'BABURAM HEMBRAM',
+            status: 'Pending'
         }
     ];
 
     const columns = [
-        'Sl No.', 'Date', 'Transfer No.', 'Qty', 'Location', 'Total Amount'
+        'sl No.', 'Date', 'Transfer No', 'Transfer From', 'Receive Location', 'Recieved By', 'Transported By', 'Status'
     ];
 
     const toggleMenu = (e, id) => {
         const rect = e.currentTarget.getBoundingClientRect();
         setAnchorRect(rect);
         setOpenMenuId(openMenuId === id ? null : id);
+    };
+
+    const handleTransferClick = (item) => {
+        setSelectedData(item);
+        setIsModalOpen(true);
     };
 
     useEffect(() => {
@@ -99,12 +120,23 @@ const StockTransferInTable = () => {
                     <tbody>
                         {data.map((item) => (
                             <tr key={item.id}>
-                                <td>{item.srNo}</td>
+                                <td>{item.slNo}</td>
                                 <td>{item.date}</td>
-                                <td>{item.transferNo}</td>
-                                <td>{item.qty}</td>
-                                <td>{item.location}</td>
-                                <td style={{ fontWeight: '600' }}>{item.totalAmount}</td>
+                                <td 
+                                    style={{ color: '#3b82f6', fontWeight: '600', cursor: 'pointer' }}
+                                    onClick={() => handleTransferClick(item)}
+                                >
+                                    {item.transferNo}
+                                </td>
+                                <td>{item.transferFrom}</td>
+                                <td>{item.receiveLocation}</td>
+                                <td>{item.receivedBy}</td>
+                                <td>{item.transportedBy}</td>
+                                <td>
+                                    <span className={`status-badge ${item.status.toLowerCase()}`}>
+                                        {item.status}
+                                    </span>
+                                </td>
                                 <td className="action-cell">
                                     <button
                                         className={`action-dots ${openMenuId === item.id ? 'active' : ''}`}
@@ -123,6 +155,12 @@ const StockTransferInTable = () => {
                 isOpen={openMenuId !== null}
                 anchorRect={anchorRect}
                 onClose={() => setOpenMenuId(null)}
+            />
+
+            <StockTransferDetailsModal 
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                data={selectedData}
             />
         </div>
     );

@@ -19,7 +19,8 @@ const EmployeeProfilePage = () => {
     const [showTimeInModal, setShowTimeInModal] = useState(false);
     const [showTimePicker, setShowTimePicker] = useState(false);
     const [showImageModal, setShowImageModal] = useState(false);
-    const [punchTime, setPunchTime] = useState('08:30');
+    const [punchHour, setPunchHour] = useState('08');
+    const [punchMinute, setPunchMinute] = useState('30');
     const [punchPeriod, setPunchPeriod] = useState('AM');
 
     const selectedDay = 18;
@@ -105,6 +106,26 @@ const EmployeeProfilePage = () => {
         });
     };
 
+    const handlePrevDay = () => {
+        const daysInPrevMonth = new Date(calendarYear, calendarMonth, 0).getDate();
+        if (selectedDate === 1) {
+            handlePrevMonth();
+            setSelectedDate(daysInPrevMonth);
+        } else {
+            setSelectedDate(prev => prev - 1);
+        }
+    };
+
+    const handleNextDay = () => {
+        const daysInCurrentMonth = new Date(calendarYear, calendarMonth + 1, 0).getDate();
+        if (selectedDate === daysInCurrentMonth) {
+            handleNextMonth();
+            setSelectedDate(1);
+        } else {
+            setSelectedDate(prev => prev + 1);
+        }
+    };
+
     const handleDateClick = (day) => {
         if (!day) return;
         setSelectedDate(day);
@@ -147,7 +168,7 @@ const EmployeeProfilePage = () => {
                         <div className="employee-calendar-box">
                             <div className="employee-calendar-toolbar">
                                 <button type="button" className="month-nav-btn" onClick={handlePrevMonth}><ChevronLeft size={16} /></button>
-                                <div className="month-selector">{selectedDay} {monthNames[calendarMonth]}</div>
+                                <div className="month-selector">{selectedDate} {monthNames[calendarMonth]}</div>
                                 <div className="year-selector">{calendarYear}</div>
                                 <button type="button" className="month-nav-btn" onClick={handleNextMonth}><ChevronRight size={16} /></button>
                             </div>
@@ -242,7 +263,6 @@ const EmployeeProfilePage = () => {
                         <div className="employee-edit-date-row">
                             <strong>{selectedDate} {monthNames[calendarMonth]}</strong>
                             <div className="flex gap-2">
-                                <span className="status-group-label">All Clickable</span>
                                 <button type="button" className="refresh-mini-btn"><RotateCw size={14} /></button>
                             </div>
                         </div>
@@ -274,7 +294,6 @@ const EmployeeProfilePage = () => {
 
                         <div className="flex justify-between items-center mb-2">
                             <div className="employee-edit-subtitle">Leaves</div>
-                            <span className="status-group-label">All Clickable</span>
                         </div>
                         <div className="employee-tag-group leaves">
                             <span 
@@ -340,7 +359,7 @@ const EmployeeProfilePage = () => {
                                 <div className="modal-field">
                                     <label className="modal-label">Select Time</label>
                                     <div className="modal-input-box" onClick={() => setShowTimePicker(true)} style={{cursor: 'pointer'}}>
-                                        {punchTime} {punchPeriod}
+                                        {punchHour}:{punchMinute} {punchPeriod}
                                     </div>
                                 </div>
                             </div>
@@ -357,29 +376,43 @@ const EmployeeProfilePage = () => {
                     <div className="nested-modal-overlay" onClick={() => setShowTimePicker(false)}>
                         <div className="nested-modal-container" onClick={e => e.stopPropagation()}>
                             <div className="nested-modal-header">
-                                <button className="refresh-mini-btn" onClick={() => setShowTimePicker(false)}><ChevronLeft size={18}/></button>
-                                <h4>3rd April 2026</h4>
-                                <button className="refresh-mini-btn"><ChevronRight size={18}/></button>
+                                <button className="refresh-mini-btn" onClick={handlePrevDay}><ChevronLeft size={18}/></button>
+                                <h4>{selectedDate}{selectedDate === 1 || selectedDate === 21 || selectedDate === 31 ? 'st' : selectedDate === 2 || selectedDate === 22 ? 'nd' : selectedDate === 3 || selectedDate === 23 ? 'rd' : 'th'} {monthNames[calendarMonth]} {calendarYear}</h4>
+                                <button className="refresh-mini-btn" onClick={handleNextDay}><ChevronRight size={18}/></button>
                             </div>
                             <div className="nested-modal-body">
-                                <div className="time-picker-grid">
-                                    {['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11'].map(h => (
+                                <div className="time-picker-columns-wrapper">
+                                    <div className="time-picker-column">
+                                        {['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11'].map(h => (
+                                            <button 
+                                                key={h} 
+                                                className={`time-column-btn ${punchHour === h ? 'active' : ''}`}
+                                                onClick={() => setPunchHour(h)}
+                                            >{h}</button>
+                                        ))}
+                                    </div>
+                                    <div className="time-picker-column">
+                                        {Array.from({ length: 60 }, (_, i) => String(i).padStart(2, '0')).map(m => (
+                                            <button 
+                                                key={m} 
+                                                className={`time-column-btn ${punchMinute === m ? 'active' : ''}`}
+                                                onClick={() => setPunchMinute(m)}
+                                            >{m}</button>
+                                        ))}
+                                    </div>
+                                    <div className="time-picker-ampm-column">
                                         <button 
-                                            key={h} 
-                                            className={`time-btn ${punchTime.startsWith(h) ? 'active' : ''}`}
-                                            onClick={() => setPunchTime(`${h}:30`)}
-                                        >{h}</button>
-                                    ))}
+                                            className={`ampm-column-btn ${punchPeriod === 'AM' ? 'active' : ''}`}
+                                            onClick={() => setPunchPeriod('AM')}
+                                        >AM</button>
+                                        <button 
+                                            className={`ampm-column-btn ${punchPeriod === 'PM' ? 'active' : ''}`}
+                                            onClick={() => setPunchPeriod('PM')}
+                                        >PM</button>
+                                    </div>
                                 </div>
-                                <div className="am-pm-toggle">
-                                    <button 
-                                        className={`ampm-btn ${punchPeriod === 'AM' ? 'active' : ''}`}
-                                        onClick={() => setPunchPeriod('AM')}
-                                    >AM</button>
-                                    <button 
-                                        className={`ampm-btn ${punchPeriod === 'PM' ? 'active' : ''}`}
-                                        onClick={() => setPunchPeriod('PM')}
-                                    >PM</button>
+                                <div className="selected-time-display">
+                                    Selected Time: <span>{punchHour}:{punchMinute} {punchPeriod}</span>
                                 </div>
                             </div>
                             <div className="nested-modal-footer">

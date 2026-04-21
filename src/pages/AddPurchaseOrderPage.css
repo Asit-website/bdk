@@ -18,6 +18,7 @@
     .purchase-order-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+
     .purchase-order-grid .form-group,
     .purchase-order-grid .form-group.small,
     .purchase-order-grid .form-group.add-btn-group {

@@ -1,16 +1,31 @@
 import React, { useState } from 'react';
 import { MoreVertical, ChevronsUpDown, Printer, Download, Filter, Search } from 'lucide-react';
 import ActionMenu from './ActionMenu';
+import CampingDropdown from './CampingDropdown';
 import './LeadTable.css';
 
 const CampingTable = () => {
     const [openMenuId, setOpenMenuId] = useState(null);
     const [anchorRect, setAnchorRect] = useState(null);
+    const [dropdownConfig, setDropdownConfig] = useState({ isOpen: false, type: null, anchorRect: null });
 
     const toggleMenu = (e, id) => {
         const rect = e.currentTarget.getBoundingClientRect();
         setAnchorRect(rect);
         setOpenMenuId(openMenuId === id ? null : id);
+    };
+
+    const openDropdown = (e, type) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        setDropdownConfig({
+            isOpen: true,
+            type,
+            anchorRect: rect
+        });
+    };
+
+    const handleSelect = (val) => {
+        console.log("Selected:", val);
     };
 
     const data = [
@@ -107,9 +122,21 @@ const CampingTable = () => {
                                 <td style={{ fontWeight: '600' }}>{item.campingName}</td>
                                 <td style={{ textAlign: 'center' }}>{item.leadGenerated}</td>
                                 <td>
-                                    <span style={{ color: '#3b82f6', fontWeight: '600' }}>{item.executiveName}</span>
+                                    <span 
+                                        style={{ color: '#3b82f6', fontWeight: '600', cursor: 'pointer' }}
+                                        onClick={(e) => openDropdown(e, 'executive')}
+                                    >
+                                        {item.executiveName}
+                                    </span>
                                 </td>
-                                <td>{item.area}</td>
+                                <td>
+                                    <span 
+                                        style={{ cursor: 'pointer' }}
+                                        onClick={(e) => openDropdown(e, 'area')}
+                                    >
+                                        {item.area}
+                                    </span>
+                                </td>
                                 <td style={{ fontWeight: '700' }}>{item.totalCost}</td>
                                 <td>{item.vehicleNo}</td>
                                 <td className="action-cell">
@@ -131,6 +158,18 @@ const CampingTable = () => {
                 anchorRect={anchorRect}
                 onClose={() => setOpenMenuId(null)}
                 showUpdate={true}
+            />
+
+            <CampingDropdown 
+                isOpen={dropdownConfig.isOpen}
+                anchorRect={dropdownConfig.anchorRect}
+                onClose={() => setDropdownConfig({ ...dropdownConfig, isOpen: false })}
+                onSelect={handleSelect}
+                title={dropdownConfig.type === 'executive' ? 'Executive Name' : 'Area'}
+                items={dropdownConfig.type === 'executive' 
+                    ? ["VADU SAREN", "UTPAL MAKUR", "SANDIP SINGH", "CHANDI PATRA"] 
+                    : ["MEDNIPUR", "GARHBETA", "BANKURA", "TALDANGRA"]
+                }
             />
         </div>
     );

@@ -37,7 +37,7 @@ const AddStockAdjustmentPage = () => {
                     </div>
                 </div>
 
-                <div className="form-grid">
+                <div className="stock-adjust-grid">
                     <div className="form-group">
                         <label>Date/No.</label>
                         <div className="stock-adjust-dual">
@@ -71,6 +71,12 @@ const AddStockAdjustmentPage = () => {
                     <div className="form-group">
                         <label>Remove Stock</label>
                         <input type="text" className="form-input-text" />
+                    </div>
+                    <div className="form-group" style={{ justifyContent: 'flex-end' }}>
+                        <label>&nbsp;</label>
+                        <button className="btn-add-part">
+                            <Plus size={18} /> ADD
+                        </button>
                     </div>
                 </div>
 

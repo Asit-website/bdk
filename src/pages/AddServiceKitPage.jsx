@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ChevronRight, MoreVertical, Save, X, Calendar, RefreshCcw, Maximize2 } from 'lucide-react';
+import { ChevronRight, MoreVertical, Save, X, Calendar, Plus, RefreshCcw, Maximize2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import './AddServiceKitPage.css';
 import './AddPurchaseBillPage.css';
@@ -75,7 +75,7 @@ const AddServiceKitPage = () => {
                     </div>
                 </div>
 
-                <div className="form-grid">
+                <div className="service-kit-grid">
                     <div className="form-group">
                         <label>Date</label>
                         <div className="date-input-wrapper">
@@ -102,6 +102,12 @@ const AddServiceKitPage = () => {
                     <div className="form-group">
                         <label>Kit Qty</label>
                         <input type="text" className="form-input-text" />
+                    </div>
+                    <div className="form-group" style={{ justifyContent: 'flex-end' }}>
+                        <label>&nbsp;</label>
+                        <button className="btn-add-part">
+                            <Plus size={18} /> ADD
+                        </button>
                     </div>
                 </div>
 

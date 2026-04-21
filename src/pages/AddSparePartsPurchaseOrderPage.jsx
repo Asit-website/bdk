@@ -86,6 +86,12 @@ const AddSparePartsPurchaseOrderPage = () => {
                         <label>Total Amount</label>
                         <input type="text" className="form-input-text" />
                     </div>
+                    <div className="form-group" style={{ justifyContent: 'flex-end' }}>
+                        <label>&nbsp;</label>
+                        <button className="btn-add-part">
+                            <Plus size={18} /> ADD
+                        </button>
+                    </div>
                 </div>
 
                 <div className="items-table-container">
@@ -101,7 +107,7 @@ const AddSparePartsPurchaseOrderPage = () => {
                                 <th style={{ width: '140px' }}>Model</th>
                                 <th className='modal-desc' style={{ width: '180px' }}>Model Description</th>
                                 <th className='qty-col' style={{ width: '90px' }}>Qty</th>
-                                <th  style={{ width: '100px' }}>Rate</th>
+                                <th style={{ width: '100px' }}>Rate</th>
                                 <th style={{ width: '120px' }}>Discount</th>
                                 <th style={{ width: '140px' }}>Total Amount</th>
                             </tr>

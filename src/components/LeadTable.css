@@ -107,6 +107,12 @@
     border: 1px solid #fef3c7;
 }
 
+.status-badge.received {
+    background-color: #f0fdf4;
+    color: #166534;
+    border: 1px solid #dcfce7;
+}
+
 .action-cell {
     position: relative;
     text-align: right;
@@ -207,3 +213,56 @@
     background-color: #eab308;
     box-shadow: 0 0 0 4px rgba(234, 179, 8, 0.1);
 }
+
+/* Camping Dropdown Styles */
+.camping-dropdown {
+    background-color: #ffffff;
+    border: 1px solid #111827;
+    border-radius: 4px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    min-width: 220px;
+    overflow: hidden;
+}
+
+.camping-dropdown-header {
+    background-color: #00bcd4; /* Cyan color from mockup */
+    color: #ffffff;
+    padding: 10px 15px;
+    display: flex;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sl-col {
+    width: 40px;
+}
+
+.camping-dropdown-item {
+    display: flex;
+    padding: 12px 15px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+    border-bottom: 1px solid #f1f5f9;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.camping-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.camping-dropdown-item:hover {
+    background-color: #f8fafc;
+}
+
+.sl-val {
+    width: 40px;
+    color: #4b5563;
+}
+
+.item-val {
+    flex: 1;
+}

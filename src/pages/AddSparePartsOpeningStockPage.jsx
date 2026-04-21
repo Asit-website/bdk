@@ -81,6 +81,12 @@ const AddSparePartsOpeningStockPage = () => {
                         <label>Total Amount</label>
                         <input type="text" className="form-input-text" />
                     </div>
+                    <div className="form-group" style={{ justifyContent: 'flex-end' }}>
+                        <label>&nbsp;</label>
+                        <button className="btn-add-part">
+                            <Plus size={18} /> ADD
+                        </button>
+                    </div>
                 </div>
 
                 <div className="items-table-container">
@@ -109,6 +115,7 @@ const AddSparePartsOpeningStockPage = () => {
                                         <div className="item-actions">
                                             <button className="action-btn edit"><Edit2 size={14} /></button>
                                             <button className="action-btn delete" onClick={() => deleteRow(row.id)}><Trash2 size={14} /></button>
+                                            <button className="action-btn add"><Plus size={14} /></button>
                                         </div>
                                     </td>
                                     <td className='date-col'><input type="date" className="table-input" /></td>

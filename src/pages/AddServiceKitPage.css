@@ -1,6 +1,8 @@
 .service-kit-grid {
+    display: grid;
     grid-template-columns: repeat(6, 1fr);
-    row-gap: 18px;
+    gap: 20px;
+    margin-bottom: 40px;
 }
 
 .service-kit-grid .form-group {
@@ -13,6 +15,35 @@
 
 .service-kit-grid .form-group.add-btn-group {
     grid-column: span 1;
+}
+
+.btn-add-part {
+    background-color: #00bcd4;
+    color: #ffffff;
+    border: none;
+    height: 42px;
+    padding: 0 24px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+    width: fit-content;
+}
+
+.btn-add-part:hover {
+    background-color: #00acc1;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.15);
+}
+
+.btn-add-part svg {
+    stroke-width: 3px;
 }
 
 @media (max-width: 1200px) {

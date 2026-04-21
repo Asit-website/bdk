@@ -1,33 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ChevronRight, MoreVertical, Save, X, RefreshCcw, Maximize2 } from 'lucide-react';
+import { ChevronRight, Edit2, Trash2, Save, X, RefreshCcw, Maximize2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import './AddStockInPage.css';
 import './AddPurchaseBillPage.css';
 
-const StockInActionMenu = ({ isOpen, anchorRect, onClose }) => {
-    if (!isOpen || !anchorRect) return null;
-
-    const menuHeight = 130;
-    const spaceBelow = window.innerHeight - anchorRect.bottom;
-    const showAbove = spaceBelow < menuHeight;
-
-    const style = {
-        position: 'fixed',
-        top: showAbove ? anchorRect.top - menuHeight - 5 : anchorRect.bottom + 5,
-        left: anchorRect.left - 110,
-        zIndex: 10000,
-    };
-
-    return createPortal(
-        <div className="action-dropdown shadow-lg" style={style}>
-            <button className="dropdown-item" onClick={onClose}>Edit</button>
-            <button className="dropdown-item delete" onClick={onClose}>Delete</button>
-            <button className="dropdown-item" onClick={onClose}>Print</button>
-        </div>,
-        document.body
-    );
-};
 
 const AddStockInPage = () => {
     const navigate = useNavigate();
@@ -96,8 +73,10 @@ const AddStockInPage = () => {
                         </select>
                     </div>
                     <div className="form-group">
-                        <label>Recive Location</label>
-                        <input type="text" className="form-input-text" />
+                        <label>Receive Location</label>
+                        <select className="form-input-select">
+                            <option>Select Location</option>
+                        </select>
                     </div>
                     <div className="form-group">
                         <label>&nbsp;</label>
@@ -113,11 +92,11 @@ const AddStockInPage = () => {
                                 <th style={{ width: '120px' }}>Recive No</th>
                                 <th style={{ width: '160px' }}>Part No</th>
                                 <th style={{ width: '200px' }}>Part Name</th>
-                                <th style={{ width: '90px' }}>Qty</th>
+                                <th className='qty-col' style={{ width: '90px' }}>Qty</th>
                                 <th style={{ width: '100px' }}>Rate</th>
-                                <th style={{ width: '120px' }}>Rack No.</th>
-                                <th style={{ width: '120px' }}>Bin No.</th>
-                                <th style={{ width: '80px' }}></th>
+                                <th style={{ width: '140px' }}>Rack No.</th>
+                                <th style={{ width: '140px' }}>Bin No.</th>
+                                <th style={{ width: '120px' }}>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -127,17 +106,31 @@ const AddStockInPage = () => {
                                     <td>{row.receiveNo}</td>
                                     <td>{row.partNo}</td>
                                     <td>{row.partName}</td>
-                                    <td>{row.qty}</td>
+                                    <td className='qty-col'>{row.qty}</td>
                                     <td>{row.rate}</td>
-                                    <td>{row.rackNo}</td>
-                                    <td>{row.binNo}</td>
+                                    <td>
+                                        <div className="table-input-with-list">
+                                            <input list="rack-options" className="table-input-select" defaultValue={row.rackNo} />
+                                            <datalist id="rack-options">
+                                                <option value="5" />
+                                                <option value="8" />
+                                            </datalist>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className="table-input-with-list">
+                                            <input list="bin-options" className="table-input-select" defaultValue={row.binNo} />
+                                            <datalist id="bin-options">
+                                                <option value="B-30" />
+                                                <option value="C-10" />
+                                            </datalist>
+                                        </div>
+                                    </td>
                                     <td className="action-cell">
-                                        <button
-                                            className={`action-dots ${openMenuId === row.id ? 'active' : ''}`}
-                                            onClick={(e) => toggleMenu(e, row.id)}
-                                        >
-                                            <MoreVertical size={16} />
-                                        </button>
+                                        <div className="item-actions">
+                                            <button className="action-btn edit"><Edit2 size={14} /></button>
+                                            <button className="action-btn delete"><Trash2 size={14} /></button>
+                                        </div>
                                     </td>
                                 </tr>
                             ))}
@@ -150,12 +143,6 @@ const AddStockInPage = () => {
                     <button className="btn-save"><Save size={16} /> SAVE</button>
                 </div>
             </div>
-
-            <StockInActionMenu
-                isOpen={openMenuId !== null}
-                anchorRect={anchorRect}
-                onClose={() => setOpenMenuId(null)}
-            />
         </div>
     );
 };

@@ -139,12 +139,30 @@ const AddBookingModal = ({ closeModal }) => {
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1. ABCD</td>
-                                                <td>250.00</td>
+                                                <td>
+                                                    <div className="table-input-wrapper">
+                                                        <input list="attachment-names" className="table-input" defaultValue="ABCD" />
+                                                        <datalist id="attachment-names">
+                                                            <option value="ABCD" />
+                                                            <option value="EFGH" />
+                                                        </datalist>
+                                                        <ChevronDown size={14} className="input-chevron" />
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <input type="text" className="table-input" defaultValue="250.00" />
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>2. EFGH</td>
-                                                <td>500.00</td>
+                                                <td>
+                                                    <div className="table-input-wrapper">
+                                                        <input list="attachment-names" className="table-input" defaultValue="EFGH" />
+                                                        <ChevronDown size={14} className="input-chevron" />
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <input type="text" className="table-input" defaultValue="500.00" />
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
