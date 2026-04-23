@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Printer } from 'lucide-react';
 import './StockTransferDetailsModal.css';
 
 const StockTransferDetailsModal = ({ isOpen, onClose, data }) => {
-    if (!isOpen) return null;
+    const [isClosing, setIsClosing] = useState(false);
 
-    // Mock item details for the table
+    useEffect(() => {
+        if (isOpen) {
+            setIsClosing(false);
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+            setIsClosing(false);
+        }
+        return () => { document.body.style.overflow = 'unset'; };
+    }, [isOpen]);
+
+    const handleClose = () => {
+        setIsClosing(true);
+        setTimeout(() => {
+            onClose();
+            setIsClosing(false);
+        }, 150);
+    };
+
+    if (!isOpen && !isClosing) return null;
+
+    // Mock item details for the table matching Slide 21
     const itemDetails = [
         { si: 1, partCode: 'SPMTWEBD00123', partName: 'FUEL PIPE ASSY', qty: 10, rate: 50.00, total: 500.00 },
         { si: 2, partCode: 'SPMTWEBD00123', partName: 'FUEL NOZZEL ASSY', qty: 1, rate: 2100.00, total: 4200.00 },
@@ -13,82 +35,90 @@ const StockTransferDetailsModal = ({ isOpen, onClose, data }) => {
         { si: 4, partCode: 'SPMTWEBD00123', partName: 'SPIRAL SPRING', qty: 2, rate: 250.00, total: 500.00 }
     ];
 
-    return (
-        <div className="modal-overlay" onClick={onClose}>
-            <div className="stock-transfer-modal" onClick={(e) => e.stopPropagation()}>
-                <div className="modal-header">
-                    <div className="header-actions">
-                        <button className="icon-btn print-btn"><Printer size={20} /></button>
-                        <button className="icon-btn close-btn" onClick={onClose}><X size={20} /></button>
+    return createPortal(
+        <div className={`stock-transfer-modal-overlay ${isClosing ? 'fade-out' : ''}`} onClick={handleClose}>
+            <div 
+                className={`stock-transfer-modal ${isClosing ? 'scale-down' : ''}`} 
+                onClick={(e) => e.stopPropagation()}
+            >
+                {/* Print Header */}
+                <div className="header-actions">
+                    <div className="print-btn-circle">
+                        <Printer size={20} />
                     </div>
                 </div>
 
-                <div className="modal-body">
-                    <div className="details-grid">
-                        <div className="detail-group">
-                            <label>Date</label>
-                            <div className="read-only-input">{data?.date || '12/02/2026'}</div>
-                        </div>
-                        <div className="detail-group">
-                            <label>Transfer No</label>
-                            <div className="read-only-input">{data?.transferNo || '212'}</div>
-                        </div>
-                        <div className="detail-group">
-                            <label>Transfer From</label>
-                            <div className="read-only-input">{data?.transferFrom || 'SHOP'}</div>
-                        </div>
-                        <div className="detail-group">
-                            <label>Transfer To</label>
-                            <div className="read-only-input">{data?.receiveLocation || 'WORKSHOP'}</div>
-                        </div>
-                        <div className="detail-group">
-                            <label>Supervisor Name</label>
-                            <div className="read-only-input">{data?.receivedBy || 'SWARUP NAG'}</div>
-                        </div>
-                        <div className="detail-group">
-                            <label>Transported By</label>
-                            <div className="read-only-input">{data?.transportedBy || 'BABURAM HEMBRAM'}</div>
-                        </div>
+                {/* Top Meta Info (Date and Transfer No) */}
+                <div className="header-meta-grid">
+                    <div className="info-group">
+                        <span className="label">Date</span>
+                        <div className="value-box-short">{data?.date || '12/02/2026'}</div>
                     </div>
+                    <div className="info-group">
+                        <span className="label">Transfer No</span>
+                        <div className="value-box-short">{data?.no || '212'}</div>
+                    </div>
+                    <div></div> {/* Spacer */}
+                </div>
 
-                    <div className="item-details-section">
-                        <h3 className="section-title">Item Details:</h3>
-                        <div className="modal-table-wrapper">
-                            <table className="modal-items-table">
-                                <thead>
-                                    <tr>
-                                        <th>SI</th>
-                                        <th>Part Code</th>
-                                        <th>Part Name</th>
-                                        <th>Qty</th>
-                                        <th>Rate</th>
-                                        <th>Total Amount</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {itemDetails.map((item) => (
-                                        <tr key={item.si}>
-                                            <td>{item.si}</td>
-                                            <td>{item.partCode}</td>
-                                            <td>{item.partName}</td>
-                                            <td>{item.qty}</td>
-                                            <td>{item.rate.toFixed(2)}</td>
-                                            <td>{item.total.toFixed(2)}</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                        
-                        <div className="modal-footer-totals">
-                            <div className="total-label">TOTAL :</div>
-                            <div className="total-box qty-box">18 Pcs</div>
-                            <div className="total-box amount-box">5700.00</div>
-                        </div>
+                {/* Secondary Info Grid */}
+                <div className="details-main-grid">
+                    <div className="info-group">
+                        <span className="label">Transfer From</span>
+                        <div className="value-box">{data?.from || 'SHOP'}</div>
                     </div>
+                    <div className="info-group">
+                        <span className="label">Transfer To</span>
+                        <div className="value-box">{data?.to || 'WORKSHOP'}</div>
+                    </div>
+                    <div className="info-group">
+                        <span className="label">Supervisor Name</span>
+                        <div className="value-box">{data?.supervisorName || 'SWARUP NAG'}</div>
+                    </div>
+                    <div className="info-group">
+                        <span className="label">Transported By</span>
+                        <div className="value-box">{data?.transportedBy || 'BABURAM HEMBRAM'}</div>
+                    </div>
+                </div>
+
+                {/* Item Details Section */}
+                <h3 className="section-title-small">Item Details:</h3>
+                <div className="transfer-table-container">
+                    <table className="transfer-table">
+                        <thead>
+                            <tr>
+                                <th>Si</th>
+                                <th>Part Code</th>
+                                <th>Part Name</th>
+                                <th>Qty</th>
+                                <th>Rate</th>
+                                <th>Total Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {itemDetails.map((item) => (
+                                <tr key={item.si}>
+                                    <td>{item.si}</td>
+                                    <td>{item.partCode}</td>
+                                    <td>{item.partName}</td>
+                                    <td>{item.qty}</td>
+                                    <td>{item.rate.toFixed(2)}</td>
+                                    <td>{item.total.toFixed(2)}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+
+                {/* Footer Totals */}
+                <div className="footer-totals">
+                    <span className="total-text">TOTAL :</span>
+                    <div className="total-badge">18 Pcs</div>
+                    <div className="total-amount-box">5700.00</div>
                 </div>
             </div>
-        </div>
+        </div>,
+        document.body
     );
 };
 

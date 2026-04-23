@@ -4,6 +4,7 @@ import DeliveryChallanActionMenu from './DeliveryChallanActionMenu';
 import DeliveryUpdateModal from './DeliveryUpdateModal';
 import ModelTooltipPortal from './ModelTooltipPortal';
 import AttachmentTooltipPortal from './AttachmentTooltipPortal';
+import DeliveryChallanDetailsModal from './DeliveryChallanDetailsModal';
 import './QuotationTable.css';
 import './DeliveryUpdateModal.css';
 
@@ -12,6 +13,8 @@ const DeliveryChallanTable = () => {
     const [modelAnchor, setModelAnchor] = useState(null);
     const [attachmentAnchor, setAttachmentAnchor] = useState(null);
     const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
+    const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
+    const [selectedChallan, setSelectedChallan] = useState(null);
 
     const data = [
         {
@@ -87,6 +90,11 @@ const DeliveryChallanTable = () => {
         }
     };
 
+    const handlePartyClick = (item) => {
+        setSelectedChallan(item);
+        setIsDetailModalOpen(true);
+    };
+
     return (
         <div className="quotation-table-section">
             <div className="table-header-toolbar">
@@ -146,7 +154,14 @@ const DeliveryChallanTable = () => {
                                 <td>{index + 1}.</td>
                                 <td>{item.date}</td>
                                 <td>{item.billNo}</td>
-                                <td>{item.partyName}</td>
+                                <td>
+                                    <span 
+                                        className="product-view-link"
+                                        onClick={() => handlePartyClick(item)}
+                                    >
+                                        {item.partyName}
+                                    </span>
+                                </td>
                                 <td>{item.vill}</td>
                                 <td>{item.gp}</td>
                                 <td>{item.block}</td>
@@ -208,6 +223,12 @@ const DeliveryChallanTable = () => {
                     onClose={() => setAttachmentAnchor(null)}
                 />
             )}
+
+            <DeliveryChallanDetailsModal
+                isOpen={isDetailModalOpen}
+                onClose={() => setIsDetailModalOpen(false)}
+                data={selectedChallan}
+            />
         </div>
     );
 };

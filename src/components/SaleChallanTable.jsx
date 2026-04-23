@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { MoreVertical, ChevronsUpDown, Search, Filter, Download, FileText, Share2 } from 'lucide-react';
 import SaleChallanActionMenu from './SaleChallanActionMenu';
+import SaleChallanDetailsModal from './SaleChallanDetailsModal';
 import './QuotationTable.css';
 import './SaleChallanTable.css';
 
 const SaleChallanTable = () => {
     const [menuAnchor, setMenuAnchor] = useState(null);
+    const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
+    const [selectedChallan, setSelectedChallan] = useState(null);
 
     const data = [
         {
@@ -50,6 +53,11 @@ const SaleChallanTable = () => {
                 id: id
             });
         }
+    };
+
+    const handlePartyClick = (item) => {
+        setSelectedChallan(item);
+        setIsDetailModalOpen(true);
     };
 
     return (
@@ -115,7 +123,14 @@ const SaleChallanTable = () => {
                                 <td>{item.date}</td>
                                 <td>{item.challanNo}</td>
                                 <td>{item.category}</td>
-                                <td>{item.partyName}</td>
+                                <td>
+                                    <span 
+                                        className="product-view-link"
+                                        onClick={() => handlePartyClick(item)}
+                                    >
+                                        {item.partyName}
+                                    </span>
+                                </td>
                                 <td>{item.model}</td>
                                 <td>{item.amount}</td>
                                 <td>{item.paymentType}</td>
@@ -149,6 +164,12 @@ const SaleChallanTable = () => {
                     onClose={() => setMenuAnchor(null)}
                 />
             )}
+
+            <SaleChallanDetailsModal
+                isOpen={isDetailModalOpen}
+                onClose={() => setIsDetailModalOpen(false)}
+                data={selectedChallan}
+            />
         </div>
     );
 };

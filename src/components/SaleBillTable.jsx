@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { MoreVertical, ChevronsUpDown, Search, Filter, Download, FileText, Share2 } from 'lucide-react';
 import SaleChallanActionMenu from './SaleChallanActionMenu';
+import SaleBillDetailsModal from './SaleBillDetailsModal';
 import './QuotationTable.css';
 import './SaleChallanTable.css';
 
 const SaleBillTable = () => {
     const [menuAnchor, setMenuAnchor] = useState(null);
+    const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
+    const [selectedBill, setSelectedBill] = useState(null);
 
     const data = [
         {
@@ -48,6 +51,11 @@ const SaleBillTable = () => {
                 id: id
             });
         }
+    };
+
+    const handlePartyClick = (item) => {
+        setSelectedBill(item);
+        setIsDetailModalOpen(true);
     };
 
     return (
@@ -109,7 +117,14 @@ const SaleBillTable = () => {
                                 <td>{index + 1}.</td>
                                 <td>{item.date}</td>
                                 <td>{item.challanNo}</td>
-                                <td>{item.partyName}</td>
+                                <td>
+                                    <span 
+                                        className="product-view-link"
+                                        onClick={() => handlePartyClick(item)}
+                                    >
+                                        {item.partyName}
+                                    </span>
+                                </td>
                                 <td>{item.model}</td>
                                 <td>{item.amount}</td>
                                 <td>{item.paymentType}</td>
@@ -143,6 +158,12 @@ const SaleBillTable = () => {
                     onClose={() => setMenuAnchor(null)}
                 />
             )}
+
+            <SaleBillDetailsModal
+                isOpen={isDetailModalOpen}
+                onClose={() => setIsDetailModalOpen(false)}
+                data={selectedBill}
+            />
         </div>
     );
 };

@@ -111,11 +111,19 @@ const AddStockTransferOutPage = () => {
                             <label>Total Amount</label>
                             <input type="text" className="form-input-text readonly" placeholder="0.00" readOnly />
                         </div>
-                        <div className="add-btn-container">
-                            <button className="btn-add-item" onClick={addRow}>
-                                <Plus size={16} /> ADD
-                            </button>
+                        <div className="form-group">
+                            <label>Supervisor Name</label>
+                            <select className="form-input-select">
+                                <option>Select</option>
+                                <option>SWARUP NAG</option>
+                                <option>SUJOY HANSDA</option>
+                            </select>
                         </div>
+                    </div>
+                    <div className="add-btn-row">
+                        <button className="btn-add-item-blue" onClick={addRow}>
+                            <Plus size={16} /> ADD
+                        </button>
                     </div>
                 </div>
 

@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { Search, Plus, ChevronDown, Calendar, Settings, MoreVertical, Filter, Printer, Download } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import AddServiceModal from '../components/AddServiceModal';
+import ServiceDetailsModal from '../components/ServiceDetailsModal';
 import '../components/Filters.css';
 import '../components/LeadTable.css';
 import './ServiceDashboardPage.css';
@@ -16,6 +17,8 @@ const ServiceDashboardPage = () => {
     const [actionAnchor, setActionAnchor] = useState(null);
     const [problemAnchor, setProblemAnchor] = useState(null);
     const [isServiceModalOpen, setIsServiceModalOpen] = useState(false);
+    const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
+    const [selectedService, setSelectedService] = useState(null);
 
     const stats = [
         { label: 'Service Booking', value: '30,000', tone: 'orange' },
@@ -213,6 +216,11 @@ const ServiceDashboardPage = () => {
         return { top, left };
     };
 
+    const handleCustomerClick = (row) => {
+        setSelectedService(row);
+        setIsDetailModalOpen(true);
+    };
+
     useEffect(() => {
         const handleClose = (event) => {
             if (event.target.closest('.service-action-wrap')) return;
@@ -372,7 +380,14 @@ const ServiceDashboardPage = () => {
                                     <td>{index + 1}</td>
                                     <td>{row.bookingDate}</td>
                                     <td>{row.category}</td>
-                                    <td>{row.customer}</td>
+                                    <td>
+                                        <span 
+                                            className="product-view-link"
+                                            onClick={() => handleCustomerClick(row)}
+                                        >
+                                            {row.customer}
+                                        </span>
+                                    </td>
                                     <td>{row.mobile}</td>
                                     <td>{row.village}</td>
                                     <td>{row.area}</td>
@@ -460,6 +475,11 @@ const ServiceDashboardPage = () => {
                 document.body
             )}
             <AddServiceModal isOpen={isServiceModalOpen} onClose={() => setIsServiceModalOpen(false)} />
+            <ServiceDetailsModal 
+                isOpen={isDetailModalOpen} 
+                onClose={() => setIsDetailModalOpen(false)} 
+                data={selectedService}
+            />
         </div>
     );
 };

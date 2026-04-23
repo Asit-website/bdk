@@ -39,29 +39,43 @@
 
 .ma-detail-section-title {
     font-size: 14px;
-    font-weight: 850;
+    font-weight: 800;
     color: #1e293b;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-decoration: underline;
     text-underline-offset: 4px;
+    text-transform: uppercase;
 }
 
-.ma-detail-info-grid {
+.ma-detail-meta-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px 20px;
 }
 
-.ma-detail-info-item {
-    font-size: 12px;
-    color: #334155;
-    font-weight: 600;
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.ma-detail-info-item strong {
+.meta-label {
+    font-size: 11px;
+    font-weight: 700;
     color: #64748b;
-    font-weight: 850;
-    margin-right: 5px;
+    width: 130px;
+    flex-shrink: 0;
+    text-transform: uppercase;
+}
+
+.meta-value {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1e293b;
+    background-color: #f1f5f9;
+    padding: 6px 12px;
+    border-radius: 4px;
+    flex: 1;
 }
 
 /* Customer Voice Section */
@@ -117,16 +131,17 @@
     margin-top: 20px;
 }
 
-.ma-history-table {
-    width: 100%;
-    border-collapse: collapse;
+.ma-history-table-wrapper {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .ma-history-table th {
     background-color: #f8fafc;
-    color: #475569;
-    font-size: 11px;
-    font-weight: 850;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 800;
     text-align: left;
     padding: 12px 15px;
     border-bottom: 1px solid #e2e8f0;
@@ -135,8 +150,8 @@
 
 .ma-history-table td {
     padding: 12px 15px;
-    font-size: 11px;
-    color: #334155;
+    font-size: 12px;
+    color: #1e293b;
     font-weight: 600;
     border-bottom: 1px solid #f1f5f9;
 }

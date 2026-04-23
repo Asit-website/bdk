@@ -53,15 +53,39 @@ const MechanicTaskDetailModal = ({ isOpen, onClose, taskData }) => {
                     <div className="ma-detail-header-row">
                         <div className="ma-detail-left-col">
                             <h4 className="ma-detail-section-title">Customer Details</h4>
-                            <div className="ma-detail-info-grid">
-                                <div className="ma-detail-info-item"><strong>Customer Name:-</strong> {taskData?.name || 'ASIT SALUI'}</div>
-                                <div className="ma-detail-info-item"><strong>Mobile No:-</strong> 9999999999</div>
-                                <div className="ma-detail-info-item"><strong>Village:-</strong> {taskData?.village || 'MAYTA'}</div>
-                                <div className="ma-detail-info-item"><strong>GP:-</strong> BENACHAPRA</div>
-                                <div className="ma-detail-info-item"><strong>Block:-</strong> GARHBETA-I</div>
-                                <div className="ma-detail-info-item"><strong>Area:-</strong> AMLAGORA</div>
-                                <div className="ma-detail-info-item"><strong>Chassis No:-</strong> W2505SHR1266</div>
-                                <div className="ma-detail-info-item"><strong>Model No:-</strong> 9D6+</div>
+                            <div className="ma-detail-meta-grid">
+                                <div className="meta-item">
+                                    <span className="meta-label">Customer Name:-</span>
+                                    <span className="meta-value">{taskData?.name || 'ASIT SAHU'}</span>
+                                </div>
+                                <div className="meta-item">
+                                    <span className="meta-label">Mobile No:-</span>
+                                    <span className="meta-value">9999999999</span>
+                                </div>
+                                <div className="meta-item">
+                                    <span className="meta-label">Village:-</span>
+                                    <span className="meta-value">{taskData?.village || 'MAYTA'}</span>
+                                </div>
+                                <div className="meta-item">
+                                    <span className="meta-label">GP:-</span>
+                                    <span className="meta-value">BENACHAPRA</span>
+                                </div>
+                                <div className="meta-item">
+                                    <span className="meta-label">Block:-</span>
+                                    <span className="meta-value">GARHBETA-I</span>
+                                </div>
+                                <div className="meta-item">
+                                    <span className="meta-label">Area:-</span>
+                                    <span className="meta-value">AMLAGORA</span>
+                                </div>
+                                <div className="meta-item">
+                                    <span className="meta-label">Chassis No:-</span>
+                                    <span className="meta-value">W2505SHR1266</span>
+                                </div>
+                                <div className="meta-item">
+                                    <span className="meta-label">Model No:-</span>
+                                    <span className="meta-value">9D6+</span>
+                                </div>
                             </div>
                         </div>
 
@@ -84,28 +108,30 @@ const MechanicTaskDetailModal = ({ isOpen, onClose, taskData }) => {
                     {/* Section 2: Previous Service History */}
                     <div className="ma-detail-history-section">
                         <h4 className="ma-detail-section-title">Previous Service</h4>
-                        <table className="ma-history-table">
-                            <thead>
-                                <tr>
-                                    <th>Booking Date</th>
-                                    <th>Working Date</th>
-                                    <th>Technician</th>
-                                    <th>Service</th>
-                                    <th style={{ width: '150px' }}>Reamark</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {history.map((row, idx) => (
-                                    <tr key={idx}>
-                                        <td>{row.booking}</td>
-                                        <td>{row.working}</td>
-                                        <td>{row.tech}</td>
-                                        <td>{row.service}</td>
-                                        <td>{row.remark}</td>
+                        <div className="ma-history-table-wrapper">
+                            <table className="ma-history-table">
+                                <thead>
+                                    <tr>
+                                        <th>Booking Date</th>
+                                        <th>Working Date</th>
+                                        <th>Technician</th>
+                                        <th>Service</th>
+                                        <th>Reamark</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    {history.map((row, idx) => (
+                                        <tr key={idx}>
+                                            <td>{row.booking}</td>
+                                            <td>{row.working}</td>
+                                            <td>{row.tech}</td>
+                                            <td>{row.service}</td>
+                                            <td>{row.remark}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -5,11 +5,14 @@ import '../components/Filters.css';
 import '../components/LeadTable.css';
 import './ServiceWarrantyPage.css';
 import SettlementModal from '../components/SettlementModal';
+import WarrantyUpdatePopover from '../components/WarrantyUpdatePopover';
 
 const ServiceWarrantyPage = () => {
     const [showSettlementModal, setShowSettlementModal] = useState(false);
     const [openActionId, setOpenActionId] = useState(null);
     const [actionAnchor, setActionAnchor] = useState(null);
+    const [isUpdatePopoverOpen, setIsUpdatePopoverOpen] = useState(false);
+    const [selectedRow, setSelectedRow] = useState(null);
 
     const columns = [
         'Sl No',
@@ -60,6 +63,7 @@ const ServiceWarrantyPage = () => {
         const handleClose = (event) => {
             if (event.target.closest('.service-action-wrap')) return;
             if (event.target.closest('.service-action-menu')) return;
+            if (event.target.closest('.warranty-update-popover')) return;
             setOpenActionId(null);
         };
 
@@ -223,7 +227,18 @@ const ServiceWarrantyPage = () => {
                     }}
                 >
                     <button type="button" className="service-action-item">View / Edit</button>
-                    <button type="button" className="service-action-item">Update</button>
+                    <button 
+                        type="button" 
+                        className="service-action-item"
+                        onClick={() => {
+                            const row = rows.find(r => r.id === openActionId);
+                            setSelectedRow(row);
+                            setIsUpdatePopoverOpen(true);
+                            setOpenActionId(null);
+                        }}
+                    >
+                        Update
+                    </button>
                     <button type="button" className="service-action-item">Print</button>
                     <button type="button" className="service-action-item">History</button>
                     <button type="button" className="service-action-item danger">Delete</button>
@@ -232,6 +247,13 @@ const ServiceWarrantyPage = () => {
             )}
 
             {showSettlementModal && <SettlementModal closeModal={() => setShowSettlementModal(false)} />}
+            
+            <WarrantyUpdatePopover 
+                isOpen={isUpdatePopoverOpen}
+                onClose={() => setIsUpdatePopoverOpen(false)}
+                anchorRect={actionAnchor}
+                currentStatus={selectedRow?.status}
+            />
         </div>
     );
 };
