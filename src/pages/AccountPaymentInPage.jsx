@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Search, Plus, ChevronDown, Calendar, Settings, MoreVertical, Filter, Printer, Download, ChevronsUpDown, Target } from 'lucide-react';
 import PaymentInModal from '../components/PaymentInModal';
+import BlockUnblockPopover from '../components/BlockUnblockPopover';
 import '../components/Filters.css';
 import '../components/LeadTable.css';
 import '../components/StatsSection.css';
@@ -11,6 +12,8 @@ const AccountPaymentInPage = () => {
     const [openActionId, setOpenActionId] = useState(null);
     const [actionAnchor, setActionAnchor] = useState(null);
     const [openPaymentInModal, setOpenPaymentInModal] = useState(false);
+    const [isBlockPopoverOpen, setIsBlockPopoverOpen] = useState(false);
+    const [selectedRow, setSelectedRow] = useState(null);
     const [startDate, setStartDate] = useState('2026-02-01');
     const [endDate, setEndDate] = useState('2026-02-28');
 
@@ -44,6 +47,7 @@ const AccountPaymentInPage = () => {
         const handleClose = (event) => {
             if (event.target.closest('.service-action-wrap')) return;
             if (event.target.closest('.service-action-menu')) return;
+            if (event.target.closest('.block-unblock-popover')) return;
             setOpenActionId(null);
         };
 
@@ -233,7 +237,18 @@ const AccountPaymentInPage = () => {
                     <button type="button" className="service-action-item">Open PDF</button>
                     <button type="button" className="service-action-item">Print</button>
                     <button type="button" className="service-action-item danger">Delete</button>
-                    <button type="button" className="service-action-item">Block/Unblock</button>
+                    <button 
+                        type="button" 
+                        className="service-action-item"
+                        onClick={() => {
+                            const row = rows.find(r => r.id === openActionId);
+                            setSelectedRow(row);
+                            setIsBlockPopoverOpen(true);
+                            setOpenActionId(null);
+                        }}
+                    >
+                        Block/Unblock
+                    </button>
                     <button type="button" className="service-action-item">View History</button>
                 </div>,
                 document.body
@@ -242,6 +257,13 @@ const AccountPaymentInPage = () => {
             {openPaymentInModal && (
                 <PaymentInModal closeModal={() => setOpenPaymentInModal(false)} />
             )}
+
+            <BlockUnblockPopover 
+                isOpen={isBlockPopoverOpen}
+                onClose={() => setIsBlockPopoverOpen(false)}
+                anchorRect={actionAnchor}
+                currentStatus={selectedRow?.status}
+            />
         </div>
     );
 };

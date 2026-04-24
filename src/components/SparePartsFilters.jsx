@@ -96,7 +96,7 @@ const SparePartsFilters = () => {
 
             <div className="filter-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
                 <div className="filter-title" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <h2 style={{ fontSize: '18px', fontWeight: '700', color: '#1e293b', margin: 0 }}>Spare Parts</h2>
+                    <h2 style={{ fontSize: '18px', fontWeight: '700', color: '#1e293b', margin: 0 }}>Spare Parts Purchase Order</h2>
                     <ChevronDown size={18} color="#64748b" />
                 </div>
 
@@ -106,7 +106,7 @@ const SparePartsFilters = () => {
                         style={{ backgroundColor: '#22c55e', color: 'white', border: 'none', padding: '8px 20px', borderRadius: '6px', fontWeight: '600', fontSize: '14px' }}
                         onClick={() => navigate('/purchase/spare-parts/add-order')}
                     >
-                        + Add Purchase Order
+                        + Add Spare Parts Purchase Order
                     </button>
 
                     <button

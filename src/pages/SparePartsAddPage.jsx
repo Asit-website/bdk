@@ -98,6 +98,11 @@ const SparePartsAddPage = () => {
                                     <label>GST %</label>
                                     <input type="text" className="form-input-text pm-input" placeholder="GST %" />
                                 </div>
+
+                                <div className="form-group pm-field">
+                                    <label>MINIMUM STOCK QTY</label>
+                                    <input type="text" className="form-input-text pm-input" placeholder="Minimum Stock Qty" />
+                                </div>
                             </div>
                         </div>
 

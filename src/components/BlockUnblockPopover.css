@@ -1,0 +1,120 @@
+.block-unblock-popover-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    z-index: 10001;
+}
+
+.block-unblock-popover {
+    background: white;
+    width: 280px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border: 1px solid #e2e8f0;
+    padding: 15px;
+    animation: buScaleUp 0.2s ease-out forwards;
+    z-index: 10005; /* Ensure it's above overlay */
+}
+
+.bu-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 8px;
+}
+
+.bu-form-group {
+    margin-bottom: 15px;
+}
+
+.bu-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.bu-select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    outline: none;
+    color: #1e293b;
+}
+
+.bu-select.block {
+    color: #ef4444;
+}
+
+.bu-select.unblock {
+    color: #22c55e;
+}
+
+.bu-textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 13px;
+    outline: none;
+    resize: none;
+}
+
+.bu-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.bu-btn {
+    padding: 6px 15px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.bu-btn-cancel {
+    background-color: #001e3c;
+    color: white;
+}
+
+.bu-btn-save {
+    background-color: #ffcc00;
+    color: #000;
+}
+
+.bu-btn-cancel:hover {
+    background-color: #002d5a;
+}
+
+.bu-btn-save:hover {
+    background-color: #e6b800;
+}
+
+@keyframes buScaleUp {
+    from { opacity: 0; transform: scale(0.95) translateY(-10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.fade-out {
+    animation: buFadeOut 0.15s ease-in forwards;
+}
+
+@keyframes buFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}

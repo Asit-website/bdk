@@ -32,7 +32,7 @@ const WeederFilters = () => {
             {/* Page Title & Add Bill Bar */}
             <div className="filter-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
                 <div className="filter-title" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <h2 style={{ fontSize: '18px', fontWeight: '700', color: '#1e293b', margin: 0 }}>WEEDER</h2>
+                    <h2 style={{ fontSize: '18px', fontWeight: '700', color: '#1e293b', margin: 0 }}>ITEM</h2>
                     <ChevronDown size={18} color="#64748b" />
                 </div>
 

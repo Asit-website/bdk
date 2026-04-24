@@ -8,6 +8,22 @@
     padding: 8px 18px;
 }
 
+.table-link-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    font-weight: 700;
+}
+
+.table-link-btn:hover {
+    color: #3b82f6;
+}
+
 .expense-summary-wrap {
     margin-bottom: 16px;
 }
@@ -35,10 +51,31 @@
     line-height: 1;
 }
 
-.expense-dmy {
-    font-size: 30px;
-    font-weight: 800;
-    letter-spacing: 2px;
+.expense-period-toggles {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.period-toggle {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0b0b0b;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.period-toggle.active {
+    opacity: 1;
+    background-color: #16a34a; /* Slightly darker green for active */
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: white;
+}
+
+.period-toggle:hover {
+    opacity: 1;
 }
 
 .expense-eye {

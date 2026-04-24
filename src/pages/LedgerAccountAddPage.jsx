@@ -11,9 +11,11 @@ import {
   FileDown 
 } from 'lucide-react';
 import './LedgerAccountMasterPage.css';
+import FetchEnquiryModal from '../components/FetchEnquiryModal';
 
 const LedgerAccountAddPage = () => {
     const navigate = useNavigate();
+    const [isFetchModalOpen, setIsFetchModalOpen] = useState(false);
     
     // Form State
     const [ledgerInfo, setLedgerInfo] = useState({
@@ -121,7 +123,9 @@ const LedgerAccountAddPage = () => {
                     <div className="form-section">
                         <div className="section-header-inline">
                             <h3 className="section-title">Ledger Information</h3>
-                            <button className="btn-fetch">Fetch From Enquiry List</button>
+                            <button className="btn-fetch" onClick={() => setIsFetchModalOpen(true)}>
+                                Fetch From Enquiry List
+                            </button>
                         </div>
                         
                         <div className="form-grid-4">
@@ -309,6 +313,10 @@ const LedgerAccountAddPage = () => {
                     </div>
                 </div>
             </div>
+            <FetchEnquiryModal 
+                isOpen={isFetchModalOpen}
+                onClose={() => setIsFetchModalOpen(false)}
+            />
         </div>
     );
 };

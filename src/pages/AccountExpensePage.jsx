@@ -5,6 +5,7 @@ import { Search, Plus, ChevronDown, Calendar, Settings, MoreVertical, Filter, Pr
 import '../components/Filters.css';
 import '../components/LeadTable.css';
 import './AccountExpensePage.css';
+import ExpenseDetailsModal from '../components/ExpenseDetailsModal';
 
 const AccountExpensePage = () => {
     const navigate = useNavigate();
@@ -12,15 +13,15 @@ const AccountExpensePage = () => {
     const [endDate, setEndDate] = useState('2026-02-28');
     const [openActionId, setOpenActionId] = useState(null);
     const [actionAnchor, setActionAnchor] = useState(null);
+    const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
+    const [selectedExpense, setSelectedExpense] = useState(null);
 
     const columns = [
         'Sl No',
         'Expence No',
         'Date',
-        'Expenser',
-        'Expence Category',
-        'Payment Type',
-        'Amount',
+        'Expencer Name',
+        'Total Amount',
         'Remark',
         'Action',
     ];
@@ -110,7 +111,11 @@ const AccountExpensePage = () => {
                     <div className="expense-summary-left">
                         <span className="service-stat-title">Total Expence</span>
                         <span className="service-stat-value">₹5,000.00</span>
-                        <span className="expense-dmy">D / M / Y</span>
+                        <div className="expense-period-toggles">
+                            <span className="period-toggle active">DAY</span>
+                            <span className="period-toggle">MONTH</span>
+                            <span className="period-toggle">YEAR</span>
+                        </div>
                     </div>
                     <Eye size={30} className="expense-eye" />
                 </div>
@@ -183,9 +188,17 @@ const AccountExpensePage = () => {
                                     <td>{index + 1}</td>
                                     <td>{row.expNo}</td>
                                     <td>{row.date}</td>
-                                    <td>{row.expenser}</td>
-                                    <td>{row.category}</td>
-                                    <td>{row.paymentType}</td>
+                                    <td>
+                                        <button 
+                                            className="table-link-btn"
+                                            onClick={() => {
+                                                setSelectedExpense(row);
+                                                setIsDetailsModalOpen(true);
+                                            }}
+                                        >
+                                            {row.expenser}
+                                        </button>
+                                    </td>
                                     <td>{row.amount}</td>
                                     <td>{row.remark}</td>
                                     <td className="action-cell">
@@ -226,6 +239,12 @@ const AccountExpensePage = () => {
                 </div>,
                 document.body
             )}
+
+            <ExpenseDetailsModal 
+                isOpen={isDetailsModalOpen}
+                onClose={() => setIsDetailsModalOpen(false)}
+                data={selectedExpense}
+            />
         </div>
     );
 };
