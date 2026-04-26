@@ -99,7 +99,10 @@ const ServiceDetailsModal = ({ isOpen, onClose, data }) => {
                     <h3 className="section-title-small">Customer Voice/Problem:</h3>
                     <div className="problem-chips-container">
                         {['FUEL PIPE CHANGE', 'FUEL NOZZEL CHANGE', 'FUEL FILTER CHANGE', 'STARTING PROBLEM', 'STARTER ROPE', 'CHOTE CHOTE GAIN BANSHO HOYE JACHHE'].map((p, i) => (
-                            <span key={i} className="problem-chip">{p}</span>
+                            <span key={i} className="problem-chip">
+                                {p}
+                                <X size={12} className="chip-close-icon" />
+                            </span>
                         ))}
                     </div>
 

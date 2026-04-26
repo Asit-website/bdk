@@ -37,27 +37,44 @@ const BulkFollowUpModal = ({ open, onClose }) => {
 
                 {/* Form Grid */}
                 <div className="lead-form-wrapper">
-                    <div className="lead-form-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+                    <div className="lead-form-grid" style={{ gridTemplateColumns: 'repeat(5, 1fr)' }}>
                         <div className="form-field">
-                            <label>Date</label>
-                            <input type="date" />
+                            <label>EXECUTIVE</label>
+                            <div className="select-box">
+                                <select>
+                                    <option value="">Select Executive</option>
+                                    <option value="1">Executive 1</option>
+                                    <option value="2">Executive 2</option>
+                                </select>
+                                <span className="select-arrow"></span>
+                            </div>
                         </div>
 
                         <div className="form-field">
-                            <label>Time</label>
+                            <label>DATE</label>
+                            <input type="date" placeholder="dd-mm-yyyy" />
+                        </div>
+
+                        <div className="form-field">
+                            <label>TIME</label>
                             <input type="time" />
                         </div>
 
                         <div className="form-field">
-                            <label>Action</label>
+                            <label>TASK</label>
                             <div className="select-box">
                                 <select>
-                                    <option value="">Select Action</option>
+                                    <option value="">Select Task</option>
                                     <option value="call">Call</option>
                                     <option value="visit">Visit</option>
                                 </select>
                                 <span className="select-arrow"></span>
                             </div>
+                        </div>
+
+                        <div className="form-field">
+                            <label>REMARK</label>
+                            <input type="text" placeholder="Remark" className="form-input-text" />
                         </div>
                     </div>
 
