@@ -93,7 +93,7 @@ const Sidebar = ({ isCollapsed, toggleSidebar, onContactClick }) => {
       label: 'Sales',
       subItems: [
         {
-          label: 'WEEDER',
+          label: 'ITEM',
           subItems: [
             { label: 'Booking', path: '/sales/weeder/booking' },
             { label: 'Quotation', path: '/sales/weeder/quotation' },
