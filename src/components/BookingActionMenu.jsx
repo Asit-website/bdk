@@ -5,15 +5,17 @@ import { Eye, Trash2, Printer, RefreshCcw } from 'lucide-react';
 const BookingActionMenu = ({ isOpen, anchorRect, onClose, onUpdate }) => {
     if (!isOpen || !anchorRect) return null;
 
-    const menuHeight = 130;
+    const menuHeight = 160;
     const spaceBelow = window.innerHeight - anchorRect.bottom;
     const showAbove = spaceBelow < menuHeight;
 
     const style = {
         position: 'fixed',
         top: showAbove ? anchorRect.top - menuHeight - 5 : anchorRect.bottom + 5,
-        left: anchorRect.left - 130,
+        left: anchorRect.left - 160,
+        width: '160px',
         zIndex: 10000,
+        whiteSpace: 'nowrap'
     };
 
     return createPortal(
@@ -23,6 +25,9 @@ const BookingActionMenu = ({ isOpen, anchorRect, onClose, onUpdate }) => {
             </button>
             <button className="dropdown-item" onClick={onClose}>
                 <Printer size={14} /> Print
+            </button>
+            <button className="dropdown-item" onClick={onClose}>
+                <RefreshCcw size={14} /> Convert to Order
             </button>
             <button className="dropdown-item" onClick={() => { onUpdate(); onClose(); }}>
                 <RefreshCcw size={14} /> Update

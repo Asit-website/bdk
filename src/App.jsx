@@ -32,6 +32,7 @@ import BookingPage from './pages/BookingPage'
 import QuotationPage from './pages/QuotationPage'
 import AddQuotationPage from './pages/AddQuotationPage'
 import SaleChallanPage from './pages/SaleChallanPage'
+import SalesOrderPage from './pages/SalesOrderPage'
 import AddSaleChallanPage from './pages/AddSaleChallanPage'
 import SaleBillPage from './pages/SaleBillPage'
 import AddSaleBillPage from './pages/AddSaleBillPage'
@@ -167,6 +168,7 @@ function App() {
           <Route path="/sales/weeder/booking" element={<BookingPage />} />
           <Route path="/sales/weeder/quotation" element={<QuotationPage />} />
           <Route path="/sales/weeder/quotation/add" element={<AddQuotationPage />} />
+          <Route path="/sales/weeder/order" element={<SalesOrderPage />} />
           <Route path="/sales/weeder/challan" element={<SaleChallanPage />} />
           <Route path="/sales/weeder/challan/add" element={<AddSaleChallanPage />} />
           <Route path="/sales/weeder/bill" element={<SaleBillPage />} />

@@ -76,7 +76,7 @@ const Sidebar = ({ isCollapsed, toggleSidebar, onContactClick }) => {
       subItems: [
         { label: 'Item', path: '/purchase/weeder' },
         { label: 'Spare Parts/Attachment', path: '/purchase/spare' },
-        { label: 'Other Item', path: '/purchase/other' },
+        // { label: 'Other Item', path: '/purchase/other' },
         { label: 'Opening Stock', path: '/purchase/stock' },
         { label: 'Spare Parts Opening Stock', path: '/purchase/spare-opening-stock' },
         { label: 'Item Purchase Order', path: '/purchase/order' },
@@ -97,6 +97,7 @@ const Sidebar = ({ isCollapsed, toggleSidebar, onContactClick }) => {
           subItems: [
             { label: 'Booking', path: '/sales/weeder/booking' },
             { label: 'Quotation', path: '/sales/weeder/quotation' },
+            { label: 'Sales Order', path: '/sales/weeder/order' },
             { label: 'Sales Challan', path: '/sales/weeder/challan' },
             { label: 'Sale Bill', path: '/sales/weeder/bill' },
             { label: 'Delivery Challan', path: '/sales/weeder/delivery' },
