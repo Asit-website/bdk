@@ -1,10 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Search, Plus, MoreVertical, ChevronRight } from 'lucide-react';
 import './EmployeeLeaveBalancePage.css';
 
 const EmployeeLeaveBalancePage = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const employeeName = location.state?.employeeName || 'Employee';
 
     const leaveItems = [
         { label: 'Leave Policy', path: '/master/employee/leave/policy' },
@@ -33,6 +35,8 @@ const EmployeeLeaveBalancePage = () => {
             <div className="leave-details-content">
                 <div className="leave-header">
                     <div className="leave-breadcrumb">
+                        <span className="employee-name-breadcrumb-top">{employeeName}</span>
+                        <ChevronRight size={18} className="breadcrumb-arrow-main" />
                         <span className="crumb-inactive" onClick={() => navigate('/master/employee')}>Employee Master</span>
                         <ChevronRight size={14} color="#94a3b8" />
                         <span className="crumb-active">Leave & Balance Details</span>

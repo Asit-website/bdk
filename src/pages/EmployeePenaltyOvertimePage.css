@@ -27,6 +27,30 @@
     font-weight: 700;
     color: #1e293b;
     margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.employee-name-breadcrumb-top {
+    color: #042954;
+    font-weight: 850;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.breadcrumb-arrow-main {
+    color: #94a3b8;
+}
+
+.employee-name-breadcrumb {
+    color: #042954;
+    font-weight: 850;
+    text-transform: uppercase;
+}
+
+.breadcrumb-arrow {
+    color: #94a3b8;
 }
 
 .penalty-list-container {

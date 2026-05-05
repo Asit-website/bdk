@@ -80,15 +80,15 @@ const AddSalesOrderModal = ({ isOpen, onClose }) => {
                     <table className="modal-data-table">
                         <thead>
                             <tr>
-                                <th>SL No</th>
-                                <th>Booking Date</th>
-                                <th>Name</th>
-                                <th>Mobile No</th>
-                                <th>Addrsess</th>
-                                <th>Model</th>
-                                <th>Wheel</th>
-                                <th>Payment</th>
-                                <th>Action</th>
+                                <th style={{ width: '80px' }}>SL No</th>
+                                <th style={{ width: '150px' }}>Booking Date</th>
+                                <th style={{ width: '200px' }}>Name</th>
+                                <th style={{ width: '150px' }}>Mobile No</th>
+                                <th style={{ width: '350px' }}>Addrsess</th>
+                                <th style={{ width: '120px' }}>Model</th>
+                                <th style={{ width: '150px' }}>Wheel</th>
+                                <th style={{ width: '150px' }}>Payment</th>
+                                <th style={{ width: '120px' }}>Action</th>
                             </tr>
                         </thead>
                         <tbody>

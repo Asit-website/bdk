@@ -69,9 +69,14 @@ const DeliveryUpdateModal = ({ isOpen, onClose }) => {
                                     <tr key={item.id}>
                                         <td>{item.name}</td>
                                         <td>
-                                            <span className={`status-badge ${getStatusClass(item.status)}`}>
-                                                {item.status}
-                                            </span>
+                                            <select 
+                                                className={`status-select ${getStatusClass(item.status)}`}
+                                                defaultValue={item.status}
+                                            >
+                                                <option value="GIVEN">GIVEN</option>
+                                                <option value="DUE">DUE</option>
+                                                <option value="N/A">N/A</option>
+                                            </select>
                                         </td>
                                         <td>
                                             {item.status !== 'N/A' ? (

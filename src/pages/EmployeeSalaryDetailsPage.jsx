@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { Search, Plus, MoreVertical, ChevronRight, Trash2, X } from 'lucide-react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import './EmployeeSalaryDetailsPage.css';
 
 const EmployeeSalaryDetailsPage = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     
-    // In a real app, you'd fetch the employee name by ID. 
-    // Using the name from SS2 as requested.
-    const employeeName = "BABURAM HAMBRAM";
+    const location = useLocation();
+    const employeeName = location.state?.employeeName || 'Employee';
 
     const [salaryConfig, setSalaryConfig] = useState({
         effectiveDate: '2026-03',
@@ -86,8 +85,8 @@ const EmployeeSalaryDetailsPage = () => {
             <div className="salary-details-container">
                 <div className="sd-header">
                     <div className="sd-breadcrumb">
-                        <span className="crumb-name">{employeeName}</span>
-                        <ChevronRight size={14} color="#94a3b8" />
+                        <span className="employee-name-breadcrumb-top">{employeeName}</span>
+                        <ChevronRight size={18} className="breadcrumb-arrow-main" />
                         <span className="crumb-inactive" onClick={() => navigate('/master/employee')}>Employee Master</span>
                         <ChevronRight size={14} color="#94a3b8" />
                         <span className="crumb-active">Salary Details</span>

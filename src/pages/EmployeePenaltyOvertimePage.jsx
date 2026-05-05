@@ -1,10 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Search, Plus, MoreVertical, ChevronRight } from 'lucide-react';
 import './EmployeePenaltyOvertimePage.css';
 
 const EmployeePenaltyOvertimePage = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const employeeName = location.state?.employeeName || 'Employee';
 
     const penaltyItems = [
         { label: 'Early Leaving Policy', path: '/master/employee/penalty/early-leaving' },
@@ -34,6 +36,8 @@ const EmployeePenaltyOvertimePage = () => {
             <div className="penalty-details-content">
                 <div className="penalty-header">
                     <div className="penalty-breadcrumb">
+                        <span className="employee-name-breadcrumb-top">{employeeName}</span>
+                        <ChevronRight size={18} className="breadcrumb-arrow-main" />
                         <span className="crumb-inactive" onClick={() => navigate('/master/employee')}>Employee Master</span>
                         <ChevronRight size={14} color="#94a3b8" />
                         <span className="crumb-active">Penalty & Overtime Details</span>

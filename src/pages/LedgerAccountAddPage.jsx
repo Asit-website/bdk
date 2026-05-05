@@ -215,6 +215,19 @@ const LedgerAccountAddPage = () => {
                                 <label>PAN NO</label>
                                 <input type="text" name="pan" value={ledgerInfo.pan} onChange={(e) => handleInputChange(e, 'ledger')} />
                             </div>
+                            <div className="input-group">
+                                <label>OPENING BALANCE</label>
+                                <div className="balance-input-row">
+                                    <div className="balance-field">
+                                        <span className="balance-label credit">CREDIT</span>
+                                        <input type="number" placeholder="0.00" />
+                                    </div>
+                                    <div className="balance-field">
+                                        <span className="balance-label debit">DEBIT</span>
+                                        <input type="number" placeholder="0.00" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

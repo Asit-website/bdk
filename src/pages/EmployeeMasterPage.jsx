@@ -224,28 +224,36 @@ const EmployeeMasterPage = () => {
                     <button 
                         type="button" 
                         className="service-action-item"
-                        onClick={() => navigate(`/master/employee/attendance/${openActionId}`)}
+                        onClick={() => navigate(`/master/employee/attendance/${openActionId}`, { 
+                            state: { employeeName: rows.find(r => r.id === openActionId)?.name } 
+                        })}
                     >
                         Attendance Details
                     </button>
                     <button 
                         type="button" 
                         className="service-action-item"
-                        onClick={() => navigate(`/master/employee/salary/${openActionId}`)}
+                        onClick={() => navigate(`/master/employee/salary/${openActionId}`, {
+                            state: { employeeName: rows.find(r => r.id === openActionId)?.name }
+                        })}
                     >
                         Salary Details
                     </button>
                     <button 
                         type="button" 
                         className="service-action-item"
-                        onClick={() => navigate(`/master/employee/leave/${openActionId}`)}
+                        onClick={() => navigate(`/master/employee/leave/${openActionId}`, {
+                            state: { employeeName: rows.find(r => r.id === openActionId)?.name }
+                        })}
                     >
                         Leave & Balance Details
                     </button>
                     <button 
                         type="button" 
                         className="service-action-item"
-                        onClick={() => navigate(`/master/employee/penalty/${openActionId}`)}
+                        onClick={() => navigate(`/master/employee/penalty/${openActionId}`, {
+                            state: { employeeName: rows.find(r => r.id === openActionId)?.name }
+                        })}
                     >
                         Penalty & Overtime Details
                     </button>

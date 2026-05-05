@@ -286,3 +286,31 @@
 .pm-action-btn.delete:hover { background-color: #fee2e2; }
 
 .text-center { text-align: center !important; }
+
+/* Warranty Input Styles */
+.warranty-input-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pm-warranty-input {
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 6px !important;
+    padding: 10px 14px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    width: 100px;
+    text-align: center;
+}
+
+.pm-warranty-input:focus {
+    outline: none;
+    border-color: #3b82f6 !important;
+}
+
+.warranty-separator {
+    color: #94a3b8;
+    font-weight: 800;
+}

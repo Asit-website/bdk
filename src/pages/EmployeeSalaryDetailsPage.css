@@ -22,11 +22,19 @@
     font-weight: 500;
 }
 
-.crumb-name {
-    font-weight: 800;
-    color: #0f172a;
+.employee-name-breadcrumb-top {
+    color: #042954;
+    font-weight: 850;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 13px;
+}
+
+.breadcrumb-arrow-main {
+    color: #94a3b8;
+}
+
+.crumb-name {
+    display: none;
 }
 
 .sd-title {

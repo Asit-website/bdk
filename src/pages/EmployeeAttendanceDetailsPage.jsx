@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Search, Plus, MoreVertical, ChevronRight } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Search, Plus, MoreVertical, ChevronRight, ChevronLeft } from 'lucide-react';
 import '../components/Filters.css';
 import './EmployeeAttendanceDetailsPage.css';
 
 const EmployeeAttendanceDetailsPage = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const employeeName = location.state?.employeeName || 'Employee';
     const [isStaffViewEnabled, setIsStaffViewEnabled] = useState(true);
 
     const detailItems = [
@@ -34,6 +36,16 @@ const EmployeeAttendanceDetailsPage = () => {
 
             {/* Content Area */}
             <div className="attendance-details-content">
+                <div className="attendance-details-header">
+                    <div className="attendance-breadcrumb">
+                        <span className="employee-name-breadcrumb-top">{employeeName}</span>
+                        <ChevronRight size={18} className="breadcrumb-arrow-main" />
+                        <span className="crumb-inactive" onClick={() => navigate('/master/employee')}>Employee Master</span>
+                        <ChevronRight size={14} color="#94a3b8" />
+                        <span className="crumb-active">Attendance Details</span>
+                    </div>
+                </div>
+
                 <h2 className="section-title-master">Attendance Details</h2>
 
                 <div className="details-list-container">

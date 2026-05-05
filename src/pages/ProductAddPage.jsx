@@ -66,13 +66,11 @@ const ProductAddPage = () => {
 
                                 <div className="form-group pm-field">
                                     <label>WARRANTY PERIOD</label>
-                                    <input 
-                                        type="text" 
-                                        className="form-input-text pm-input pm-input-readonly" 
-                                        placeholder="WARRANTY PERIOD" 
-                                        value="1year 6 months" 
-                                        readOnly 
-                                    />
+                                    <div className="warranty-input-row">
+                                        <input type="text" className="pm-warranty-input" placeholder="Year" />
+                                        <span className="warranty-separator">-</span>
+                                        <input type="text" className="pm-warranty-input" placeholder="Month" />
+                                    </div>
                                 </div>
                             </div>
 
@@ -100,13 +98,11 @@ const ProductAddPage = () => {
 
                                 <div className="form-group pm-field">
                                     <label>SERVICE WARRANTY PERIOD</label>
-                                    <input 
-                                        type="text" 
-                                        className="form-input-text pm-input pm-input-readonly" 
-                                        placeholder="SERVICE WARRANTY PERIOD" 
-                                        value="1year 6 months" 
-                                        readOnly 
-                                    />
+                                    <div className="warranty-input-row">
+                                        <input type="text" className="pm-warranty-input" placeholder="Year" />
+                                        <span className="warranty-separator">-</span>
+                                        <input type="text" className="pm-warranty-input" placeholder="Month" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
