@@ -17,18 +17,12 @@ const EmployeeAddPage = () => {
     const navigate = useNavigate();
     
     // State for dynamic designation history
-    const [designations, setDesignations] = useState([
-        { id: 1, designation: 'SUPERVISOR', fromDate: '23-12-2025', toDate: '23-12-2026' },
-        { id: 2, designation: 'MECHANIC', fromDate: '18-12-2025', toDate: '18-12-2026' }
-    ]);
+    const [designations, setDesignations] = useState([]);
     
     const [newDesignation, setNewDesignation] = useState({ designation: '', fromDate: '', toDate: '' });
     
     // State for multi-location selection
-    const [selectedLocations, setSelectedLocations] = useState([
-        { id: 1, name: '1. Workshop' },
-        { id: 2, name: '2. Jharboni SW' }
-    ]);
+    const [selectedLocations, setSelectedLocations] = useState([]);
 
     const addLocation = (locationName) => {
         if (locationName && !selectedLocations.find(loc => loc.name === locationName)) {
