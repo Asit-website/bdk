@@ -23,6 +23,22 @@ const EmployeeAddPage = () => {
     ]);
     
     const [newDesignation, setNewDesignation] = useState({ designation: '', fromDate: '', toDate: '' });
+    
+    // State for multi-location selection
+    const [selectedLocations, setSelectedLocations] = useState([
+        { id: 1, name: '1. Workshop' },
+        { id: 2, name: '2. Jharboni SW' }
+    ]);
+
+    const addLocation = (locationName) => {
+        if (locationName && !selectedLocations.find(loc => loc.name === locationName)) {
+            setSelectedLocations([...selectedLocations, { id: Date.now(), name: locationName }]);
+        }
+    };
+
+    const removeLocation = (id) => {
+        setSelectedLocations(selectedLocations.filter(loc => loc.id !== id));
+    };
 
     const addDesignation = () => {
         if (newDesignation.designation && newDesignation.fromDate && newDesignation.toDate) {
@@ -147,11 +163,42 @@ const EmployeeAddPage = () => {
                                     </div>
                                     <div className="emp-field">
                                         <label>Work Location</label>
-                                        <select className="emp-input">
+                                        <select 
+                                            className="emp-input"
+                                            onChange={(e) => {
+                                                addLocation(e.target.value);
+                                                e.target.value = ""; // Reset select after choice
+                                            }}
+                                        >
                                             <option value="">Select Location</option>
-                                            <option value="Workshop">1. Workshop</option>
-                                            <option value="Jharboni SW">2. Jharboni SW</option>
+                                            <option value="1. Workshop">1. Workshop</option>
+                                            <option value="2. Jharboni SW">2. Jharboni SW</option>
                                         </select>
+
+                                        {selectedLocations.length > 0 && (
+                                            <table className="emp-history-table mt-10">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Location</th>
+                                                        <th style={{ textAlign: 'center' }}>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {selectedLocations.map((loc) => (
+                                                        <tr key={loc.id}>
+                                                            <td>{loc.name}</td>
+                                                            <td style={{ textAlign: 'center' }}>
+                                                                <Trash2 
+                                                                    size={14} 
+                                                                    className="btn-remove-row" 
+                                                                    onClick={() => removeLocation(loc.id)}
+                                                                />
+                                                            </td>
+                                                        </tr>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                        )}
                                     </div>
                                 </div>
                                 <div className="emp-grid-2 mt-20" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
